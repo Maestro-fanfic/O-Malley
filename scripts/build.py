@@ -647,13 +647,20 @@ SERIES = {
                 "subtitle": "subtitle undecided",
                 "fandom": "Marvel Cinematic Universe x 24",
                 "blurb": "Deadpool, chaotic and never not narrating his own story, meets Jack Bauer, a man with zero patience for banter and every scene on a countdown clock.",
-                "adoptable": True,
+                "concept_stage": True,
             },
             "bonesaw": {
                 "title": "O'Make Way for Bonesaw",
                 "subtitle": "scrapped by this author, open to someone braver",
                 "fandom": "Worm",
                 "blurb": "An original-character passenger, a child-trauma therapist (working name Dr. Mara Ellison), meets Riley Grace Davis, better known as Bonesaw. Abandoned by this author: the sustained close-POV dread of the opening stopped being something I could enjoy writing, before the worst of the material was even reached.",
+                "adoptable": True,
+            },
+            "jack-slash": {
+                "title": "O'Make Way for Jack Slash",
+                "subtitle": "scrapped by this author, open to someone braver",
+                "fandom": "The Silence of the Lambs x Worm",
+                "blurb": "Clarice Starling and/or Hannibal Lecter, dropped into Jack Slash of the Slaughterhouse Nine. Abandoned alongside Bonesaw: the series' only two Slaughterhouse Nine-tied entries, and the Nine turned out to be off the table for this author entirely, not just this one driver.",
                 "adoptable": True,
             },
             "regent": {
@@ -668,7 +675,7 @@ SERIES = {
             "bravestone", "girl-in-black", "varga",
             "clockblocker", "tattletale", "grue", "independence-day", "lung",
             "dragon", "armsmaster", "connor", "phil", "sarah", "kiera",
-            "winger", "bourne", "mikes", "jack-bauer", "bonesaw", "regent",
+            "winger", "bourne", "mikes", "jack-bauer", "bonesaw", "jack-slash", "regent",
         ],
     },
     "jumper": {
