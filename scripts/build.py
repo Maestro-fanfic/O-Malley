@@ -78,6 +78,15 @@ JUMPER_POV_RE = re.compile(r'^([A-Z][a-zA-Z\']+)(?:\s*\(?POV\)?)?:\s')
 # "Chapter " prefix and case-insensitive number words.
 SOTL_CHAPTER_RE = re.compile(rf"^Chapter ({_NUMBER_WORD_PATTERN})\n+(.+)$", re.MULTILINE | re.IGNORECASE)
 
+# Working for the Weekend numbers each chapter redundantly ("13. Chapter 13")
+# with no title text of its own; the trailing empty group keeps this the same
+# (num, title) shape split_chapters expects, falling back to "Chapter N".
+WFTW_CHAPTER_RE = re.compile(r"^\d+\.\s+Chapter (\d+)()$", re.MULTILINE)
+
+# The Hell-er-Nator brackets its chapter number ("[CHAPTER 1]") with the
+# actual title on the next non-blank line, same shape as JUMPER_CHAPTER_RE.
+HELLERNATOR_CHAPTER_RE = re.compile(r"^\[CHAPTER (\d+)\]\n+(.+)$", re.MULTILINE)
+
 
 def read(path):
     with open(path, encoding="utf-8") as f:
@@ -629,9 +638,162 @@ SERIES = {
         },
         "stub_order": ["city-who-fought"],
     },
+    "wftw": {
+        "name": "Working for the Weekend",
+        "tagline": "an unofficial continuation of dogbertcarroll's Working for the Weekend",
+        "home_fandom": "Buffy the Vampire Slayer, 4-book continuation",
+        "home_blurb": "Xander Harris still gets teleported somewhere new every weekend, on no schedule anyone controls, for no reason anyone's ever pinned down. This continuation keeps sending him.",
+        "intro_html": """
+<p>A continuation of dogbertcarroll's <em>Working for the Weekend</em>, keeping the same premise: Xander Harris disappears from Sunnydale on an unpredictable schedule and reappears somewhere else entirely, alone, for as long as that trip decides to last, with no say in when it starts or when it ends. Buffy waits for the returns. Nobody's ever explained the mechanism, least of all Xander.</p>
+<p>Each book numbers its chapters as a direct continuation of the original run rather than restarting at one, so the numbering you see here is inherited, not invented.</p>
+""",
+        "disclaimer_html": None,
+        "stories": {
+            "book1": {
+                "title": "Bridge Over Troubled Water",
+                "series_name": "Book One of Working for the Weekend",
+                "fandom": "Buffy the Vampire Slayer",
+                "blurb": "Xander lands in another world with nothing but his boots and whatever the last trip taught him, and finds out, again, what three days alone in the wrong grassland turns a person into. The jumps keep coming. Sunnydale keeps waiting.",
+                "status": "complete",
+                "status_label": "Complete (136 chapters, numbered 13–154)",
+                "mode": "combined",
+                "file": f"{CW_COMPLETE}/Working for the Weekend/Book 1 - Bridge Over Troubled Water/Manuscript.txt",
+                "honest_trailer_file": f"{CW_COMPLETE}/Working for the Weekend/Book 1 - Bridge Over Troubled Water/Honest Trailer.md",
+                "chapter_re": WFTW_CHAPTER_RE,
+                "download_author": "Maestro",
+            },
+            "book2": {
+                "title": "Resonance",
+                "series_name": "Book Two of Working for the Weekend",
+                "fandom": "Buffy the Vampire Slayer",
+                "blurb": "The jumps keep coming, and so does whatever's accumulating underneath them, one trip at a time, whether Xander's ready to add it up or not.",
+                "status": "complete",
+                "status_label": "Complete (50 chapters)",
+                "mode": "combined",
+                "file": f"{CW_COMPLETE}/Working for the Weekend/Book 2 - Resonance/Manuscript.txt",
+                "honest_trailer_file": f"{CW_COMPLETE}/Working for the Weekend/Book 2 - Resonance/Honest Trailer.md",
+                "chapter_re": WFTW_CHAPTER_RE,
+                "download_author": "Maestro",
+            },
+            "book3": {
+                "title": "Baseline",
+                "series_name": "Book Three of Working for the Weekend",
+                "fandom": "Buffy the Vampire Slayer",
+                "blurb": "A quieter stretch, or the closest thing to one, spent figuring out what normal even means for someone whose weekends stopped being his own a long time ago.",
+                "status": "complete",
+                "status_label": "Complete (35 chapters)",
+                "mode": "combined",
+                "file": f"{CW_COMPLETE}/Working for the Weekend/Book 3 - Baseline/Manuscript.txt",
+                "honest_trailer_file": f"{CW_COMPLETE}/Working for the Weekend/Book 3 - Baseline/Honest Trailer.md",
+                "chapter_re": WFTW_CHAPTER_RE,
+                "download_author": "Maestro",
+            },
+            "book4": {
+                "title": "Threshold",
+                "series_name": "Book Four of Working for the Weekend",
+                "fandom": "Buffy the Vampire Slayer",
+                "blurb": "The series' longest book, and the one where whatever's been building across three books' worth of unscheduled trips finally has somewhere to go.",
+                "status": "complete",
+                "status_label": "Complete (131 chapters)",
+                "mode": "combined",
+                "file": f"{CW_COMPLETE}/Working for the Weekend/Book 4 - Threshold/Manuscript.txt",
+                "honest_trailer_file": f"{CW_COMPLETE}/Working for the Weekend/Book 4 - Threshold/Honest Trailer.md",
+                "chapter_re": WFTW_CHAPTER_RE,
+                "download_author": "Maestro",
+            },
+        },
+        "story_order": ["book1", "book2", "book3", "book4"],
+        "stubs": {},
+        "stub_order": [],
+    },
+    "hellernator": {
+        "name": "The Hell-er-Nator",
+        "tagline": "an unofficial continuation of Ironbear's Hell-er-Nator series",
+        "home_fandom": "Buffy the Vampire Slayer x Terminator, continuation",
+        "home_blurb": "A Halloween costume crossover that never stopped being useful: Buffy and the Scoobies keep the Terminator-shaped instincts and hardware the original series left them with, long after the holiday that caused it.",
+        "intro_html": """
+<p>A continuation of Ironbear's <em>The Hell-er-Nator</em> series, carrying the Buffy the Vampire Slayer / Terminator crossover premise forward past where the original run left off. Chapters are numbered as a direct continuation of that original run, not restarted per book, so the ranges below pick up mid-sequence.</p>
+""",
+        "disclaimer_html": None,
+        "stories": {
+            "blind-alley": {
+                "title": "Tin Man's Alley, Part II: All the King's Men",
+                "series_name": "Book 3.5 of The Hell-er-Nator — Blind Alley",
+                "fandom": "Buffy the Vampire Slayer x Terminator",
+                "blurb": "The direct continuation of Tin Man's Alley, picking up the thread mid-sequence. Diplomatic complications on Crawford Street, and everything that comes with treating a covert war like it still has rules.",
+                "status": "complete",
+                "status_label": "Complete (108 chapters, numbered 61–168)",
+                "mode": "combined",
+                "file": f"{CW_COMPLETE}/The Hell-er-Nator/Book 3.5 - Blind Alley/Manuscript.txt",
+                "honest_trailer_file": f"{CW_COMPLETE}/The Hell-er-Nator/Book 3.5 - Blind Alley/Honest Trailer.md",
+                "chapter_re": HELLERNATOR_CHAPTER_RE,
+                "download_author": "Maestro",
+            },
+            "hard-reset": {
+                "title": "Hard Reset",
+                "series_name": "Book 4 of The Hell-er-Nator",
+                "fandom": "Buffy the Vampire Slayer x Terminator",
+                "blurb": "Summer, which used to mean something simpler. The next full book of the continuation, starting its own count over at Chapter One.",
+                "status": "complete",
+                "status_label": "Complete (158 chapters)",
+                "mode": "combined",
+                "file": f"{CW_COMPLETE}/The Hell-er-Nator/Book 4 - Hard Reset/Manuscript.txt",
+                "honest_trailer_file": f"{CW_COMPLETE}/The Hell-er-Nator/Book 4 - Hard Reset/Honest Trailer.md",
+                "chapter_re": HELLERNATOR_CHAPTER_RE,
+                "download_author": "Maestro",
+            },
+        },
+        "story_order": ["blind-alley", "hard-reset"],
+        "stubs": {},
+        "stub_order": [],
+    },
+    "lifesending": {
+        "name": "Life's Ending, Life's Beginning",
+        "tagline": "an unofficial continuation of becuzitswrong's Life's Ending, Life's Beginning",
+        "home_fandom": "Buffy the Vampire Slayer x Stargate SG-1, 2-book continuation",
+        "home_blurb": "A continuation written as a tribute to becuzitswrong, whose original series this carries forward. Buffy, the Slayer riding shotgun inside her, and a Stargate-sized world that has no idea what just fell out of the sky.",
+        "intro_html": """
+<p>A continuation of becuzitswrong's <em>Life's Ending, Life's Beginning</em>, written after that author's death, as a tribute: an attempt to carry the story forward with the respect and gratitude it's owed, not to replace or overwrite what they built.</p>
+<p><em>For becuzitswrong: you built something worth continuing. We hope we did it justice. And we miss you.</em></p>
+""",
+        "disclaimer_html": None,
+        "stories": {
+            "freefall": {
+                "title": "Freefall",
+                "series_name": "Book One of Life's Ending, Life's Beginning",
+                "fandom": "Buffy the Vampire Slayer x Stargate SG-1",
+                "blurb": "Buffy is falling, out of a C-17, out of the only life she knew how to live, with the Slayer riding shotgun inside her and about four seconds to figure out what happens next. What's waiting on the other side of that fall belongs to an entirely different franchise.",
+                "status": "complete",
+                "status_label": "Complete (4 chapters)",
+                "mode": "combined",
+                "file": f"{CW_COMPLETE}/Life's Ending, Life's Beginning/Book 1 - Freefall/Manuscript.txt",
+                "honest_trailer_file": f"{CW_COMPLETE}/Life's Ending, Life's Beginning/Book 1 - Freefall/Honest Trailer.md",
+                "chapter_re": WORD_CHAPTER_RE,
+                "parse_num": word_to_num,
+                "download_author": "Maestro",
+            },
+            "recognition": {
+                "title": "Recognition",
+                "series_name": "Book Two of Life's Ending, Life's Beginning",
+                "fandom": "Buffy the Vampire Slayer x Stargate SG-1",
+                "blurb": "The direct follow-up to Freefall: figuring out what she is now, what the people around her actually control, and what fourteen generations of consequence look like once you're finally standing close enough to see it.",
+                "status": "complete",
+                "status_label": "Complete (6 chapters)",
+                "mode": "combined",
+                "file": f"{CW_COMPLETE}/Life's Ending, Life's Beginning/Book 2 - Recognition/Manuscript.txt",
+                "honest_trailer_file": f"{CW_COMPLETE}/Life's Ending, Life's Beginning/Book 2 - Recognition/Honest Trailer.md",
+                "chapter_re": WORD_CHAPTER_RE,
+                "parse_num": word_to_num,
+                "download_author": "Maestro",
+            },
+        },
+        "story_order": ["freefall", "recognition"],
+        "stubs": {},
+        "stub_order": [],
+    },
 }
 
-SERIES_ORDER = ["omwom", "jumper", "sotl"]
+SERIES_ORDER = ["omwom", "jumper", "sotl", "wftw", "hellernator", "lifesending"]
 
 # ---------------------------------------------------------------------------
 # Standalone works — single stories that don't belong to a numbered series,
@@ -640,6 +802,20 @@ SERIES_ORDER = ["omwom", "jumper", "sotl"]
 # ---------------------------------------------------------------------------
 
 STANDALONES = {
+    "honors-slayer": {
+        "title": "Honor's Slayer",
+        "series_name": "a continuation of Honor's Slayer by becuzitswrong",
+        "fandom": "Buffy the Vampire Slayer x Honor Harrington (David Weber)",
+        "blurb": "Buffy Summers wakes up merged with someone else entirely: a girl from a world with no roads and no language worth the name, on a prison planet called Hades, in the middle of David Weber's Honorverse. What the Watchers' Council trained her for and what the Honorverse actually needs from her turn out to have very little overlap.",
+        "status": "complete",
+        "status_label": "Complete (54 chapters, numbered Ten–Sixty-Three)",
+        "mode": "combined",
+        "file": f"{CW_COMPLETE}/Honor's Slayer/Manuscript.txt",
+        "honest_trailer_file": f"{CW_COMPLETE}/Honor's Slayer/Honest Trailer.md",
+        "chapter_re": SOTL_CHAPTER_RE,
+        "parse_num": word_to_num,
+        "download_author": "Maestro",
+    },
     "wood-it-work": {
         "title": "Wood It Work: Book 2 — Wardrobes and Would-Work",
         "series_name": "a continuation of Wood It Work by dogbertcarroll",
@@ -654,7 +830,7 @@ STANDALONES = {
     },
 }
 
-STANDALONE_ORDER = ["wood-it-work"]
+STANDALONE_ORDER = ["honors-slayer", "wood-it-work"]
 
 AI_DISCLOSURE_HTML = """
 <h2>Creative Process &amp; AI Disclosure</h2>
