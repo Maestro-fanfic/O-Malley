@@ -210,11 +210,11 @@ body {
   font-family: -apple-system, Segoe UI, Helvetica, Arial, sans-serif;
 }
 a { color: var(--link); }
-.wrap { max-width: 900px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
 header.site-header {
   border-bottom: 1px solid var(--border); padding: 1rem 1.25rem;
 }
-header.site-header .wrap { max-width: 900px; padding: 0; display:flex; align-items:baseline; justify-content:space-between; flex-wrap: wrap; gap: .5rem;}
+header.site-header .wrap { max-width: 1200px; padding: 0; display:flex; align-items:baseline; justify-content:space-between; flex-wrap: wrap; gap: .5rem;}
 header.site-header a.brand { font-family: Georgia, serif; font-weight: bold; font-size: 1.2rem; text-decoration:none; color: var(--fg); }
 .header-controls { display:flex; align-items:center; gap:16px; font-size:14px; flex-wrap:wrap; }
 .textsize-controls { display:inline-flex; align-items:center; gap:4px; }
