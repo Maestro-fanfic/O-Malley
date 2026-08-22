@@ -7,6 +7,8 @@ plain static HTML site. No dependencies beyond the standard library.
 import re
 import html
 import os
+import zipfile
+from html.parser import HTMLParser
 
 ROOT = "C:/Users/thela/Downloads/Fanfic"
 OMWOM = f"{ROOT}/O'Make Way, O'Malley!"
@@ -72,6 +74,117 @@ def split_chapters(text, chapter_re=CHAPTER_RE, parse_num=int):
         end = matches[i + 1].start() if i + 1 < len(matches) else len(text)
         body = text[start:end].strip()
         chapters.append((num, title, body))
+    return preamble, chapters
+
+
+class _ParagraphExtractor(HTMLParser):
+    """Pull <p>...</p> text out of a simple XHTML chapter file, converting
+    <em>/<i> and <strong>/<b> to the *word*/**word** markers body_to_html()
+    already understands, so EPUB-sourced chapters flow through the same
+    plain-text pipeline as everything else."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.paragraphs = []
+        self._buf = None
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "p":
+            self._buf = []
+        elif self._buf is not None:
+            if tag in ("em", "i"):
+                self._buf.append("*")
+            elif tag in ("strong", "b"):
+                self._buf.append("**")
+            elif tag == "br":
+                self._buf.append("\n")
+
+    def handle_endtag(self, tag):
+        if tag == "p" and self._buf is not None:
+            text = "".join(self._buf).strip()
+            if text:
+                self.paragraphs.append(text)
+            self._buf = None
+        elif self._buf is not None:
+            if tag in ("em", "i"):
+                self._buf.append("*")
+            elif tag in ("strong", "b"):
+                self._buf.append("**")
+
+    def handle_data(self, data):
+        # collapse the source XHTML's own line-wrapping whitespace so it doesn't
+        # get mistaken for an intentional <br>; real <br> tags are handled above
+        if self._buf is not None:
+            self._buf.append(re.sub(r"\s+", " ", data))
+
+
+class _H1Extractor(HTMLParser):
+    """Pull the text of the first <h1> out of a simple XHTML file."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.h1 = None
+        self._in_h1 = False
+        self._buf = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "h1" and self.h1 is None:
+            self._in_h1 = True
+            self._buf = []
+
+    def handle_endtag(self, tag):
+        if tag == "h1" and self._in_h1:
+            self.h1 = "".join(self._buf).strip()
+            self._in_h1 = False
+
+    def handle_data(self, data):
+        if self._in_h1:
+            self._buf.append(re.sub(r"\s+", " ", data))
+
+
+def epub_paragraphs(raw_xhtml):
+    p = _ParagraphExtractor()
+    p.feed(raw_xhtml)
+    return p.paragraphs
+
+
+def epub_h1(raw_xhtml):
+    p = _H1Extractor()
+    p.feed(raw_xhtml)
+    return p.h1
+
+
+def load_epub_chapters(epub_path, chapter_pattern=r"chapter0*(\d+)\.x?html$", title_pattern=r"title\.x?html$"):
+    """Return (preamble_text_or_None, [(num, title, body), ...]) from an EPUB's
+    XHTML chapter files. Each chapter's title is just 'Chapter N' (this format
+    doesn't give chapters their own subtitle); body paragraphs are joined with
+    blank lines to match the plain-text convention split_chapters()/
+    body_to_html() already expect."""
+    chapter_re = re.compile(chapter_pattern, re.IGNORECASE)
+    title_re = re.compile(title_pattern, re.IGNORECASE)
+    with zipfile.ZipFile(epub_path) as z:
+        names = z.namelist()
+        chapter_files = []
+        title_file = None
+        for name in names:
+            m = chapter_re.search(name)
+            if m:
+                chapter_files.append((int(m.group(1)), name))
+            elif title_re.search(name) and title_file is None:
+                title_file = name
+        chapter_files.sort(key=lambda t: t[0])
+        chapters = []
+        for num, name in chapter_files:
+            raw = z.read(name).decode("utf-8")
+            body = "\n\n".join(epub_paragraphs(raw))
+            chapters.append((num, f"Chapter {num}", body))
+        preamble = None
+        if title_file:
+            raw = z.read(title_file).decode("utf-8")
+            h1 = epub_h1(raw)
+            paras = epub_paragraphs(raw)
+            parts = ([h1] if h1 else []) + paras
+            preamble = "\n\n".join(parts) if parts else None
     return preamble, chapters
 
 
@@ -492,9 +605,21 @@ STANDALONES = {
         "uses_honest_trailer": False,
         "download_author": "Maestro",
     },
+    "wood-it-work": {
+        "title": "Wood It Work: Book 2 — Wardrobes and Would-Work",
+        "series_name": "a continuation of Wood It Work by dogbertcarroll",
+        "fandom": "Buffy the Vampire Slayer x Dungeons & Dragons",
+        "blurb": "A continuation of dogbertcarroll's Wood It Work, picking up at Chapter 26. Xander, Willow, Jesse, and the household built around one very unusual workshop door keep finding new worlds on the other side of it, including a water-scarce desert culture mid-treaty negotiation and whatever King Then'tal's court actually wants from them.",
+        "status": "complete",
+        "status_label": "Complete (57 chapters, numbered 26–82)",
+        "mode": "epub",
+        "epub": f"{ROOT}/Wood it Work/Wood_It_Work_Book_2_Wardrobes_and_Would-Work.epub",
+        "uses_honest_trailer": False,
+        "download_author": "Maestro",
+    },
 }
 
-STANDALONE_ORDER = ["ship-of-the-line"]
+STANDALONE_ORDER = ["ship-of-the-line", "wood-it-work"]
 
 AI_DISCLOSURE_HTML = """
 <h2>Creative Process &amp; AI Disclosure</h2>
@@ -603,6 +728,13 @@ def build_story(slug, cfg, series_slug=None, series_display_name=None):
             ht_title = raw[:first_nl].strip() if first_nl != -1 else raw
             ht_body = raw[first_nl:].strip() if first_nl != -1 else ""
             honest_trailer_standalone = (ht_title, ht_body)
+    elif cfg["mode"] == "epub":
+        ch0_body, chapters = load_epub_chapters(
+            cfg["epub"],
+            chapter_pattern=cfg.get("epub_chapter_pattern", r"chapter0*(\d+)\.x?html$"),
+            title_pattern=cfg.get("epub_title_pattern", r"title\.x?html$"),
+        )
+        honest_trailer_standalone = None
     else:
         text = read(cfg["file"])
         preamble, parsed = split_chapters(text, chapter_re, parse_num)
@@ -668,8 +800,10 @@ def build_story(slug, cfg, series_slug=None, series_display_name=None):
         else:
             next_link = '<a href="index.html">Back to story index</a>'
         crumb = f"{crumb_base} &raquo; Ch. {num}"
+        pos = i + 1
+        meta_line = f"Chapter {num} of {n}" if pos == num else f"Chapter {num} ({pos} of {n} in this book)"
         content = (
-            f'<p class="meta">Chapter {num} of {n}</p>'
+            f'<p class="meta">{meta_line}</p>'
             f'<h1 class="chapter-title">{html.escape(title)}</h1>'
             f'<div class="prose">{body_html}</div>'
             f'<nav class="chapter-nav">{prev_link}<span class="spacer"><a href="index.html">Story index</a></span>{next_link}</nav>'
