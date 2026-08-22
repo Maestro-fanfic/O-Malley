@@ -543,8 +543,125 @@ SERIES = {
                 "fandom": "Taylor Varga (by mp3.1415player) x O'Make Way, O'Malley! itself",
                 "blurb": "Not a driver/passenger insertion at all: characters from an existing, independently-authored fanfic get pulled into the Gallery itself, and Mr. O'Malley retroactively claims credit for an inciting event that may or may not have been his to begin with.",
             },
+            "clockblocker": {
+                "title": "O'Make Way for Clockblocker",
+                "subtitle": "subtitle undecided",
+                "fandom": "Stargate SG-1 x Worm",
+                "blurb": "Colonel Jack O'Neill, dry and battle-worn, meets Dennis, the Wards' resident class clown who's never taken anything seriously in his life.",
+                "concept_stage": True,
+            },
+            "tattletale": {
+                "title": "O'Make Way for Tattletale",
+                "subtitle": "subtitle undecided",
+                "fandom": "Stargate SG-1 x Worm",
+                "blurb": "Daniel Jackson's linguistics-and-ethics instincts land inside Lisa Wilbourn, whose own power already tells her more than she wants to know about everyone around her.",
+                "concept_stage": True,
+            },
+            "grue": {
+                "title": "O'Make Way for Grue",
+                "subtitle": "subtitle undecided, building on Hunt for Red October",
+                "fandom": "The Hunt for Red October x Worm",
+                "blurb": "Jack Ryan gets dropped into Brian Laborn, better known on the street as Grue, an unofficial leader forced to out-think people who'd rather not be out-thought.",
+                "concept_stage": True,
+            },
+            "independence-day": {
+                "title": "O'Make Way for [Independence Day Target]",
+                "subtitle": "Independence Day wordplay needed",
+                "fandom": "Independence Day x Worm",
+                "blurb": "The passenger side is locked (the President and/or Will Smith's character from Independence Day); the Worm-side driver who'd benefit most from that pairing hasn't been chosen yet. The earliest-stage entry on this list, concept only, no story built around it.",
+                "concept_stage": True,
+            },
+            "lung": {
+                "title": "O'Make Way for Lung",
+                "subtitle": "Gran Torino wordplay needed",
+                "fandom": "Gran Torino x Worm",
+                "blurb": "Walt Kowalski, prejudice and all, wakes up inside Lung, the very kind of gang leader his old self would have gone to war against.",
+                "concept_stage": True,
+            },
+            "dragon": {
+                "title": "O'Make Way for Dragon",
+                "subtitle": "subtitle undecided",
+                "fandom": "TRON: Legacy x Worm",
+                "blurb": "Kevin Flynn, two decades wiser about what it means for a mind to be born inside a system rather than free within one, meets Dragon, a program kept leashed for exactly what she is.",
+                "concept_stage": True,
+            },
+            "armsmaster": {
+                "title": "O'Make Way for Armsmaster",
+                "subtitle": "subtitle undecided",
+                "fandom": "MacGyver x Worm",
+                "blurb": "MacGyver's improvisational, whatever's-on-hand problem-solving meets Colin Wallis, a man who never met a problem he didn't want to optimize in advance.",
+                "concept_stage": True,
+            },
+            "connor": {
+                "title": "O'Make Way for Connor",
+                "subtitle": "subtitle undecided",
+                "fandom": "The Princess Bride x Highlander (1986)",
+                "blurb": "Inigo Montoya's decades of singular, patient revenge meets Connor MacLeod's centuries of immortal duels under one unbending rule. The series' first entry built entirely outside Worm on both sides.",
+                "concept_stage": True,
+            },
+            "phil": {
+                "title": "O'Make Way for Phil",
+                "subtitle": "subtitle undecided",
+                "fandom": "Groundhog Day x The Big Lebowski",
+                "blurb": "Phil Connors, trapped in a loop and furious about it, gets The Dude for a passenger: a man with absolutely nowhere to be and no urgency whatsoever about getting there.",
+                "concept_stage": True,
+            },
+            "sarah": {
+                "title": "O'Make Way for Sarah",
+                "subtitle": "subtitle undecided",
+                "fandom": "Star Trek Into Darkness x Terminator 2: Judgment Day",
+                "blurb": "Khan arrives inside Sarah Connor at the exact moment she's holding a gun on an innocent man to stop Judgment Day before it starts, the same line he already crossed for a family of his own.",
+                "concept_stage": True,
+            },
+            "kiera": {
+                "title": "O'Make Way for Kiera",
+                "subtitle": "subtitle undecided",
+                "fandom": "Time Trax (1993) x Continuum",
+                "blurb": "Two displaced-in-time cops with nearly identical starting points and opposite relationships to the rulebook: Darien Lambert's strict by-the-book idealism, dropped into Kiera Cameron, who's grown increasingly willing to bend it.",
+                "concept_stage": True,
+            },
+            "winger": {
+                "title": "O'Make Way for Winger",
+                "subtitle": "subtitle undecided",
+                "fandom": "Blue Bloods x Stripes (1981)",
+                "blurb": "Henry Reagan, a retired NYPD Commissioner built entirely out of old-school discipline, meets John Winger, a man allergic to structure who joined the Army on something close to a whim.",
+                "concept_stage": True,
+            },
+            "bourne": {
+                "title": "O'Make Way for Bourne",
+                "subtitle": "subtitle undecided",
+                "fandom": "John Doe (2002) x The Bourne Identity",
+                "blurb": "Two amnesiacs on opposite ends of the same problem: John Doe, who remembers everything except his own past, dropped into Jason Bourne, who remembers nothing but has lethal skills he never consciously learned.",
+                "concept_stage": True,
+            },
+            "mikes": {
+                "title": "The Meeting of the Mikes",
+                "subtitle": "a direct riff on Ack's own Security!, not just an homage",
+                "fandom": "Security! (by Ack) x Worm",
+                "blurb": "A double entry unlike any other on this list: two costumed snapshots of Mike, Ack's own self-insert protagonist, dropped simultaneously into Danny and Taylor Hebert the night after Taylor's first outing as a cape.",
+                "concept_stage": True,
+            },
+            "jack-bauer": {
+                "title": "O'Make Way for Jack",
+                "subtitle": "subtitle undecided",
+                "fandom": "Marvel Cinematic Universe x 24",
+                "blurb": "Deadpool, chaotic and never not narrating his own story, meets Jack Bauer, a man with zero patience for banter and every scene on a countdown clock.",
+                "concept_stage": True,
+            },
+            "regent": {
+                "title": "O'Make Way for Regent",
+                "subtitle": "subtitle undecided",
+                "fandom": "Armor (John Steakley) x Worm",
+                "blurb": "Felix, a soldier whose mind fractures involuntarily under enough pressure into an unstoppable killing machine, and Regent, whose own mind was taken out of his hands by his father long before this. Recognition, not instruction.",
+                "concept_stage": True,
+            },
         },
-        "stub_order": ["bravestone", "girl-in-black", "varga"],
+        "stub_order": [
+            "bravestone", "girl-in-black", "varga",
+            "clockblocker", "tattletale", "grue", "independence-day", "lung",
+            "dragon", "armsmaster", "connor", "phil", "sarah", "kiera",
+            "winger", "bourne", "mikes", "jack-bauer", "regent",
+        ],
     },
     "jumper": {
         "name": "The Jumper Universe",
@@ -1177,13 +1294,19 @@ def build_stub(series_slug, series_name, slug, cfg):
         f'<a href="{root_rel}/index.html">Home</a> &raquo; '
         f'<a href="{root_rel}/series/{series_slug}/index.html">{html.escape(series_name)}</a> &raquo; {html.escape(cfg["title"])}'
     )
+    if cfg.get("concept_stage"):
+        badge_label = "Currently in concept stage"
+        stub_note = "This entry is still in the concept stage: the pairing (and sometimes not even that) is identified, but no outline or draft exists yet. Check back later."
+    else:
+        badge_label = "In development &mdash; not yet drafted"
+        stub_note = "This entry hasn't been written yet. Check back later."
     content = f"""
 <h1>{html.escape(cfg['title'])}</h1>
 <p class="subtitle">{html.escape(cfg['subtitle'])}</p>
-<p class="meta"><span class="badge dev">In development &mdash; not yet drafted</span></p>
+<p class="meta"><span class="badge dev">{badge_label}</span></p>
 <p class="fandom">{html.escape(cfg['fandom'])}</p>
 <p>{html.escape(cfg['blurb'])}</p>
-<p class="stub-note">This entry hasn't been written yet. Check back later.</p>
+<p class="stub-note">{stub_note}</p>
 """
     write(f"{OUT}/series/{series_slug}/{slug}/index.html", page(cfg["title"], crumb, content, root_rel))
 
@@ -1207,11 +1330,12 @@ def build_series_index(series_slug, info):
 </li>""")
     for slug in info.get("stub_order", []):
         cfg = info["stubs"][slug]
+        stub_badge_label = "Currently in concept stage" if cfg.get("concept_stage") else "In development"
         cards.append(f"""
 <li class="card">
   <h3><a class="title-link" href="{slug}/index.html">{html.escape(cfg['title'])}</a></h3>
   <p class="fandom">{html.escape(cfg['fandom'])}</p>
-  <p><span class="badge dev">In development</span></p>
+  <p><span class="badge dev">{stub_badge_label}</span></p>
   <p>{html.escape(cfg['blurb'])}</p>
 </li>""")
     disclaimer_link = (
