@@ -53,6 +53,23 @@ def word_to_num(s):
     return total
 
 
+_NUMBER_WORD_PATTERN = (
+    r"(?:" + "|".join(sorted(_TENS, key=len, reverse=True)).upper()
+    + r")(?:-(?:" + "|".join(sorted(_ONES, key=len, reverse=True)).upper() + r"))?"
+    + r"|(?:" + "|".join(sorted(_ONES, key=len, reverse=True)).upper() + r")"
+)
+# The Jumper-universe books (Momentum, Reach, Contact) head each chapter with
+# a bare spelled-out number alone on its own line ("ONE", "TWENTY-ONE"), then
+# an in-scene quote as the chapter's actual title on the very next line
+# ("Cent: It worked once..."). Capture both lines together so the quote line
+# becomes the chapter title rather than being left as ordinary body text.
+JUMPER_CHAPTER_RE = re.compile(rf"^({_NUMBER_WORD_PATTERN})\n+(.+)$", re.MULTILINE)
+
+# Same books also use that "Name: quote" (or "Name POV: quote" / "Name (POV): quote")
+# shape mid-chapter, as an explicit POV-shift marker between speakers/scenes.
+JUMPER_POV_RE = re.compile(r'^([A-Z][a-zA-Z\']+)(?:\s*\(?POV\)?)?:\s')
+
+
 def read(path):
     with open(path, encoding="utf-8") as f:
         return f.read()
@@ -90,7 +107,10 @@ def strip_ai_disclosure(text):
     return (text[:idx].rstrip() + "\n\n" + text[end:].lstrip()).strip()
 
 
-def body_to_html(body):
+DEFAULT_POV_RE = re.compile(r'^"([^"]+)"\s*\(POV\):')
+
+
+def body_to_html(body, pov_re=DEFAULT_POV_RE):
     """Convert plain-text chapter body into HTML paragraphs."""
     body = body.strip()
     # strip a trailing lone '~~~' separator some combined drafts use before the next chapter
@@ -108,7 +128,7 @@ def body_to_html(body):
         esc = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", esc)
         esc = re.sub(r"\*(.+?)\*", r"<em>\1</em>", esc)
         esc = esc.replace("\n", "<br>\n")
-        pov = re.match(r'^"([^"]+)"\s*\(POV\):', para)
+        pov = pov_re.match(para)
         if pov:
             out.append(f'<p class="pov-header">{esc}</p>')
         else:
@@ -396,80 +416,214 @@ def write(path, content):
 
 
 # ---------------------------------------------------------------------------
-# O'Make Way, O'Malley! series data
+# Series data. Each series has a name/tagline/intro, an optional general
+# disclaimer (omit when there's no punched-up source text to reuse rather
+# than inventing new legal copy), a dict of story configs, and optionally a
+# dict of "in development" stub entries.
 # ---------------------------------------------------------------------------
 
-STORIES = {
-    "dana": {
-        "title": "You Got to Have Faith",
-        "series_name": "O'Make Way for Dana",
-        "fandom": "True Lies (1994) x Buffy the Vampire Slayer",
-        "blurb": "Faith Lehane gets pulled voice-only into the passenger seat of Dana Tasker, an ordinary rebellious teenager, on an ordinary night, right up until Faith realizes Dana's parents are not remotely ordinary.",
-        "status": "progress",
-        "status_label": "In progress (16 chapters posted)",
-        "mode": "dir",
-        "dir": f"{OMWOM}/Dana/Chapters",
-        "honest_trailer_file": "Honest Trailer.txt",
-        "download_author": "O'Malley",
+SERIES = {
+    "omwom": {
+        "name": "O'Make Way, O'Malley!",
+        "tagline": "an anthology series — a Rob O'Make O'Malley Production",
+        "home_fandom": "an anthology of passenger-seat crossovers, various fandoms",
+        "home_blurb": "ROB O'Make O'Malley drops a person or fictional character into someone else's mind as a permanent passenger. Every entry is its own standalone pairing, its own continuity, its own fandom crossover.",
+        "intro_html": """
+<p><em>An homage to Ack's <strong>I, Panacea</strong> and <strong>Security!</strong> and their passenger-seat premise.</em></p>
+<p>ROB O'Make O'Malley permanently drops a person or fictional character into someone else's mental passenger seat. The target remains the driver of their own body; the newcomer becomes an internal companion, adviser, complication, witness, and, eventually, partner.</p>
+<p>The series isn't fandom-specific on either side of the pairing. Each entry pairs its own passenger and driver, drawn from whatever film, show, book, or original setting fits, and each entry is its own continuity: characters who share a name or face across two entries are not assumed to share a timeline.</p>
+<p>The driver always keeps final say. The passenger is never a downloadable skill package, never omniscient, and can never seize control without the driver's own consent, no matter how good their instincts are. Full mechanics live in the series bible; you don't need it to enjoy any individual entry.</p>
+""",
+        "disclaimer_html": """
+<h2 class="chrome" style="font-size:1.1rem;">Legal Safe Harbor &amp; Disclaimer</h2>
+<p>All rights to <em>Worm</em> belong to Wildbow, who built the sandbox and should not be held responsible for what's happened to it since. The passenger-seat premise this whole anthology borrows, abuses, and refuses to give back belongs to Ack, who did it first, did it better, and is owed the credit accordingly. Whatever additional property a given installment drags into this mess belongs to its own respective studio, publisher, or author, none of whom were consulted, all of whom will be properly credited at the top of that entry, because unlike Mr. O'Malley, I do read the fine print. Only the six doors, the waistcoat, the questionable recruitment process, and the crossover logic required to justify any of it belong to Mr. O'Malley, for whatever that turns out to be worth in a court of law.</p>
+<ul>
+<li><strong>THE PROPER NOMENCLATURE CLAUSE:</strong> <em>&ldquo;It's Mr. O'Malley,&rdquo;</em> a voice cut in, unprompted, the moment an earlier draft of this page tried to get away with the bare trope acronym. <em>&ldquo;Ack gave me the trope. I gave myself the surname. The least anyone can do is use it.&rdquo;</em> Amended accordingly, under mild duress and threat of a violent reaction.</li>
+<li><strong>THE WAITING ROOM POLICY:</strong> The author accepts no liability for anyone who drinks something labeled PLOT-RELEVANT BEVERAGE without first asking what plot. There were six doors. You used none of them. That one's on you.</li>
+<li><strong>THE PASSENGER-SEAT CLAUSE:</strong> It's permanent. Permanent means permanent. Right up until the end of the story, at which point all bets, warranties, and promises made by a man in a waistcoat become somebody else's problem.</li>
+<li><strong>THE &ldquo;IT'S NOT POSSESSION&rdquo; ADDENDUM:</strong> The legal distinction between &ldquo;possession&rdquo; and &ldquo;an uninvited, permanent, occasionally mouth-borrowing roommate&rdquo; remains unresolved and will stay that way for the duration of your natural life, and possibly the driver's too.</li>
+<li><strong>THE CONSENT FORM YOU DIDN'T SIGN:</strong> By existing within Mr. O'Malley's reach, you have already implicitly agreed to whatever this is. Ignorance of the terms does not constitute grounds for eviction from someone else's skull. See also: the sign in the waiting room, which you did not read.</li>
+<li><strong>THE CROSSOVER LIABILITY CLAUSE:</strong> The properties mixed herein did not consent to meet each other, did not rehearse together, and in several documented cases would actively loathe one another on sight. The author accepts full and complete responsibility for none of the resulting chaos.</li>
+<li><strong>THE O'MALLEY ULTIMATUM:</strong> Anyone who argues Mr. O'Malley is not, actually, doing these people a favor will be reminded, calmly, at length, and against their will if necessary, that he never once claimed to be doing them a favor. He said he was giving them something else. Read the transcript. He was very clear about that part.</li>
+<li><strong>THE SECOND OPINION CLAUSE:</strong> Mr. O'Malley, despite considerable and largely unearned confidence in his own recruiting instincts, would welcome a critical eye on his work. Beta readers, canon nitpickers, and anyone willing to point out a door that doesn't lead where he claimed it would are warmly invited to reach out before a chapter posts, not after. He finds retroactive correction far less charming than most reviewers seem to assume he would.</li>
+</ul>
+<p>Each story drags at least one more property into this mess besides <em>Worm</em> and <em>I, Panacea</em>/<em>Security!</em>, and carries its own specific ownership notice for it, since the actual studios and authors involved differ entry to entry. You'll find that story-specific legal text on each story's own disclaimer page, linked from its story index and from the disclaimers hub.</p>
+<h2 class="chrome" style="font-size:1.1rem;">Whose Sandbox This Is</h2>
+<p>O'Make Way, O'Malley! belongs to me, not to Ack. Whatever this premise owes <em>I, Panacea</em> and <em>Security!</em> is a debt of inspiration, not shared continuity; nothing here is set inside Ack's own version of events, and none of his characters appear.</p>
+<p>Rule 9a still applies. I, Maestro, creator and sole proprietor of this sandbox, give open, standing permission for anyone who wants to write more of it, the ROB O'Make O'Malley mechanic, its rules, the anthology structure, all of it, to go ahead. The only conditions are the ordinary ones: proper credit, the standard disclaimer, and whatever Mr. O'Malley himself might decide to add unilaterally, a man who has never once been reachable for comment and shows no sign of starting now.</p>
+<p>All of it is fan work, offered freely, for love of the source material, and to Rob O'Make O'Malley, who does not, as far as anyone can prove, actually exist, and who would very much like it kept that way. Any use of this by the copyright owner(s) is freely offered, without expectation of compensation (although a small token of appreciation would be appreciated).</p>
+""",
+        "stories": {
+            "dana": {
+                "title": "You Got to Have Faith",
+                "series_name": "O'Make Way for Dana",
+                "fandom": "True Lies (1994) x Buffy the Vampire Slayer",
+                "blurb": "Faith Lehane gets pulled voice-only into the passenger seat of Dana Tasker, an ordinary rebellious teenager, on an ordinary night, right up until Faith realizes Dana's parents are not remotely ordinary.",
+                "status": "progress",
+                "status_label": "In progress (16 chapters posted)",
+                "mode": "dir",
+                "dir": f"{OMWOM}/Dana/Chapters",
+                "honest_trailer_file": "Honest Trailer.txt",
+                "download_author": "O'Malley",
+            },
+            "taylor": {
+                "title": "Med Hard?",
+                "series_name": "O'Make Way for Taylor",
+                "fandom": "Die Hard 2 (1990) x Worm",
+                "blurb": "John McClane goes to the wrong building at the wrong time again. Taylor Hebert just wanted to get through a charity gala as her dad's plus-one. Mr. O'Malley decides they should share the evening, and possibly a body.",
+                "status": "complete",
+                "status_label": "Complete (29 chapters)",
+                "mode": "dir",
+                "dir": f"{OMWOM}/Taylor/Chapters",
+                "download_author": "O'Malley",
+            },
+            "greg": {
+                "title": "Staff Infection",
+                "series_name": "O'Make Way for Greg",
+                "fandom": "Stargate SG-1 x Worm",
+                "blurb": "Greg Veder, of all people, gets Colonel Jack O'Neill for a passenger. What starts as one more thing for Greg to feel inadequate about turns into the first real backup he's ever had.",
+                "status": "complete",
+                "status_label": "Complete (40 chapters)",
+                "mode": "combined",
+                "file": f"{OMWOM}/Greg/O'Make Way for Greg - DRAFT.txt",
+                "download_author": "O'Malley",
+            },
+            "xander": {
+                "title": "The Eye of the One Who Sees",
+                "series_name": "O'Make Way for Xander",
+                "fandom": "Buffy the Vampire Slayer x Marvel Cinematic Universe",
+                "blurb": "An hour or two before Caleb takes his eye, Xander Harris gets a passenger: Phil Coulson, dry and unbothered and years away from knowing what's coming for him either. Neither of them signed up for this. Both of them show up anyway.",
+                "status": "complete",
+                "status_label": "Complete (43 chapters)",
+                "mode": "combined",
+                "file": f"{OMWOM}/Xander/O'Make Way for Xander - DRAFT.txt",
+                "download_author": "O'Malley",
+            },
+        },
+        "story_order": ["dana", "taylor", "greg", "xander"],
+        "stubs": {
+            "bravestone": {
+                "title": "O'Make Way for Bravestone",
+                "subtitle": "subtitle undecided",
+                "fandom": "The Condemned (2007) x Jumanji: Welcome to the Jungle (2017) x Buffy the Vampire Slayer",
+                "blurb": "A double entry: two simultaneous insertions tied to the same mid-drop transformation moment, sharing one setting, one O'Malley, and one climax, but each with its own passenger, driver, and arc.",
+            },
+            "girl-in-black": {
+                "title": "O'Make Way for Girl in Black",
+                "subtitle": "subtitle undecided",
+                "fandom": "Men in Black (1997) x Worm",
+                "blurb": "A rare reversal: Taylor Hebert, pulled out of her locker before her trigger event completes, becomes the passenger riding shotgun in a young NYPD officer who hasn't been recruited into the Men in Black yet.",
+            },
+            "varga": {
+                "title": "O'Make Way for Varga",
+                "subtitle": "a very meta O'Make, adjacent to the numbered series",
+                "fandom": "Taylor Varga (by mp3.1415player) x O'Make Way, O'Malley! itself",
+                "blurb": "Not a driver/passenger insertion at all: characters from an existing, independently-authored fanfic get pulled into the Gallery itself, and Mr. O'Malley retroactively claims credit for an inciting event that may or may not have been his to begin with.",
+            },
+        },
+        "stub_order": ["bravestone", "girl-in-black", "varga"],
     },
-    "taylor": {
-        "title": "Med Hard?",
-        "series_name": "O'Make Way for Taylor",
-        "fandom": "Die Hard 2 (1990) x Worm",
-        "blurb": "John McClane goes to the wrong building at the wrong time again. Taylor Hebert just wanted to get through a charity gala as her dad's plus-one. Mr. O'Malley decides they should share the evening, and possibly a body.",
-        "status": "complete",
-        "status_label": "Complete (29 chapters)",
-        "mode": "dir",
-        "dir": f"{OMWOM}/Taylor/Chapters",
-        "download_author": "O'Malley",
+    "jumper": {
+        "name": "The Jumper Universe",
+        "tagline": "an unofficial continuation of Steven Gould's Jumper novels",
+        "home_fandom": "Jumper (Steven Gould), 3-book continuation",
+        "home_blurb": "The next generation of jumpers, picking up after Exo, following the same multi-POV first-person structure the source novels use.",
+        "intro_html": """
+<p>A continuation set directly in Steven Gould's own <em>Jumper</em> universe, following <em>Exo</em> (2014), matching the multi-POV first-person structure <em>Impulse</em> and <em>Exo</em> both use, and slotting into the series' one-word-physics-term naming pattern: <em>Jumper, Reflex, Impulse, Exo, Momentum, Reach, Contact</em>. Chapters are headed by whichever character's POV that chapter belongs to, quoting their own opening line as the chapter's title.</p>
+<p>Follows Cent, Millie, and Davy, the next generation of jumpers, as the ability stops being anyone's private secret. A light crossover element runs through <em>Momentum</em>: Dan Truman, NASA's Director of Flight Crew Operations from the film <em>Armageddon</em> (1998), appears as an actual character on the mission-command side of the story, not just an homage.</p>
+""",
+        "disclaimer_html": None,
+        "stories": {
+            "momentum": {
+                "title": "Momentum",
+                "series_name": "Book One of the Jumper Universe",
+                "fandom": "Jumper (Steven Gould) x Armageddon (1998)",
+                "blurb": "Cent's post-Exo life on Kristen Station is steady, hard-won, almost boring, the good kind. Normal doesn't last. The next generation of jumpers has to find out what all that stability was actually for, with NASA's Dan Truman now in the room for the parts of it that go through official channels.",
+                "status": "complete",
+                "status_label": "Complete (49 chapters)",
+                "mode": "combined",
+                "file": f"{ROOT}/Complete/Momentum/Momentum.txt",
+                "chapter_re": JUMPER_CHAPTER_RE,
+                "parse_num": word_to_num,
+                "pov_re": JUMPER_POV_RE,
+                "uses_honest_trailer": False,
+                "download_author": "Maestro",
+            },
+            "reach": {
+                "title": "Reach",
+                "series_name": "Book Two of the Jumper Universe",
+                "fandom": "Jumper (Steven Gould)",
+                "blurb": "The direct follow-up to Momentum: further out, harder jobs, and a crew that keeps growing past just Cent, Millie, and Davy as jumping stops being anyone's private secret.",
+                "status": "complete",
+                "status_label": "Complete (89 chapters)",
+                "mode": "combined",
+                "file": f"{ROOT}/Complete/Momentum/Reach.txt",
+                "chapter_re": JUMPER_CHAPTER_RE,
+                "parse_num": word_to_num,
+                "pov_re": JUMPER_POV_RE,
+                "uses_honest_trailer": False,
+                "download_author": "Maestro",
+            },
+            "contact": {
+                "title": "Contact",
+                "series_name": "Book Three of the Jumper Universe",
+                "fandom": "Jumper (Steven Gould)",
+                "blurb": "The trilogy's capstone. A routine orbital cleanup job turns into something that reaches a great deal further than anyone on the team signed up for.",
+                "status": "complete",
+                "status_label": "Complete (53 chapters)",
+                "mode": "combined",
+                "file": f"{ROOT}/Complete/Momentum/Contact_Complete_Draft.txt",
+                "chapter_re": JUMPER_CHAPTER_RE,
+                "parse_num": word_to_num,
+                "pov_re": JUMPER_POV_RE,
+                "uses_honest_trailer": False,
+                "download_author": "Maestro",
+            },
+        },
+        "story_order": ["momentum", "reach", "contact"],
+        "stubs": {},
+        "stub_order": [],
     },
-    "greg": {
-        "title": "Staff Infection",
-        "series_name": "O'Make Way for Greg",
-        "fandom": "Stargate SG-1 x Worm",
-        "blurb": "Greg Veder, of all people, gets Colonel Jack O'Neill for a passenger. What starts as one more thing for Greg to feel inadequate about turns into the first real backup he's ever had.",
-        "status": "complete",
-        "status_label": "Complete (40 chapters)",
-        "mode": "combined",
-        "file": f"{OMWOM}/Greg/O'Make Way for Greg - DRAFT.txt",
-        "download_author": "O'Malley",
-    },
-    "xander": {
-        "title": "The Eye of the One Who Sees",
-        "series_name": "O'Make Way for Xander",
-        "fandom": "Buffy the Vampire Slayer x Marvel Cinematic Universe",
-        "blurb": "An hour or two before Caleb takes his eye, Xander Harris gets a passenger: Phil Coulson, dry and unbothered and years away from knowing what's coming for him either. Neither of them signed up for this. Both of them show up anyway.",
-        "status": "complete",
-        "status_label": "Complete (43 chapters)",
-        "mode": "combined",
-        "file": f"{OMWOM}/Xander/O'Make Way for Xander - DRAFT.txt",
-        "download_author": "O'Malley",
+    "sotl": {
+        "name": "Ship of the Line",
+        "tagline": "an anthology built on Zaion's Halloween-costume challenge",
+        "home_fandom": "an anthology of Halloween-costume crossovers, various fandoms",
+        "home_blurb": "One Halloween challenge, answered more than once: a costume that becomes a permanent identity merger, not just a power. Each entry pulls in its own crossover and its own cast.",
+        "intro_html": """
+<p>Built on Zaion's original "Ship of the Line" challenge: a Halloween costume becomes a permanent identity merger, not just a power. Each entry answers that challenge differently, its own crossover pulled in alongside the costume-shop premise, its own cast, its own shape for what the costume actually becomes.</p>
+""",
+        "disclaimer_html": None,
+        "stories": {
+            "convergence": {
+                "title": "Ship of the Line - Convergence",
+                "series_name": "entry one",
+                "fandom": "Buffy the Vampire Slayer x Stargate SG-1 x Stargate Universe x No Man's Sky x The West Wing",
+                "blurb": "On Halloween, three costumes stop being costumes. Xander wakes up carrying Eli Wallace's memories and a future he hasn't lived yet; Buffy and Willow wake up not human anymore, at all, permanently. A dare from a costume shop turns into first contact with two governments, an Ancient warship, and whatever's left of who they used to be.",
+                "status": "complete",
+                "status_label": "Complete (27 chapters)",
+                "mode": "dir",
+                "dir": f"{ROOT}/Complete/Ship of the Line/Chapters",
+                "chapter_re": WORD_CHAPTER_RE,
+                "parse_num": word_to_num,
+                "chapter_file_exts": (".md",),
+                "uses_honest_trailer": False,
+                "download_author": "Maestro",
+            },
+        },
+        "story_order": ["convergence"],
+        "stubs": {
+            "city-who-fought": {
+                "title": "Ship of the Line: The City Who Fought (working title)",
+                "subtitle": "entry two, subtitle undecided",
+                "fandom": "Buffy the Vampire Slayer x The City Who Fought (Anne McCaffrey & S.M. Stirling)",
+                "blurb": "A second answer to Zaion's “Ship of the Line” challenge. Not yet started; further details to come.",
+            },
+        },
+        "stub_order": ["city-who-fought"],
     },
 }
 
-STUBS = {
-    "bravestone": {
-        "title": "O'Make Way for Bravestone",
-        "subtitle": "subtitle undecided",
-        "fandom": "The Condemned (2007) x Jumanji: Welcome to the Jungle (2017) x Buffy the Vampire Slayer",
-        "blurb": "A double entry: two simultaneous insertions tied to the same mid-drop transformation moment, sharing one setting, one O'Malley, and one climax, but each with its own passenger, driver, and arc.",
-    },
-    "girl-in-black": {
-        "title": "O'Make Way for Girl in Black",
-        "subtitle": "subtitle undecided",
-        "fandom": "Men in Black (1997) x Worm",
-        "blurb": "A rare reversal: Taylor Hebert, pulled out of her locker before her trigger event completes, becomes the passenger riding shotgun in a young NYPD officer who hasn't been recruited into the Men in Black yet.",
-    },
-    "varga": {
-        "title": "O'Make Way for Varga",
-        "subtitle": "a very meta O'Make, adjacent to the numbered series",
-        "fandom": "Taylor Varga (by mp3.1415player) x O'Make Way, O'Malley! itself",
-        "blurb": "Not a driver/passenger insertion at all: characters from an existing, independently-authored fanfic get pulled into the Gallery itself, and Mr. O'Malley retroactively claims credit for an inciting event that may or may not have been his to begin with.",
-    },
-}
-
-STORY_ORDER = ["dana", "taylor", "greg", "xander"]
-STUB_ORDER = ["bravestone", "girl-in-black", "varga"]
+SERIES_ORDER = ["omwom", "jumper", "sotl"]
 
 # ---------------------------------------------------------------------------
 # Standalone works — single stories that don't belong to a numbered series,
@@ -478,21 +632,6 @@ STUB_ORDER = ["bravestone", "girl-in-black", "varga"]
 # ---------------------------------------------------------------------------
 
 STANDALONES = {
-    "ship-of-the-line": {
-        "title": "Ship of the Line - Convergence",
-        "series_name": "by Maestro",
-        "fandom": "Buffy the Vampire Slayer x Stargate SG-1 x Stargate Universe x No Man's Sky x The West Wing",
-        "blurb": "On Halloween, three costumes stop being costumes. Xander wakes up carrying Eli Wallace's memories and a future he hasn't lived yet; Buffy and Willow wake up not human anymore, at all, permanently. A dare from a costume shop turns into first contact with two governments, an Ancient warship, and whatever's left of who they used to be.",
-        "status": "complete",
-        "status_label": "Complete (27 chapters)",
-        "mode": "dir",
-        "dir": f"{ROOT}/Complete/Ship of the Line/Chapters",
-        "chapter_re": WORD_CHAPTER_RE,
-        "parse_num": word_to_num,
-        "chapter_file_exts": (".md",),
-        "uses_honest_trailer": False,
-        "download_author": "Maestro",
-    },
     "wood-it-work": {
         "title": "Wood It Work: Book 2 — Wardrobes and Would-Work",
         "series_name": "a continuation of Wood It Work by dogbertcarroll",
@@ -507,7 +646,7 @@ STANDALONES = {
     },
 }
 
-STANDALONE_ORDER = ["ship-of-the-line", "wood-it-work"]
+STANDALONE_ORDER = ["wood-it-work"]
 
 AI_DISCLOSURE_HTML = """
 <h2>Creative Process &amp; AI Disclosure</h2>
@@ -586,6 +725,7 @@ def build_story(slug, cfg, series_slug=None, series_display_name=None):
     chapter_re = cfg.get("chapter_re", CHAPTER_RE)
     parse_num = cfg.get("parse_num", int)
     exts = cfg.get("chapter_file_exts", (".txt",))
+    pov_re = cfg.get("pov_re", DEFAULT_POV_RE)
 
     if cfg["mode"] == "dir":
         files = sorted(
@@ -649,7 +789,7 @@ def build_story(slug, cfg, series_slug=None, series_display_name=None):
 
     # --- disclaimer page ---
     disclaimer_body_html = (
-        body_to_html(ch0_body_clean)
+        body_to_html(ch0_body_clean, pov_re)
         if ch0_body_clean
         else "<p><em>No separate disclaimer chapter for this entry yet.</em></p>"
     )
@@ -678,7 +818,7 @@ def build_story(slug, cfg, series_slug=None, series_display_name=None):
     # --- chapter pages ---
     n = len(chapters)
     for i, (num, title, body) in enumerate(chapters):
-        body_html = body_to_html(body)
+        body_html = body_to_html(body, pov_re)
         prev_link = f'<a href="ch{chapters[i-1][0]}.html">&larr; Ch. {chapters[i-1][0]}</a>' if i > 0 else f'<a href="disclaimer.html">&larr; Front matter</a>'
         if i + 1 < n:
             next_link = f'<a href="ch{chapters[i+1][0]}.html">Ch. {chapters[i+1][0]} &rarr;</a>'
@@ -710,7 +850,7 @@ def build_story(slug, cfg, series_slug=None, series_display_name=None):
 
     if honest_trailer_standalone:
         ht_title, ht_body = honest_trailer_standalone
-        ht_body_html = body_to_html(ht_body)
+        ht_body_html = body_to_html(ht_body, pov_re)
         crumb = f"{crumb_base} &raquo; Honest Trailer"
         content = (
             f'<p class="meta">Honest Trailer</p>'
@@ -743,16 +883,16 @@ def build_story(slug, cfg, series_slug=None, series_display_name=None):
     full_sections = []
     if ch0_body_clean:
         full_sections.append(
-            f'<section><h2>Disclaimer &amp; Front Matter</h2><div class="prose">{body_to_html(ch0_body_clean)}</div></section>'
+            f'<section><h2>Disclaimer &amp; Front Matter</h2><div class="prose">{body_to_html(ch0_body_clean, pov_re)}</div></section>'
         )
     for num, title, body in chapters:
         full_sections.append(
-            f'<section><h2>Chapter {num}: {html.escape(title)}</h2><div class="prose">{body_to_html(body)}</div></section>'
+            f'<section><h2>Chapter {num}: {html.escape(title)}</h2><div class="prose">{body_to_html(body, pov_re)}</div></section>'
         )
     if honest_trailer_standalone:
         ht_title, ht_body = honest_trailer_standalone
         full_sections.append(
-            f'<section><h2>{html.escape(ht_title)}</h2><div class="prose">{body_to_html(ht_body)}</div></section>'
+            f'<section><h2>{html.escape(ht_title)}</h2><div class="prose">{body_to_html(ht_body, pov_re)}</div></section>'
         )
     full_content = (
         f'<h1>{html.escape(cfg["title"])}</h1>'
@@ -794,11 +934,11 @@ def build_story(slug, cfg, series_slug=None, series_display_name=None):
     return {"has_trailer": has_trailer, "base_href": (f"series/{series_slug}/{slug}" if series_slug else f"standalone/{slug}")}
 
 
-def build_stub(slug, cfg):
+def build_stub(series_slug, series_name, slug, cfg):
     root_rel = "../../.."
     crumb = (
         f'<a href="{root_rel}/index.html">Home</a> &raquo; '
-        f'<a href="{root_rel}/series/omwom/index.html">O\'Make Way, O\'Malley!</a> &raquo; {html.escape(cfg["title"])}'
+        f'<a href="{root_rel}/series/{series_slug}/index.html">{html.escape(series_name)}</a> &raquo; {html.escape(cfg["title"])}'
     )
     content = f"""
 <h1>{html.escape(cfg['title'])}</h1>
@@ -806,16 +946,16 @@ def build_stub(slug, cfg):
 <p class="meta"><span class="badge dev">In development &mdash; not yet drafted</span></p>
 <p class="fandom">{html.escape(cfg['fandom'])}</p>
 <p>{html.escape(cfg['blurb'])}</p>
-<p class="stub-note">This entry exists in the series bible but hasn't been written yet. Check back later.</p>
+<p class="stub-note">This entry hasn't been written yet. Check back later.</p>
 """
-    write(f"{OUT}/series/omwom/{slug}/index.html", page(cfg["title"], crumb, content, root_rel))
+    write(f"{OUT}/series/{series_slug}/{slug}/index.html", page(cfg["title"], crumb, content, root_rel))
 
 
-def build_series_index(story_meta):
+def build_series_index(series_slug, info):
     root_rel = "../.."
     cards = []
-    for slug in STORY_ORDER:
-        cfg = STORIES[slug]
+    for slug in info["story_order"]:
+        cfg = info["stories"][slug]
         badge_class = "complete" if cfg["status"] == "complete" else "progress"
         cards.append(f"""
 <li class="card">
@@ -824,8 +964,8 @@ def build_series_index(story_meta):
   <p><span class="badge {badge_class}">{html.escape(cfg['status_label'])}</span></p>
   <p>{html.escape(cfg['blurb'])}</p>
 </li>""")
-    for slug in STUB_ORDER:
-        cfg = STUBS[slug]
+    for slug in info.get("stub_order", []):
+        cfg = info["stubs"][slug]
         cards.append(f"""
 <li class="card">
   <h3><a class="title-link" href="{slug}/index.html">{html.escape(cfg['title'])}</a></h3>
@@ -833,54 +973,61 @@ def build_series_index(story_meta):
   <p><span class="badge dev">In development</span></p>
   <p>{html.escape(cfg['blurb'])}</p>
 </li>""")
+    disclaimer_link = (
+        '<p><a href="disclaimer.html">Read the general series disclaimer</a></p>'
+        if info.get("disclaimer_html")
+        else ""
+    )
     content = f"""
-<h1>O'Make Way, O'Malley!</h1>
-<p class="subtitle">an anthology series &mdash; a Rob O'Make O'Malley Production</p>
-<p><em>An homage to Ack's <strong>I, Panacea</strong> and <strong>Security!</strong> and their passenger-seat premise.</em></p>
-<p>ROB O'Make O'Malley permanently drops a person or fictional character into someone else's mental passenger seat. The target remains the driver of their own body; the newcomer becomes an internal companion, adviser, complication, witness, and, eventually, partner.</p>
-<p>The series isn't fandom-specific on either side of the pairing. Each entry pairs its own passenger and driver, drawn from whatever film, show, book, or original setting fits, and each entry is its own continuity: characters who share a name or face across two entries are not assumed to share a timeline.</p>
-<p>The driver always keeps final say. The passenger is never a downloadable skill package, never omniscient, and can never seize control without the driver's own consent, no matter how good their instincts are. Full mechanics live in the series bible; you don't need it to enjoy any individual entry.</p>
-<p><a href="disclaimer.html">Read the general series disclaimer</a></p>
+<h1>{html.escape(info['name'])}</h1>
+<p class="subtitle">{html.escape(info['tagline'])}</p>
+{info['intro_html']}
+{disclaimer_link}
 <h2 class="chrome" style="font-size:1.2rem; margin-top:2rem;">Entries</h2>
 <ul class="card-list">
 {''.join(cards)}
 </ul>
 """
-    write(f"{OUT}/series/omwom/index.html", page("O'Make Way, O'Malley!", f'<a href="{root_rel}/index.html">Home</a> &raquo; O\'Make Way, O\'Malley!', content, root_rel))
+    write(f"{OUT}/series/{series_slug}/index.html", page(info["name"], f'<a href="{root_rel}/index.html">Home</a> &raquo; {html.escape(info["name"])}', content, root_rel))
 
 
-def build_series_disclaimer():
+def build_series_disclaimer(series_slug, info):
+    if not info.get("disclaimer_html"):
+        return
     root_rel = "../.."
-    content = """
-<h1>O'Make Way, O'Malley! &mdash; General Disclaimer</h1>
-<p class="subtitle">&#9888;&#65039; Story Metadata &amp; Legal Liability Waiver (or: how to avoid a cease-and-desist from a multiversal facilitator)</p>
-<h2 class="chrome" style="font-size:1.1rem;">Legal Safe Harbor &amp; Disclaimer</h2>
-<p>All rights to <em>Worm</em> belong to Wildbow, who built the sandbox and should not be held responsible for what's happened to it since. The passenger-seat premise this whole anthology borrows, abuses, and refuses to give back belongs to Ack, who did it first, did it better, and is owed the credit accordingly. Whatever additional property a given installment drags into this mess belongs to its own respective studio, publisher, or author, none of whom were consulted, all of whom will be properly credited at the top of that entry, because unlike Mr. O'Malley, I do read the fine print. Only the six doors, the waistcoat, the questionable recruitment process, and the crossover logic required to justify any of it belong to Mr. O'Malley, for whatever that turns out to be worth in a court of law.</p>
-<ul>
-<li><strong>THE PROPER NOMENCLATURE CLAUSE:</strong> <em>&ldquo;It's Mr. O'Malley,&rdquo;</em> a voice cut in, unprompted, the moment an earlier draft of this page tried to get away with the bare trope acronym. <em>&ldquo;Ack gave me the trope. I gave myself the surname. The least anyone can do is use it.&rdquo;</em> Amended accordingly, under mild duress and threat of a violent reaction.</li>
-<li><strong>THE WAITING ROOM POLICY:</strong> The author accepts no liability for anyone who drinks something labeled PLOT-RELEVANT BEVERAGE without first asking what plot. There were six doors. You used none of them. That one's on you.</li>
-<li><strong>THE PASSENGER-SEAT CLAUSE:</strong> It's permanent. Permanent means permanent. Right up until the end of the story, at which point all bets, warranties, and promises made by a man in a waistcoat become somebody else's problem.</li>
-<li><strong>THE &ldquo;IT'S NOT POSSESSION&rdquo; ADDENDUM:</strong> The legal distinction between &ldquo;possession&rdquo; and &ldquo;an uninvited, permanent, occasionally mouth-borrowing roommate&rdquo; remains unresolved and will stay that way for the duration of your natural life, and possibly the driver's too.</li>
-<li><strong>THE CONSENT FORM YOU DIDN'T SIGN:</strong> By existing within Mr. O'Malley's reach, you have already implicitly agreed to whatever this is. Ignorance of the terms does not constitute grounds for eviction from someone else's skull. See also: the sign in the waiting room, which you did not read.</li>
-<li><strong>THE CROSSOVER LIABILITY CLAUSE:</strong> The properties mixed herein did not consent to meet each other, did not rehearse together, and in several documented cases would actively loathe one another on sight. The author accepts full and complete responsibility for none of the resulting chaos.</li>
-<li><strong>THE O'MALLEY ULTIMATUM:</strong> Anyone who argues Mr. O'Malley is not, actually, doing these people a favor will be reminded, calmly, at length, and against their will if necessary, that he never once claimed to be doing them a favor. He said he was giving them something else. Read the transcript. He was very clear about that part.</li>
-<li><strong>THE SECOND OPINION CLAUSE:</strong> Mr. O'Malley, despite considerable and largely unearned confidence in his own recruiting instincts, would welcome a critical eye on his work. Beta readers, canon nitpickers, and anyone willing to point out a door that doesn't lead where he claimed it would are warmly invited to reach out before a chapter posts, not after. He finds retroactive correction far less charming than most reviewers seem to assume he would.</li>
-</ul>
-<p>Each story drags at least one more property into this mess besides <em>Worm</em> and <em>I, Panacea</em>/<em>Security!</em>, and carries its own specific ownership notice for it, since the actual studios and authors involved differ entry to entry. You'll find that story-specific legal text on each story's own disclaimer page, linked from its story index and from the <a href="../../disclaimers/index.html">disclaimers hub</a>.</p>
-<h2 class="chrome" style="font-size:1.1rem;">Whose Sandbox This Is</h2>
-<p>O'Make Way, O'Malley! belongs to me, not to Ack. Whatever this premise owes <em>I, Panacea</em> and <em>Security!</em> is a debt of inspiration, not shared continuity; nothing here is set inside Ack's own version of events, and none of his characters appear.</p>
-<p>Rule 9a still applies. I, Maestro, creator and sole proprietor of this sandbox, give open, standing permission for anyone who wants to write more of it, the ROB O'Make O'Malley mechanic, its rules, the anthology structure, all of it, to go ahead. The only conditions are the ordinary ones: proper credit, the standard disclaimer, and whatever Mr. O'Malley himself might decide to add unilaterally, a man who has never once been reachable for comment and shows no sign of starting now.</p>
-<p>All of it is fan work, offered freely, for love of the source material, and to Rob O'Make O'Malley, who does not, as far as anyone can prove, actually exist, and who would very much like it kept that way. Any use of this by the copyright owner(s) is freely offered, without expectation of compensation (although a small token of appreciation would be appreciated).</p>
-<p><a href="index.html">&larr; Back to O'Make Way, O'Malley!</a></p>
+    content = f"""
+<h1>{html.escape(info['name'])} &mdash; General Disclaimer</h1>
+{info['disclaimer_html']}
+<p><a href="index.html">&larr; Back to {html.escape(info['name'])}</a></p>
 """
-    write(f"{OUT}/series/omwom/disclaimer.html", page("O'Make Way, O'Malley! — General Disclaimer", f'<a href="{root_rel}/index.html">Home</a> &raquo; <a href="index.html">O\'Make Way, O\'Malley!</a> &raquo; Disclaimer', content, root_rel))
+    write(
+        f"{OUT}/series/{series_slug}/disclaimer.html",
+        page(
+            f"{info['name']} — General Disclaimer",
+            f'<a href="{root_rel}/index.html">Home</a> &raquo; <a href="index.html">{html.escape(info["name"])}</a> &raquo; Disclaimer',
+            content,
+            root_rel,
+        ),
+    )
 
 
 def build_disclaimers_hub():
     root_rel = ".."
+    series_disclaimer_links = "\n".join(
+        f'<li><a href="{root_rel}/series/{series_slug}/disclaimer.html"><strong>{html.escape(info["name"])} general disclaimer</strong></a></li>'
+        for series_slug in SERIES_ORDER
+        for info in [SERIES[series_slug]]
+        if info.get("disclaimer_html")
+    )
+    other_disclaimers_block = (
+        f'<h2 class="chrome" style="font-size:1.1rem;">Other disclaimers</h2>\n<ul>\n{series_disclaimer_links}\n</ul>'
+        if series_disclaimer_links
+        else ""
+    )
     story_links = "\n".join(
-        f'<li><a href="{root_rel}/series/omwom/{slug}/disclaimer.html">{html.escape(STORIES[slug]["title"])}</a> &mdash; {html.escape(STORIES[slug]["fandom"])}</li>'
-        for slug in STORY_ORDER
+        f'<li><a href="{root_rel}/series/{series_slug}/{slug}/disclaimer.html">{html.escape(cfg["title"])}</a> &mdash; {html.escape(cfg["fandom"])}</li>'
+        for series_slug in SERIES_ORDER
+        for slug, cfg in SERIES[series_slug]["stories"].items()
     )
     standalone_links = "\n".join(
         f'<li><a href="{root_rel}/standalone/{slug}/disclaimer.html">{html.escape(STANDALONES[slug]["title"])}</a> &mdash; {html.escape(STANDALONES[slug]["fandom"])}</li>'
@@ -890,10 +1037,7 @@ def build_disclaimers_hub():
 <h1>Please Read This First</h1>
 {AI_DISCLOSURE_HTML}
 <hr style="border:none; border-top:1px solid var(--border); margin:2rem 0;">
-<h2 class="chrome" style="font-size:1.1rem;">Other disclaimers</h2>
-<ul>
-  <li><a href="{root_rel}/series/omwom/disclaimer.html"><strong>O'Make Way, O'Malley! general disclaimer</strong></a> &mdash; ownership, non-affiliation, and the series' own open-sandbox terms.</li>
-</ul>
+{other_disclaimers_block}
 <h3 class="chrome" style="font-size:1rem;">Story-specific disclaimers</h3>
 <p>Each story below crosses its own specific properties and carries its own ownership notice on its own disclaimer page:</p>
 <ul>
@@ -959,6 +1103,15 @@ def build_about():
 
 
 def build_home():
+    series_cards = []
+    for series_slug in SERIES_ORDER:
+        info = SERIES[series_slug]
+        series_cards.append(f"""
+<li class="card">
+  <h3><a class="title-link" href="series/{series_slug}/index.html">{html.escape(info['name'])}</a></h3>
+  <p class="fandom">{html.escape(info['home_fandom'])}</p>
+  <p>{html.escape(info['home_blurb'])}</p>
+</li>""")
     standalone_cards = []
     for slug in STANDALONE_ORDER:
         cfg = STANDALONES[slug]
@@ -981,11 +1134,7 @@ def build_home():
 </div>
 <h2 class="chrome" style="font-size:1.2rem;">Series</h2>
 <ul class="card-list">
-  <li class="card">
-    <h3><a class="title-link" href="series/omwom/index.html">O'Make Way, O'Malley!</a></h3>
-    <p class="fandom">an anthology of passenger-seat crossovers, various fandoms</p>
-    <p>ROB O'Make O'Malley drops a person or fictional character into someone else's mind as a permanent passenger. Every entry is its own standalone pairing, its own continuity, its own fandom crossover.</p>
-  </li>
+{''.join(series_cards)}
 </ul>
 <h2 class="chrome" style="font-size:1.2rem; margin-top:2rem;">Standalones</h2>
 <ul class="card-list">
@@ -998,14 +1147,16 @@ def build_home():
 def main():
     write(f"{OUT}/css/style.css", CSS)
     write(f"{OUT}/js/site.js", SITE_JS)
-    for slug in STORY_ORDER:
-        build_story(slug, STORIES[slug], series_slug="omwom", series_display_name="O'Make Way, O'Malley!")
-    for slug in STUB_ORDER:
-        build_stub(slug, STUBS[slug])
+    for series_slug in SERIES_ORDER:
+        info = SERIES[series_slug]
+        for slug in info["story_order"]:
+            build_story(slug, info["stories"][slug], series_slug=series_slug, series_display_name=info["name"])
+        for slug in info.get("stub_order", []):
+            build_stub(series_slug, info["name"], slug, info["stubs"][slug])
+        build_series_index(series_slug, info)
+        build_series_disclaimer(series_slug, info)
     for slug in STANDALONE_ORDER:
         build_story(slug, STANDALONES[slug])
-    build_series_index(STORIES)
-    build_series_disclaimer()
     build_disclaimers_hub()
     build_about()
     build_home()
