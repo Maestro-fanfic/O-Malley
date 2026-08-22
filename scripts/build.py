@@ -905,13 +905,7 @@ def build_disclaimers_hub():
     write(f"{OUT}/disclaimers/index.html", page("Please Read This First", '<a href="../index.html">Home</a> &raquo; Please Read This First', content, root_rel))
 
 
-def build_about():
-    root_rel = ".."
-    content = """
-<h1>The Author Who Wouldn&#x27;t Shut Up About It</h1>
-<p class="subtitle">an origin story, honest-trailer style</p>
-<div class="prose">
-
+ABOUT_SECTIONS_HTML = """
 <h2 class="chrome" style="font-size:1.2rem;">Watch as he...</h2>
 <p>Tries obsessively, for the better part of a century, to write believable prose of any kind</p>
 <p>Fails miserably, time after time</p>
@@ -940,8 +934,17 @@ def build_about():
 
 <h2 class="chrome" style="font-size:1.2rem; margin-top:2rem;">Be astounded by...</h2>
 <p>A writing style that imitates someone who imitates something else already</p>
-<p><em>(Seriously, those guys over at Screen Junkies are fucking incredible. Major props to them.)</em></p>
+<p><em>(Seriously, those guys over at <a href="https://www.youtube.com/@ScreenJunkies" target="_blank" rel="noopener">Screen Junkies</a> are fucking incredible. Major props to them.)</em></p>
+"""
 
+
+def build_about():
+    root_rel = ".."
+    content = f"""
+<h1>The Author Who Wouldn&#x27;t Shut Up About It</h1>
+<p class="subtitle">an origin story, honest-trailer style</p>
+<div class="prose">
+{ABOUT_SECTIONS_HTML}
 </div>
 """
     write(
@@ -970,10 +973,10 @@ def build_home():
     content = f"""
 <h1>Maestro's Fanfic Archive</h1>
 <p class="subtitle">a home for the stories, series by series</p>
-<div class="readme-callout chrome">
-  <p><a href="about/index.html"><strong>About the Author</strong></a> &mdash; meet the man who wouldn't shut up about any of this.</p>
+<div class="prose">
+{ABOUT_SECTIONS_HTML}
 </div>
-<div class="readme-callout chrome">
+<div class="readme-callout chrome" style="margin-top:2rem;">
   <p>New here? <a href="disclaimers/index.html">Please read this first</a> &mdash; how these stories get written, what they are and aren't, and the specific disclaimers for each series and story.</p>
 </div>
 <h2 class="chrome" style="font-size:1.2rem;">Series</h2>
