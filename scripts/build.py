@@ -10,6 +10,9 @@ import os
 
 ROOT = "C:/Users/thela/Downloads/Fanfic"
 OMWOM = f"{ROOT}/O'Make Way, O'Malley!"
+CW = f"{ROOT}/Collected Works"
+CW_COMPLETE = f"{CW}/01 Complete"
+CW_IN_PROGRESS = f"{CW}/02 In Progress"
 OUT = f"{ROOT}/Website/docs"
 
 # Comments are powered by giscus (github.com/giscus/giscus), backed by GitHub
@@ -68,6 +71,12 @@ JUMPER_CHAPTER_RE = re.compile(rf"^({_NUMBER_WORD_PATTERN})\n+(.+)$", re.MULTILI
 # Same books also use that "Name: quote" (or "Name POV: quote" / "Name (POV): quote")
 # shape mid-chapter, as an explicit POV-shift marker between speakers/scenes.
 JUMPER_POV_RE = re.compile(r'^([A-Z][a-zA-Z\']+)(?:\s*\(?POV\)?)?:\s')
+
+# The curated Collected Works copy of Ship of the Line reformatted its headers
+# to "Chapter One" (no colon, title case, no same-line title) with the actual
+# title on a later line, same shape as the Jumper books but with a literal
+# "Chapter " prefix and case-insensitive number words.
+SOTL_CHAPTER_RE = re.compile(rf"^Chapter ({_NUMBER_WORD_PATTERN})\n+(.+)$", re.MULTILINE | re.IGNORECASE)
 
 
 def read(path):
@@ -462,8 +471,8 @@ SERIES = {
                 "status": "progress",
                 "status_label": "In progress (16 chapters posted)",
                 "mode": "dir",
-                "dir": f"{OMWOM}/Dana/Chapters",
-                "honest_trailer_file": "Honest Trailer.txt",
+                "dir": f"{CW_IN_PROGRESS}/O'Make Way, O'Malley!/You Got to Have Faith/Chapters",
+                "honest_trailer_file": f"{CW_IN_PROGRESS}/O'Make Way, O'Malley!/You Got to Have Faith/Chapters/Honest Trailer.txt",
                 "download_author": "O'Malley",
             },
             "taylor": {
@@ -473,8 +482,8 @@ SERIES = {
                 "blurb": "John McClane goes to the wrong building at the wrong time again. Taylor Hebert just wanted to get through a charity gala as her dad's plus-one. Mr. O'Malley decides they should share the evening, and possibly a body.",
                 "status": "complete",
                 "status_label": "Complete (29 chapters)",
-                "mode": "dir",
-                "dir": f"{OMWOM}/Taylor/Chapters",
+                "mode": "combined",
+                "file": f"{CW_COMPLETE}/O'Make Way, O'Malley!/Book 3 - Med Hard/Manuscript.txt",
                 "download_author": "O'Malley",
             },
             "greg": {
@@ -485,7 +494,7 @@ SERIES = {
                 "status": "complete",
                 "status_label": "Complete (40 chapters)",
                 "mode": "combined",
-                "file": f"{OMWOM}/Greg/O'Make Way for Greg - DRAFT.txt",
+                "file": f"{CW_COMPLETE}/O'Make Way, O'Malley!/Book 2 - Staff Infection/Manuscript.txt",
                 "download_author": "O'Malley",
             },
             "xander": {
@@ -496,7 +505,7 @@ SERIES = {
                 "status": "complete",
                 "status_label": "Complete (43 chapters)",
                 "mode": "combined",
-                "file": f"{OMWOM}/Xander/O'Make Way for Xander - DRAFT.txt",
+                "file": f"{CW_COMPLETE}/O'Make Way, O'Malley!/Book 1 - The Eye of the One Who Sees/Manuscript.txt",
                 "download_author": "O'Malley",
             },
         },
@@ -542,11 +551,11 @@ SERIES = {
                 "status": "complete",
                 "status_label": "Complete (49 chapters)",
                 "mode": "combined",
-                "file": f"{ROOT}/Complete/Momentum/Momentum.txt",
+                "file": f"{CW_COMPLETE}/Momentum/Book 1 - Momentum/Manuscript.txt",
+                "honest_trailer_file": f"{CW_COMPLETE}/Momentum/Book 1 - Momentum/Honest Trailer.md",
                 "chapter_re": JUMPER_CHAPTER_RE,
                 "parse_num": word_to_num,
                 "pov_re": JUMPER_POV_RE,
-                "uses_honest_trailer": False,
                 "download_author": "Maestro",
             },
             "reach": {
@@ -557,11 +566,11 @@ SERIES = {
                 "status": "complete",
                 "status_label": "Complete (89 chapters)",
                 "mode": "combined",
-                "file": f"{ROOT}/Complete/Momentum/Reach.txt",
+                "file": f"{CW_COMPLETE}/Momentum/Book 2 - Reach/Manuscript.txt",
+                "honest_trailer_file": f"{CW_COMPLETE}/Momentum/Book 2 - Reach/Honest Trailer.md",
                 "chapter_re": JUMPER_CHAPTER_RE,
                 "parse_num": word_to_num,
                 "pov_re": JUMPER_POV_RE,
-                "uses_honest_trailer": False,
                 "download_author": "Maestro",
             },
             "contact": {
@@ -572,11 +581,11 @@ SERIES = {
                 "status": "complete",
                 "status_label": "Complete (53 chapters)",
                 "mode": "combined",
-                "file": f"{ROOT}/Complete/Momentum/Contact_Complete_Draft.txt",
+                "file": f"{CW_COMPLETE}/Momentum/Book 3 - Contact/Manuscript.txt",
+                "honest_trailer_file": f"{CW_COMPLETE}/Momentum/Book 3 - Contact/Honest Trailer.md",
                 "chapter_re": JUMPER_CHAPTER_RE,
                 "parse_num": word_to_num,
                 "pov_re": JUMPER_POV_RE,
-                "uses_honest_trailer": False,
                 "download_author": "Maestro",
             },
         },
@@ -601,12 +610,11 @@ SERIES = {
                 "blurb": "On Halloween, three costumes stop being costumes. Xander wakes up carrying Eli Wallace's memories and a future he hasn't lived yet; Buffy and Willow wake up not human anymore, at all, permanently. A dare from a costume shop turns into first contact with two governments, an Ancient warship, and whatever's left of who they used to be.",
                 "status": "complete",
                 "status_label": "Complete (27 chapters)",
-                "mode": "dir",
-                "dir": f"{ROOT}/Complete/Ship of the Line/Chapters",
-                "chapter_re": WORD_CHAPTER_RE,
+                "mode": "combined",
+                "file": f"{CW_COMPLETE}/Ship of the Line/Convergence/Manuscript.txt",
+                "honest_trailer_file": f"{CW_COMPLETE}/Ship of the Line/Convergence/Honest Trailer.md",
+                "chapter_re": SOTL_CHAPTER_RE,
                 "parse_num": word_to_num,
-                "chapter_file_exts": (".md",),
-                "uses_honest_trailer": False,
                 "download_author": "Maestro",
             },
         },
@@ -640,8 +648,8 @@ STANDALONES = {
         "status": "complete",
         "status_label": "Complete (57 chapters, numbered 26–82)",
         "mode": "combined",
-        "file": f"{ROOT}/Wood it Work/Wood It Work - Book 2 - Wardrobes and Would-Work.txt",
-        "uses_honest_trailer": False,
+        "file": f"{CW_COMPLETE}/Wood It Work/Book 2 - Wardrobes and Would-Work/Manuscript.txt",
+        "honest_trailer_file": f"{CW_COMPLETE}/Wood It Work/Book 2 - Wardrobes and Would-Work/Honest Trailer.md",
         "download_author": "Maestro",
     },
 }
@@ -709,6 +717,20 @@ def crumb_prefix_plain(root_rel, series_slug, series_display_name, story_title):
     return home + html.escape(story_title)
 
 
+def load_standalone_trailer(path):
+    """Return (title, body) from a standalone Honest Trailer file, or None if
+    the story has no such file. Handles a leading Markdown '# ' title line
+    (the Collected Works convention) as well as a bare first-line title."""
+    if not path or not os.path.exists(path):
+        return None
+    raw = read(path).strip()
+    first_nl = raw.find("\n")
+    title = raw[:first_nl].strip() if first_nl != -1 else raw
+    body = raw[first_nl:].strip() if first_nl != -1 else ""
+    title = re.sub(r"^#+\s*", "", title)
+    return (title, body)
+
+
 def build_story(slug, cfg, series_slug=None, series_display_name=None):
     """Build one story's pages. series_slug=None means a standalone (no wrapping
     series index/disclaimer page); otherwise nests under series/{series_slug}/{slug}."""
@@ -748,14 +770,6 @@ def build_story(slug, cfg, series_slug=None, series_display_name=None):
         if ch0_body is None:
             ch0_body = preamble_for_ch1
         chapters.sort(key=lambda c: c[0])
-        honest_trailer_standalone = None
-        ht_file = cfg.get("honest_trailer_file")
-        if ht_file and os.path.exists(f"{cfg['dir']}/{ht_file}"):
-            raw = read(f"{cfg['dir']}/{ht_file}").strip()
-            first_nl = raw.find("\n")
-            ht_title = raw[:first_nl].strip() if first_nl != -1 else raw
-            ht_body = raw[first_nl:].strip() if first_nl != -1 else ""
-            honest_trailer_standalone = (ht_title, ht_body)
     else:
         text = read(cfg["file"])
         preamble, parsed = split_chapters(text, chapter_re, parse_num)
@@ -768,7 +782,8 @@ def build_story(slug, cfg, series_slug=None, series_display_name=None):
                 chapters.append((num, title, body))
         if ch0_body is None and preamble:
             ch0_body = preamble
-        honest_trailer_standalone = None
+
+    honest_trailer_standalone = load_standalone_trailer(cfg.get("honest_trailer_file"))
 
     # some books' chapters carry no individual title, just a number — fall back
     # to "Chapter N" as the display title rather than leaving it blank
