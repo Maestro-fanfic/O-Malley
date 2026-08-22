@@ -639,7 +639,7 @@ SERIES = {
                 "title": "The Meeting of the Mikes",
                 "subtitle": "a direct riff on Ack's own Security!, not just an homage",
                 "fandom": "Security! (by Ack) x Worm",
-                "blurb": "A double entry unlike any other on this list: two costumed snapshots of Mike, Ack's own self-insert protagonist, dropped simultaneously into Danny and Taylor Hebert the night after Taylor's first outing as a cape.",
+                "blurb": "ROB splits into two personas for this one, both wearing Mike's own face: Mick, a Crocodile Dundee riff with real family-man warmth, and Polverine, all carnage. Each grabs an identical copy of Mike, Ack's own self-insert protagonist from Security!, and drops it into Danny and Taylor Hebert respectively, the same night Taylor goes out as a cape for the first time. A self-insert riding inside a self-insert, twice over.",
                 "concept_stage": True,
             },
             "jack-bauer": {
