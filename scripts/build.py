@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Static site generator for the O'Make Way, O'Malley! wing of the archive.
+"""Static site generator for Maestro's Fanfic Archive.
 
 Reads chapter text directly from the original project folders and writes a
 plain static HTML site. No dependencies beyond the standard library.
@@ -25,21 +25,48 @@ GISCUS_CATEGORY_ID = "DIC_kwDOUA13lM4DD9qY"
 
 CHAPTER_RE = re.compile(r"^Chapter (\d+):\s*(.*)$", re.MULTILINE)
 
+# Some projects (e.g. Ship of the Line) spell chapter numbers out as words —
+# "Chapter One:", "Chapter Twenty-Seven:" — instead of digits.
+WORD_CHAPTER_RE = re.compile(r"^Chapter ([A-Za-z][A-Za-z-]*):\s*(.*)$", re.MULTILINE)
+
+_ONES = {
+    "one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7,
+    "eight": 8, "nine": 9, "ten": 10, "eleven": 11, "twelve": 12, "thirteen": 13,
+    "fourteen": 14, "fifteen": 15, "sixteen": 16, "seventeen": 17, "eighteen": 18,
+    "nineteen": 19,
+}
+_TENS = {
+    "twenty": 20, "thirty": 30, "forty": 40, "fifty": 50, "sixty": 60,
+    "seventy": 70, "eighty": 80, "ninety": 90,
+}
+
+
+def word_to_num(s):
+    """Parse a spelled-out chapter number ('TwentySeven', 'Twenty-Seven') to an int."""
+    s = re.sub(r"(?<=[a-z])(?=[A-Z])", "-", s).lower()
+    total = 0
+    for part in s.split("-"):
+        if part in _ONES:
+            total += _ONES[part]
+        elif part in _TENS:
+            total += _TENS[part]
+    return total
+
 
 def read(path):
     with open(path, encoding="utf-8") as f:
         return f.read()
 
 
-def split_chapters(text):
-    """Return (preamble, [(num, title, body), ...]) split on 'Chapter N: Title' lines."""
-    matches = list(CHAPTER_RE.finditer(text))
+def split_chapters(text, chapter_re=CHAPTER_RE, parse_num=int):
+    """Return (preamble, [(num, title, body), ...]) split on chapter-heading lines."""
+    matches = list(chapter_re.finditer(text))
     if not matches:
         return text.strip(), []
     preamble = text[: matches[0].start()].strip()
     chapters = []
     for i, m in enumerate(matches):
-        num = int(m.group(1))
+        num = parse_num(m.group(1))
         title = m.group(2).strip()
         start = m.end()
         end = matches[i + 1].start() if i + 1 < len(matches) else len(text)
@@ -368,7 +395,7 @@ def write(path, content):
 
 
 # ---------------------------------------------------------------------------
-# Story data: each entry describes how to load its source text.
+# O'Make Way, O'Malley! series data
 # ---------------------------------------------------------------------------
 
 STORIES = {
@@ -382,6 +409,7 @@ STORIES = {
         "mode": "dir",
         "dir": f"{OMWOM}/Dana/Chapters",
         "honest_trailer_file": "Honest Trailer.txt",
+        "download_author": "O'Malley",
     },
     "taylor": {
         "title": "Med Hard?",
@@ -392,6 +420,7 @@ STORIES = {
         "status_label": "Complete (29 chapters)",
         "mode": "dir",
         "dir": f"{OMWOM}/Taylor/Chapters",
+        "download_author": "O'Malley",
     },
     "greg": {
         "title": "Staff Infection",
@@ -402,6 +431,7 @@ STORIES = {
         "status_label": "Complete (40 chapters)",
         "mode": "combined",
         "file": f"{OMWOM}/Greg/O'Make Way for Greg - DRAFT.txt",
+        "download_author": "O'Malley",
     },
     "xander": {
         "title": "The Eye of the One Who Sees",
@@ -412,6 +442,7 @@ STORIES = {
         "status_label": "Complete (43 chapters)",
         "mode": "combined",
         "file": f"{OMWOM}/Xander/O'Make Way for Xander - DRAFT.txt",
+        "download_author": "O'Malley",
     },
 }
 
@@ -438,6 +469,32 @@ STUBS = {
 
 STORY_ORDER = ["dana", "taylor", "greg", "xander"]
 STUB_ORDER = ["bravestone", "girl-in-black", "varga"]
+
+# ---------------------------------------------------------------------------
+# Standalone works — single stories that don't belong to a numbered series,
+# so they skip the series-index/series-disclaimer wrapper pages and live
+# directly under standalone/{slug}/ instead of series/{series}/{slug}/.
+# ---------------------------------------------------------------------------
+
+STANDALONES = {
+    "ship-of-the-line": {
+        "title": "Ship of the Line - Convergence",
+        "series_name": "by Maestro",
+        "fandom": "Buffy the Vampire Slayer x Stargate SG-1 x Stargate Universe x No Man's Sky x The West Wing",
+        "blurb": "On Halloween, three costumes stop being costumes. Xander wakes up carrying Eli Wallace's memories and a future he hasn't lived yet; Buffy and Willow wake up not human anymore, at all, permanently. A dare from a costume shop turns into first contact with two governments, an Ancient warship, and whatever's left of who they used to be.",
+        "status": "complete",
+        "status_label": "Complete (27 chapters)",
+        "mode": "dir",
+        "dir": f"{ROOT}/Complete/Ship of the Line/Chapters",
+        "chapter_re": WORD_CHAPTER_RE,
+        "parse_num": word_to_num,
+        "chapter_file_exts": (".md",),
+        "uses_honest_trailer": False,
+        "download_author": "Maestro",
+    },
+}
+
+STANDALONE_ORDER = ["ship-of-the-line"]
 
 AI_DISCLOSURE_HTML = """
 <h2>Creative Process &amp; AI Disclosure</h2>
@@ -474,33 +531,69 @@ def build_toc(chapters, has_disclaimer, has_trailer, current_href):
     return "\n".join(parts)
 
 
-def build_story(slug, cfg):
-    base = f"{OUT}/series/omwom/{slug}"
-    root_rel = "../../.."
+def crumb_prefix(root_rel, series_slug, series_display_name, story_title):
+    """Breadcrumb prefix for a story's SUB-pages (disclaimer/chapter/full/etc),
+    where the story name is itself a link back to its own index."""
+    home = f'<a href="{root_rel}/index.html">Home</a> &raquo; '
+    if series_slug:
+        return (
+            home
+            + f'<a href="{root_rel}/series/{series_slug}/index.html">{html.escape(series_display_name)}</a> &raquo; '
+            + f'<a href="index.html">{html.escape(story_title)}</a>'
+        )
+    return home + f'<a href="index.html">{html.escape(story_title)}</a>'
+
+
+def crumb_prefix_plain(root_rel, series_slug, series_display_name, story_title):
+    """Breadcrumb for the story's OWN index page, where the story name is the
+    current (non-link) page and so renders as plain text."""
+    home = f'<a href="{root_rel}/index.html">Home</a> &raquo; '
+    if series_slug:
+        return (
+            home
+            + f'<a href="{root_rel}/series/{series_slug}/index.html">{html.escape(series_display_name)}</a> &raquo; '
+            + html.escape(story_title)
+        )
+    return home + html.escape(story_title)
+
+
+def build_story(slug, cfg, series_slug=None, series_display_name=None):
+    """Build one story's pages. series_slug=None means a standalone (no wrapping
+    series index/disclaimer page); otherwise nests under series/{series_slug}/{slug}."""
+    if series_slug:
+        base = f"{OUT}/series/{series_slug}/{slug}"
+        root_rel = "../../.."
+    else:
+        base = f"{OUT}/standalone/{slug}"
+        root_rel = "../.."
     download_href = f"{slug}.txt"
-    download_label = f"Download as text"
-    download_filename = f"O'Malley - {cfg['title']}.txt"
+    download_label = "Download as text"
+    download_filename = f"{cfg.get('download_author', 'Maestro')} - {cfg['title']}.txt"
+    uses_honest_trailer = cfg.get("uses_honest_trailer", True)
+    chapter_re = cfg.get("chapter_re", CHAPTER_RE)
+    parse_num = cfg.get("parse_num", int)
+    exts = cfg.get("chapter_file_exts", (".txt",))
 
     if cfg["mode"] == "dir":
         files = sorted(
             f for f in os.listdir(cfg["dir"])
-            if f.lower().endswith(".txt") and "chapter" in f.lower()
+            if f.lower().endswith(exts) and "chapter" in f.lower()
         )
         chapters = []
         ch0_body = None
-        preamble_fallback = None
+        preamble_for_ch1 = None
         for fname in files:
             text = read(f"{cfg['dir']}/{fname}")
-            preamble, parsed = split_chapters(text)
-            if preamble and preamble_fallback is None:
-                preamble_fallback = preamble
+            preamble, parsed = split_chapters(text, chapter_re, parse_num)
             for num, title, body in parsed:
                 if num == 0:
                     ch0_body = body
                 else:
                     chapters.append((num, title, body))
+            if preamble and any(num == 1 for num, _, _ in parsed):
+                preamble_for_ch1 = preamble
         if ch0_body is None:
-            ch0_body = preamble_fallback
+            ch0_body = preamble_for_ch1
         chapters.sort(key=lambda c: c[0])
         honest_trailer_standalone = None
         ht_file = cfg.get("honest_trailer_file")
@@ -512,7 +605,7 @@ def build_story(slug, cfg):
             honest_trailer_standalone = (ht_title, ht_body)
     else:
         text = read(cfg["file"])
-        preamble, parsed = split_chapters(text)
+        preamble, parsed = split_chapters(text, chapter_re, parse_num)
         ch0_body = None
         chapters = []
         for num, title, body in parsed:
@@ -522,16 +615,18 @@ def build_story(slug, cfg):
                 chapters.append((num, title, body))
         honest_trailer_standalone = None
 
-    # find in-sequence honest trailer chapter (Taylor/Greg/Xander)
+    # find in-sequence honest trailer chapter (used by some series, e.g. O'Make Way, O'Malley!)
     ht_inline_num = None
-    for num, title, body in chapters:
-        if "honest trailer" in title.lower():
-            ht_inline_num = num
-            break
+    if uses_honest_trailer:
+        for num, title, body in chapters:
+            if "honest trailer" in title.lower():
+                ht_inline_num = num
+                break
     has_trailer = honest_trailer_standalone is not None or ht_inline_num is not None
     has_disclaimer = ch0_body is not None
     ch0_body_clean = strip_ai_disclosure(ch0_body) if ch0_body else None
     toc_title = cfg["title"]
+    crumb_base = crumb_prefix(root_rel, series_slug, series_display_name, cfg["title"])
 
     # --- disclaimer page ---
     disclaimer_body_html = (
@@ -546,10 +641,8 @@ def build_story(slug, cfg):
     write(
         f"{base}/disclaimer.html",
         page(
-            f"{cfg['title']} \u2014 Disclaimer",
-            f'<a href="{root_rel}/index.html">Home</a> &raquo; '
-            f'<a href="{root_rel}/series/omwom/index.html">O\'Make Way, O\'Malley!</a> &raquo; '
-            f'<a href="index.html">{html.escape(cfg["title"])}</a> &raquo; Disclaimer',
+            f"{cfg['title']} — Disclaimer",
+            f"{crumb_base} &raquo; Disclaimer",
             f'<h1 class="chapter-title">Disclaimer &amp; Front Matter</h1>\n{ai_pointer_html}\n<div class="prose">{disclaimer_body_html}</div>'
             f'\n<nav class="chapter-nav"><a href="index.html">&larr; Back to story</a><span class="spacer"></span>'
             f'<a href="ch1.html">Start reading &rarr;</a></nav>',
@@ -574,25 +667,17 @@ def build_story(slug, cfg):
             next_link = '<a href="honest-trailer.html">Honest Trailer &rarr;</a>'
         else:
             next_link = '<a href="index.html">Back to story index</a>'
-        crumb = (
-            f'<a href="{root_rel}/index.html">Home</a> &raquo; '
-            f'<a href="{root_rel}/series/omwom/index.html">O\'Make Way, O\'Malley!</a> &raquo; '
-            f'<a href="index.html">{html.escape(cfg["title"])}</a> &raquo; Ch. {num}'
-        )
+        crumb = f"{crumb_base} &raquo; Ch. {num}"
         content = (
             f'<p class="meta">Chapter {num} of {n}</p>'
             f'<h1 class="chapter-title">{html.escape(title)}</h1>'
             f'<div class="prose">{body_html}</div>'
             f'<nav class="chapter-nav">{prev_link}<span class="spacer"><a href="index.html">Story index</a></span>{next_link}</nav>'
         )
-        write(f"{base}/ch{num}.html", page(f"{cfg['title']} \u2014 Ch. {num}: {title}", crumb, content, root_rel, download_href, download_label, build_toc(chapters, has_disclaimer, has_trailer, f"ch{num}.html"), toc_title, download_filename, True, True))
+        write(f"{base}/ch{num}.html", page(f"{cfg['title']} — Ch. {num}: {title}", crumb, content, root_rel, download_href, download_label, build_toc(chapters, has_disclaimer, has_trailer, f"ch{num}.html"), toc_title, download_filename, True, True))
         if num == ht_inline_num:
             # duplicate as the dedicated Honest Trailer page for the story->trailer->fic click path
-            ht_crumb = (
-                f'<a href="{root_rel}/index.html">Home</a> &raquo; '
-                f'<a href="{root_rel}/series/omwom/index.html">O\'Make Way, O\'Malley!</a> &raquo; '
-                f'<a href="index.html">{html.escape(cfg["title"])}</a> &raquo; Honest Trailer'
-            )
+            ht_crumb = f"{crumb_base} &raquo; Honest Trailer"
             ht_content = (
                 f'<p class="meta">Honest Trailer</p>'
                 f'<h1 class="chapter-title">{html.escape(title)}</h1>'
@@ -600,16 +685,12 @@ def build_story(slug, cfg):
                 f'<nav class="chapter-nav"><a href="index.html">&larr; Back to story</a><span class="spacer"></span>'
                 f'<a href="ch1.html">Start from Chapter 1 &rarr;</a></nav>'
             )
-            write(f"{base}/honest-trailer.html", page(f"{cfg['title']} \u2014 Honest Trailer", ht_crumb, ht_content, root_rel, download_href, download_label, build_toc(chapters, has_disclaimer, has_trailer, "honest-trailer.html"), toc_title, download_filename, True))
+            write(f"{base}/honest-trailer.html", page(f"{cfg['title']} — Honest Trailer", ht_crumb, ht_content, root_rel, download_href, download_label, build_toc(chapters, has_disclaimer, has_trailer, "honest-trailer.html"), toc_title, download_filename, True))
 
     if honest_trailer_standalone:
         ht_title, ht_body = honest_trailer_standalone
         ht_body_html = body_to_html(ht_body)
-        crumb = (
-            f'<a href="{root_rel}/index.html">Home</a> &raquo; '
-            f'<a href="{root_rel}/series/omwom/index.html">O\'Make Way, O\'Malley!</a> &raquo; '
-            f'<a href="index.html">{html.escape(cfg["title"])}</a> &raquo; Honest Trailer'
-        )
+        crumb = f"{crumb_base} &raquo; Honest Trailer"
         content = (
             f'<p class="meta">Honest Trailer</p>'
             f'<h1 class="chapter-title">{html.escape(ht_title)}</h1>'
@@ -617,10 +698,10 @@ def build_story(slug, cfg):
             f'<nav class="chapter-nav"><a href="index.html">&larr; Back to story</a><span class="spacer"></span>'
             f'<a href="ch1.html">Start from Chapter 1 &rarr;</a></nav>'
         )
-        write(f"{base}/honest-trailer.html", page(f"{cfg['title']} \u2014 Honest Trailer", crumb, content, root_rel, download_href, download_label, build_toc(chapters, has_disclaimer, has_trailer, "honest-trailer.html"), toc_title, download_filename, True))
+        write(f"{base}/honest-trailer.html", page(f"{cfg['title']} — Honest Trailer", crumb, content, root_rel, download_href, download_label, build_toc(chapters, has_disclaimer, has_trailer, "honest-trailer.html"), toc_title, download_filename, True))
 
     # --- plain-text download ---
-    txt_parts = [cfg["title"], cfg["series_name"], ""]
+    txt_parts = [cfg["title"], cfg.get("series_name") or "", ""]
     if ch0_body_clean:
         txt_parts.append(ch0_body_clean.strip())
         txt_parts.append("")
@@ -659,26 +740,24 @@ def build_story(slug, cfg):
         + "".join(full_sections)
         + '<nav class="chapter-nav"><a href="index.html">&larr; Back to story index</a><span class="spacer"></span><a href="#">&uarr; Top</a></nav>'
     )
-    full_crumb = (
-        f'<a href="{root_rel}/index.html">Home</a> &raquo; '
-        f'<a href="{root_rel}/series/omwom/index.html">O\'Make Way, O\'Malley!</a> &raquo; '
-        f'<a href="index.html">{html.escape(cfg["title"])}</a> &raquo; Full text'
-    )
+    full_crumb = f"{crumb_base} &raquo; Full text"
     write(
         f"{base}/full.html",
         page(f"{cfg['title']} — Full Text", full_crumb, full_content, root_rel, download_href, download_label, build_toc(chapters, has_disclaimer, has_trailer, "full.html"), toc_title, download_filename, True),
     )
 
     # --- story index page ---
-    trailer_html = (
-        f'<p><a href="honest-trailer.html"><strong>&#9658; Read the Honest Trailer</strong></a> (a spoiler-heavy, trailer-voice bonus bit &mdash; read it before or after, your call)</p>'
-        if has_trailer
-        else '<p class="stub-note">No Honest Trailer written for this entry yet.</p>'
-    )
+    if has_trailer:
+        trailer_html = '<p><a href="honest-trailer.html"><strong>&#9658; Read the Honest Trailer</strong></a> (a spoiler-heavy, trailer-voice bonus bit &mdash; read it before or after, your call)</p>'
+    elif uses_honest_trailer:
+        trailer_html = '<p class="stub-note">No Honest Trailer written for this entry yet.</p>'
+    else:
+        trailer_html = ""
     badge_class = "complete" if cfg["status"] == "complete" else "progress"
+    subtitle_html = f'<p class="subtitle">{html.escape(cfg["series_name"])}</p>' if cfg.get("series_name") else ""
     content = f"""
 <h1>{html.escape(cfg['title'])}</h1>
-<p class="subtitle">{html.escape(cfg['series_name'])}</p>
+{subtitle_html}
 <p class="meta"><span class="badge {badge_class}">{html.escape(cfg['status_label'])}</span></p>
 <p class="fandom">{html.escape(cfg['fandom'])}</p>
 <p>{html.escape(cfg['blurb'])}</p>
@@ -689,12 +768,9 @@ def build_story(slug, cfg):
 <p><a href="{download_href}" download="{html.escape(download_filename)}">&#11015; Download as text</a></p>
 <p class="stub-note">Full chapter list is in the &ldquo;Chapters&rdquo; panel, right edge of the screen.</p>
 """
-    crumb = (
-        f'<a href="{root_rel}/index.html">Home</a> &raquo; '
-        f'<a href="{root_rel}/series/omwom/index.html">O\'Make Way, O\'Malley!</a> &raquo; {html.escape(cfg["title"])}'
-    )
+    crumb = crumb_prefix_plain(root_rel, series_slug, series_display_name, cfg["title"])
     write(f"{base}/index.html", page(cfg["title"], crumb, content, root_rel, download_href, download_label, build_toc(chapters, has_disclaimer, has_trailer, "index.html"), toc_title, download_filename, False, True))
-    return has_trailer
+    return {"has_trailer": has_trailer, "base_href": (f"series/{series_slug}/{slug}" if series_slug else f"standalone/{slug}")}
 
 
 def build_stub(slug, cfg):
@@ -776,14 +852,18 @@ def build_series_disclaimer():
 <p>All of it is fan work, offered freely, for love of the source material, and to Rob O'Make O'Malley, who does not, as far as anyone can prove, actually exist, and who would very much like it kept that way. Any use of this by the copyright owner(s) is freely offered, without expectation of compensation (although a small token of appreciation would be appreciated).</p>
 <p><a href="index.html">&larr; Back to O'Make Way, O'Malley!</a></p>
 """
-    write(f"{OUT}/series/omwom/disclaimer.html", page("O'Make Way, O'Malley! \u2014 General Disclaimer", f'<a href="{root_rel}/index.html">Home</a> &raquo; <a href="index.html">O\'Make Way, O\'Malley!</a> &raquo; Disclaimer', content, root_rel))
+    write(f"{OUT}/series/omwom/disclaimer.html", page("O'Make Way, O'Malley! — General Disclaimer", f'<a href="{root_rel}/index.html">Home</a> &raquo; <a href="index.html">O\'Make Way, O\'Malley!</a> &raquo; Disclaimer', content, root_rel))
 
 
-def build_disclaimers_hub(story_trailer_map):
+def build_disclaimers_hub():
     root_rel = ".."
     story_links = "\n".join(
         f'<li><a href="{root_rel}/series/omwom/{slug}/disclaimer.html">{html.escape(STORIES[slug]["title"])}</a> &mdash; {html.escape(STORIES[slug]["fandom"])}</li>'
         for slug in STORY_ORDER
+    )
+    standalone_links = "\n".join(
+        f'<li><a href="{root_rel}/standalone/{slug}/disclaimer.html">{html.escape(STANDALONES[slug]["title"])}</a> &mdash; {html.escape(STANDALONES[slug]["fandom"])}</li>'
+        for slug in STANDALONE_ORDER
     )
     content = f"""
 <h1>Please Read This First</h1>
@@ -797,6 +877,7 @@ def build_disclaimers_hub(story_trailer_map):
 <p>Each story below crosses its own specific properties and carries its own ownership notice on its own disclaimer page:</p>
 <ul>
 {story_links}
+{standalone_links}
 </ul>
 <p><a href="{root_rel}/index.html">&larr; Back to the front page</a></p>
 """
@@ -804,7 +885,18 @@ def build_disclaimers_hub(story_trailer_map):
 
 
 def build_home():
-    content = """
+    standalone_cards = []
+    for slug in STANDALONE_ORDER:
+        cfg = STANDALONES[slug]
+        badge_class = "complete" if cfg["status"] == "complete" else "progress"
+        standalone_cards.append(f"""
+<li class="card">
+  <h3><a class="title-link" href="standalone/{slug}/index.html">{html.escape(cfg['title'])}</a></h3>
+  <p class="fandom">{html.escape(cfg['fandom'])}</p>
+  <p><span class="badge {badge_class}">{html.escape(cfg['status_label'])}</span></p>
+  <p>{html.escape(cfg['blurb'])}</p>
+</li>""")
+    content = f"""
 <h1>Maestro's Fanfic Archive</h1>
 <p class="subtitle">a home for the stories, series by series</p>
 <div class="readme-callout chrome">
@@ -818,6 +910,10 @@ def build_home():
     <p>ROB O'Make O'Malley drops a person or fictional character into someone else's mind as a permanent passenger. Every entry is its own standalone pairing, its own continuity, its own fandom crossover.</p>
   </li>
 </ul>
+<h2 class="chrome" style="font-size:1.2rem; margin-top:2rem;">Standalones</h2>
+<ul class="card-list">
+{''.join(standalone_cards)}
+</ul>
 """
     write(f"{OUT}/index.html", page("Maestro's Fanfic Archive", 'Home', content, "."))
 
@@ -825,14 +921,15 @@ def build_home():
 def main():
     write(f"{OUT}/css/style.css", CSS)
     write(f"{OUT}/js/site.js", SITE_JS)
-    trailer_map = {}
     for slug in STORY_ORDER:
-        trailer_map[slug] = build_story(slug, STORIES[slug])
+        build_story(slug, STORIES[slug], series_slug="omwom", series_display_name="O'Make Way, O'Malley!")
     for slug in STUB_ORDER:
         build_stub(slug, STUBS[slug])
+    for slug in STANDALONE_ORDER:
+        build_story(slug, STANDALONES[slug])
     build_series_index(STORIES)
     build_series_disclaimer()
-    build_disclaimers_hub(trailer_map)
+    build_disclaimers_hub()
     build_home()
     print("Build complete ->", OUT)
 
