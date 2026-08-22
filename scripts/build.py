@@ -18,7 +18,7 @@ OUT = f"{ROOT}/Website/docs"
 # and https://giscus.app has generated the repo-id/category-id for you.
 # Until GISCUS_REPO is set, comment sections render a "not wired up yet" note
 # instead of the live widget, so the build never ships a broken embed.
-GISCUS_REPO = "scottpowell558-crypto/O-Malley"
+GISCUS_REPO = "Maestro-fanfic/O-Malley"
 GISCUS_REPO_ID = "R_kgDOUA13lA"
 GISCUS_CATEGORY = "Announcements"
 GISCUS_CATEGORY_ID = "DIC_kwDOUA13lM4DD9qY"
