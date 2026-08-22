@@ -653,14 +653,16 @@ SERIES = {
                 "title": "O'Make Way for Bonesaw",
                 "subtitle": "scrapped by this author, open to someone braver",
                 "fandom": "Worm",
-                "blurb": "An original-character passenger, a child-trauma therapist (working name Dr. Mara Ellison), meets Riley Grace Davis, better known as Bonesaw. Abandoned by this author: the sustained close-POV dread of the opening stopped being something I could enjoy writing, before the worst of the material was even reached.",
+                "blurb": "An original-character passenger, a child-trauma therapist (working name Dr. Mara Ellison), meets Riley Grace Davis, better known as Bonesaw.",
+                "why_note": "I got partway into this one, and had to stop. The sustained close-POV dread of the opening wasn't something I could enjoy writing anymore, and that was true before the story had even reached the worst of the material it was heading toward. I don't expect that to change, so this one isn't mine to finish.",
                 "adoptable": True,
             },
             "jack-slash": {
                 "title": "O'Make Way for Jack Slash",
                 "subtitle": "scrapped by this author, open to someone braver",
                 "fandom": "The Silence of the Lambs x Worm",
-                "blurb": "Clarice Starling and/or Hannibal Lecter, dropped into Jack Slash of the Slaughterhouse Nine. Abandoned alongside Bonesaw: the series' only two Slaughterhouse Nine-tied entries, and the Nine turned out to be off the table for this author entirely, not just this one driver.",
+                "blurb": "Clarice Starling and/or Hannibal Lecter, dropped into Jack Slash of the Slaughterhouse Nine.",
+                "why_note": "I never started this one. It was shelved alongside Bonesaw before any outline work began: both are Slaughterhouse Nine-tied entries, and the Nine turned out to be off the table for me entirely, not just for this particular driver. If the Hannibal Lecter/Clarice Starling passenger concept appeals to someone else with a different, non-Nine driver in mind, that's a related but genuinely new entry, not a repair of this one.",
                 "adoptable": True,
             },
             "regent": {
@@ -1321,12 +1323,18 @@ def build_stub(series_slug, series_name, slug, cfg):
         badge_class = "dev"
         badge_label = "In development &mdash; not yet drafted"
         stub_note = "This entry hasn't been written yet. Check back later."
+    why_note_html = (
+        f'<p class="stub-note"><strong>Why it\'s here:</strong> {html.escape(cfg["why_note"])}</p>'
+        if cfg.get("why_note")
+        else ""
+    )
     content = f"""
 <h1>{html.escape(cfg['title'])}</h1>
 <p class="subtitle">{html.escape(cfg['subtitle'])}</p>
 <p class="meta"><span class="badge {badge_class}">{badge_label}</span></p>
 <p class="fandom">{html.escape(cfg['fandom'])}</p>
 <p>{html.escape(cfg['blurb'])}</p>
+{why_note_html}
 <p class="stub-note">{stub_note}</p>
 """
     write(f"{OUT}/series/{series_slug}/{slug}/index.html", page(cfg["title"], crumb, content, root_rel))
