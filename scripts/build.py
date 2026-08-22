@@ -10,7 +10,7 @@ import os
 
 ROOT = "C:/Users/thela/Downloads/Fanfic"
 OMWOM = f"{ROOT}/O'Make Way, O'Malley!"
-OUT = f"{ROOT}/Website/site"
+OUT = f"{ROOT}/Website/docs"
 
 # Comments are powered by giscus (github.com/giscus/giscus), backed by GitHub
 # Discussions on whatever repo ends up hosting this site. Fill these in once
