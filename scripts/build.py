@@ -101,7 +101,7 @@ def body_to_html(body):
         para = para.strip()
         if not para:
             continue
-        if re.fullmatch(r"\*\s*\*\s*\*", para) or re.fullmatch(r"-{3,}", para):
+        if re.fullmatch(r"\*\s*\*\s*\*", para) or re.fullmatch(r"-{3,}", para) or re.fullmatch(r"⁂\s*⁂\s*⁂", para):
             out.append('<p class="scenebreak">&#10035;</p>')
             continue
         esc = html.escape(para, quote=False)
