@@ -90,6 +90,7 @@ h1.chapter-title { font-size: 1.5rem; }
 .badge.complete { color: #2f6b3a; border-color:#2f6b3a44; }
 .badge.progress { color: #a3730f; border-color:#a3730f44; }
 .badge.dev { color: var(--muted); }
+.badge.revision { color: #a3401f; border-color:#a3401f44; }
 .card-list { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:1rem; }
 .card {
   position: relative; border:1px solid var(--border); border-radius:10px; padding:1rem 1.1rem;

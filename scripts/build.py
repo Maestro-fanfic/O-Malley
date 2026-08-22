@@ -7,6 +7,7 @@ plain static HTML site. No dependencies beyond the standard library.
 import re
 import html
 import os
+import shutil
 
 ROOT = "C:/Users/thela/Downloads/Fanfic"
 OMWOM = f"{ROOT}/O'Make Way, O'Malley!"
@@ -299,6 +300,7 @@ h1.chapter-title { font-size: 1.5rem; }
 .badge.complete { color: #2f6b3a; border-color:#2f6b3a44; }
 .badge.progress { color: #a3730f; border-color:#a3730f44; }
 .badge.dev { color: var(--muted); }
+.badge.revision { color: #a3401f; border-color:#a3401f44; }
 .card-list { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:1rem; }
 .card {
   position: relative; border:1px solid var(--border); border-radius:10px; padding:1rem 1.1rem;
@@ -483,6 +485,7 @@ SERIES = {
                 "dir": f"{CW_IN_PROGRESS}/O'Make Way, O'Malley!/You Got to Have Faith/Chapters",
                 "honest_trailer_file": f"{CW_IN_PROGRESS}/O'Make Way, O'Malley!/You Got to Have Faith/Chapters/Honest Trailer.txt",
                 "download_author": "O'Malley",
+                "pulled": True,
             },
             "taylor": {
                 "title": "Med Hard?",
@@ -494,6 +497,7 @@ SERIES = {
                 "mode": "combined",
                 "file": f"{CW_COMPLETE}/O'Make Way, O'Malley!/Book 3 - Med Hard/Manuscript.txt",
                 "download_author": "O'Malley",
+                "pulled": True,
             },
             "greg": {
                 "title": "Staff Infection",
@@ -516,6 +520,7 @@ SERIES = {
                 "mode": "combined",
                 "file": f"{CW_COMPLETE}/O'Make Way, O'Malley!/Book 1 - The Eye of the One Who Sees/Manuscript.txt",
                 "download_author": "O'Malley",
+                "pulled": True,
             },
         },
         "story_order": ["dana", "taylor", "greg", "xander"],
@@ -566,6 +571,7 @@ SERIES = {
                 "parse_num": word_to_num,
                 "pov_re": JUMPER_POV_RE,
                 "download_author": "Maestro",
+                "pulled": True,
             },
             "reach": {
                 "title": "Reach",
@@ -581,6 +587,7 @@ SERIES = {
                 "parse_num": word_to_num,
                 "pov_re": JUMPER_POV_RE,
                 "download_author": "Maestro",
+                "pulled": True,
             },
             "contact": {
                 "title": "Contact",
@@ -596,6 +603,7 @@ SERIES = {
                 "parse_num": word_to_num,
                 "pov_re": JUMPER_POV_RE,
                 "download_author": "Maestro",
+                "pulled": True,
             },
         },
         "story_order": ["momentum", "reach", "contact"],
@@ -625,6 +633,7 @@ SERIES = {
                 "chapter_re": SOTL_CHAPTER_RE,
                 "parse_num": word_to_num,
                 "download_author": "Maestro",
+                "pulled": True,
             },
         },
         "story_order": ["convergence"],
@@ -661,6 +670,7 @@ SERIES = {
                 "honest_trailer_file": f"{CW_COMPLETE}/Working for the Weekend/Book 1 - Bridge Over Troubled Water/Honest Trailer.md",
                 "chapter_re": WFTW_CHAPTER_RE,
                 "download_author": "Maestro",
+                "pulled": True,
             },
             "book2": {
                 "title": "Resonance",
@@ -674,6 +684,7 @@ SERIES = {
                 "honest_trailer_file": f"{CW_COMPLETE}/Working for the Weekend/Book 2 - Resonance/Honest Trailer.md",
                 "chapter_re": WFTW_CHAPTER_RE,
                 "download_author": "Maestro",
+                "pulled": True,
             },
             "book3": {
                 "title": "Baseline",
@@ -687,6 +698,7 @@ SERIES = {
                 "honest_trailer_file": f"{CW_COMPLETE}/Working for the Weekend/Book 3 - Baseline/Honest Trailer.md",
                 "chapter_re": WFTW_CHAPTER_RE,
                 "download_author": "Maestro",
+                "pulled": True,
             },
             "book4": {
                 "title": "Threshold",
@@ -700,6 +712,7 @@ SERIES = {
                 "honest_trailer_file": f"{CW_COMPLETE}/Working for the Weekend/Book 4 - Threshold/Honest Trailer.md",
                 "chapter_re": WFTW_CHAPTER_RE,
                 "download_author": "Maestro",
+                "pulled": True,
             },
         },
         "story_order": ["book1", "book2", "book3", "book4"],
@@ -728,6 +741,7 @@ SERIES = {
                 "honest_trailer_file": f"{CW_COMPLETE}/The Hell-er-Nator/Book 3.5 - Blind Alley/Honest Trailer.md",
                 "chapter_re": HELLERNATOR_CHAPTER_RE,
                 "download_author": "Maestro",
+                "pulled": True,
             },
             "hard-reset": {
                 "title": "Hard Reset",
@@ -741,6 +755,7 @@ SERIES = {
                 "honest_trailer_file": f"{CW_COMPLETE}/The Hell-er-Nator/Book 4 - Hard Reset/Honest Trailer.md",
                 "chapter_re": HELLERNATOR_CHAPTER_RE,
                 "download_author": "Maestro",
+                "pulled": True,
             },
         },
         "story_order": ["blind-alley", "hard-reset"],
@@ -771,6 +786,7 @@ SERIES = {
                 "chapter_re": WORD_CHAPTER_RE,
                 "parse_num": word_to_num,
                 "download_author": "Maestro",
+                "pulled": True,
             },
             "recognition": {
                 "title": "Recognition",
@@ -785,6 +801,7 @@ SERIES = {
                 "chapter_re": WORD_CHAPTER_RE,
                 "parse_num": word_to_num,
                 "download_author": "Maestro",
+                "pulled": True,
             },
         },
         "story_order": ["freefall", "recognition"],
@@ -815,6 +832,7 @@ STANDALONES = {
         "chapter_re": SOTL_CHAPTER_RE,
         "parse_num": word_to_num,
         "download_author": "Maestro",
+        "pulled": True,
     },
     "wood-it-work": {
         "title": "Wood It Work: Book 2 — Wardrobes and Would-Work",
@@ -827,6 +845,7 @@ STANDALONES = {
         "file": f"{CW_COMPLETE}/Wood It Work/Book 2 - Wardrobes and Would-Work/Manuscript.txt",
         "honest_trailer_file": f"{CW_COMPLETE}/Wood It Work/Book 2 - Wardrobes and Would-Work/Honest Trailer.md",
         "download_author": "Maestro",
+        "pulled": True,
     },
 }
 
@@ -1125,6 +1144,33 @@ def build_story(slug, cfg, series_slug=None, series_display_name=None):
     return {"has_trailer": has_trailer, "base_href": (f"series/{series_slug}/{slug}" if series_slug else f"standalone/{slug}")}
 
 
+def build_pulled(slug, cfg, series_slug=None, series_display_name=None):
+    """Build a placeholder page for a story that's been pulled offline for a
+    revision pass. Wipes any previously-generated chapter/full-text/download
+    files for this story first, so a stale reading copy can't linger on the
+    live site after the story config flips "pulled": True."""
+    if series_slug:
+        base = f"{OUT}/series/{series_slug}/{slug}"
+        root_rel = "../../.."
+    else:
+        base = f"{OUT}/standalone/{slug}"
+        root_rel = "../.."
+    if os.path.isdir(base):
+        shutil.rmtree(base)
+    crumb = crumb_prefix_plain(root_rel, series_slug, series_display_name, cfg["title"])
+    subtitle_html = f'<p class="subtitle">{html.escape(cfg["series_name"])}</p>' if cfg.get("series_name") else ""
+    content = f"""
+<h1>{html.escape(cfg['title'])}</h1>
+{subtitle_html}
+<p class="meta"><span class="badge revision">Currently undergoing revision</span></p>
+<p class="fandom">{html.escape(cfg['fandom'])}</p>
+<p>{html.escape(cfg['blurb'])}</p>
+<p class="stub-note">This story has been pulled offline for a revision pass and isn't currently posted for reading. Check back later.</p>
+"""
+    write(f"{base}/index.html", page(cfg["title"], crumb, content, root_rel))
+    return {"has_trailer": False, "base_href": (f"series/{series_slug}/{slug}" if series_slug else f"standalone/{slug}")}
+
+
 def build_stub(series_slug, series_name, slug, cfg):
     root_rel = "../../.."
     crumb = (
@@ -1147,12 +1193,16 @@ def build_series_index(series_slug, info):
     cards = []
     for slug in info["story_order"]:
         cfg = info["stories"][slug]
-        badge_class = "complete" if cfg["status"] == "complete" else "progress"
+        if cfg.get("pulled"):
+            badge_html = '<span class="badge revision">Currently undergoing revision</span>'
+        else:
+            badge_class = "complete" if cfg["status"] == "complete" else "progress"
+            badge_html = f'<span class="badge {badge_class}">{html.escape(cfg["status_label"])}</span>'
         cards.append(f"""
 <li class="card">
   <h3><a class="title-link" href="{slug}/index.html">{html.escape(cfg['title'])}</a></h3>
   <p class="fandom">{html.escape(cfg['fandom'])}</p>
-  <p><span class="badge {badge_class}">{html.escape(cfg['status_label'])}</span></p>
+  <p>{badge_html}</p>
   <p>{html.escape(cfg['blurb'])}</p>
 </li>""")
     for slug in info.get("stub_order", []):
@@ -1216,12 +1266,12 @@ def build_disclaimers_hub():
         else ""
     )
     story_links = "\n".join(
-        f'<li><a href="{root_rel}/series/{series_slug}/{slug}/disclaimer.html">{html.escape(cfg["title"])}</a> &mdash; {html.escape(cfg["fandom"])}</li>'
+        f'<li><a href="{root_rel}/series/{series_slug}/{slug}/{"index" if cfg.get("pulled") else "disclaimer"}.html">{html.escape(cfg["title"])}</a> &mdash; {html.escape(cfg["fandom"])}</li>'
         for series_slug in SERIES_ORDER
         for slug, cfg in SERIES[series_slug]["stories"].items()
     )
     standalone_links = "\n".join(
-        f'<li><a href="{root_rel}/standalone/{slug}/disclaimer.html">{html.escape(STANDALONES[slug]["title"])}</a> &mdash; {html.escape(STANDALONES[slug]["fandom"])}</li>'
+        f'<li><a href="{root_rel}/standalone/{slug}/{"index" if STANDALONES[slug].get("pulled") else "disclaimer"}.html">{html.escape(STANDALONES[slug]["title"])}</a> &mdash; {html.escape(STANDALONES[slug]["fandom"])}</li>'
         for slug in STANDALONE_ORDER
     )
     content = f"""
@@ -1306,12 +1356,16 @@ def build_home():
     standalone_cards = []
     for slug in STANDALONE_ORDER:
         cfg = STANDALONES[slug]
-        badge_class = "complete" if cfg["status"] == "complete" else "progress"
+        if cfg.get("pulled"):
+            badge_html = '<span class="badge revision">Currently undergoing revision</span>'
+        else:
+            badge_class = "complete" if cfg["status"] == "complete" else "progress"
+            badge_html = f'<span class="badge {badge_class}">{html.escape(cfg["status_label"])}</span>'
         standalone_cards.append(f"""
 <li class="card">
   <h3><a class="title-link" href="standalone/{slug}/index.html">{html.escape(cfg['title'])}</a></h3>
   <p class="fandom">{html.escape(cfg['fandom'])}</p>
-  <p><span class="badge {badge_class}">{html.escape(cfg['status_label'])}</span></p>
+  <p>{badge_html}</p>
   <p>{html.escape(cfg['blurb'])}</p>
 </li>""")
     content = f"""
@@ -1341,13 +1395,21 @@ def main():
     for series_slug in SERIES_ORDER:
         info = SERIES[series_slug]
         for slug in info["story_order"]:
-            build_story(slug, info["stories"][slug], series_slug=series_slug, series_display_name=info["name"])
+            cfg = info["stories"][slug]
+            if cfg.get("pulled"):
+                build_pulled(slug, cfg, series_slug=series_slug, series_display_name=info["name"])
+            else:
+                build_story(slug, cfg, series_slug=series_slug, series_display_name=info["name"])
         for slug in info.get("stub_order", []):
             build_stub(series_slug, info["name"], slug, info["stubs"][slug])
         build_series_index(series_slug, info)
         build_series_disclaimer(series_slug, info)
     for slug in STANDALONE_ORDER:
-        build_story(slug, STANDALONES[slug])
+        cfg = STANDALONES[slug]
+        if cfg.get("pulled"):
+            build_pulled(slug, cfg)
+        else:
+            build_story(slug, cfg)
     build_disclaimers_hub()
     build_about()
     build_home()
