@@ -301,6 +301,7 @@ h1.chapter-title { font-size: 1.5rem; }
 .badge.progress { color: #a3730f; border-color:#a3730f44; }
 .badge.dev { color: var(--muted); }
 .badge.revision { color: #a3401f; border-color:#a3401f44; }
+.badge.adopt { color: #1f6b8f; border-color:#1f6b8f44; }
 .card-list { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:1rem; }
 .card {
   position: relative; border:1px solid var(--border); border-radius:10px; padding:1rem 1.1rem;
@@ -646,7 +647,14 @@ SERIES = {
                 "subtitle": "subtitle undecided",
                 "fandom": "Marvel Cinematic Universe x 24",
                 "blurb": "Deadpool, chaotic and never not narrating his own story, meets Jack Bauer, a man with zero patience for banter and every scene on a countdown clock.",
-                "concept_stage": True,
+                "adoptable": True,
+            },
+            "bonesaw": {
+                "title": "O'Make Way for Bonesaw",
+                "subtitle": "scrapped by this author, open to someone braver",
+                "fandom": "Worm",
+                "blurb": "An original-character passenger, a child-trauma therapist (working name Dr. Mara Ellison), meets Riley Grace Davis, better known as Bonesaw. Abandoned by this author: the sustained close-POV dread of the opening stopped being something I could enjoy writing, before the worst of the material was even reached.",
+                "adoptable": True,
             },
             "regent": {
                 "title": "O'Make Way for Regent",
@@ -660,7 +668,7 @@ SERIES = {
             "bravestone", "girl-in-black", "varga",
             "clockblocker", "tattletale", "grue", "independence-day", "lung",
             "dragon", "armsmaster", "connor", "phil", "sarah", "kiera",
-            "winger", "bourne", "mikes", "jack-bauer", "regent",
+            "winger", "bourne", "mikes", "jack-bauer", "bonesaw", "regent",
         ],
     },
     "jumper": {
@@ -1294,16 +1302,22 @@ def build_stub(series_slug, series_name, slug, cfg):
         f'<a href="{root_rel}/index.html">Home</a> &raquo; '
         f'<a href="{root_rel}/series/{series_slug}/index.html">{html.escape(series_name)}</a> &raquo; {html.escape(cfg["title"])}'
     )
-    if cfg.get("concept_stage"):
+    if cfg.get("adoptable"):
+        badge_class = "adopt"
+        badge_label = "Open for adoption"
+        stub_note = "This one's up for grabs: identified, but not something this author expects to ever complete. Per Rule 9a, anyone's welcome to run with it under the series' standard credit and disclaimer terms. Say a word first if you're claiming it, so it doesn't get built twice."
+    elif cfg.get("concept_stage"):
+        badge_class = "dev"
         badge_label = "Currently in concept stage"
         stub_note = "This entry is still in the concept stage: the pairing (and sometimes not even that) is identified, but no outline or draft exists yet. Check back later."
     else:
+        badge_class = "dev"
         badge_label = "In development &mdash; not yet drafted"
         stub_note = "This entry hasn't been written yet. Check back later."
     content = f"""
 <h1>{html.escape(cfg['title'])}</h1>
 <p class="subtitle">{html.escape(cfg['subtitle'])}</p>
-<p class="meta"><span class="badge dev">{badge_label}</span></p>
+<p class="meta"><span class="badge {badge_class}">{badge_label}</span></p>
 <p class="fandom">{html.escape(cfg['fandom'])}</p>
 <p>{html.escape(cfg['blurb'])}</p>
 <p class="stub-note">{stub_note}</p>
@@ -1330,12 +1344,17 @@ def build_series_index(series_slug, info):
 </li>""")
     for slug in info.get("stub_order", []):
         cfg = info["stubs"][slug]
-        stub_badge_label = "Currently in concept stage" if cfg.get("concept_stage") else "In development"
+        if cfg.get("adoptable"):
+            stub_badge_class, stub_badge_label = "adopt", "Open for adoption"
+        elif cfg.get("concept_stage"):
+            stub_badge_class, stub_badge_label = "dev", "Currently in concept stage"
+        else:
+            stub_badge_class, stub_badge_label = "dev", "In development"
         cards.append(f"""
 <li class="card">
   <h3><a class="title-link" href="{slug}/index.html">{html.escape(cfg['title'])}</a></h3>
   <p class="fandom">{html.escape(cfg['fandom'])}</p>
-  <p><span class="badge dev">{stub_badge_label}</span></p>
+  <p><span class="badge {stub_badge_class}">{stub_badge_label}</span></p>
   <p>{html.escape(cfg['blurb'])}</p>
 </li>""")
     disclaimer_link = (
