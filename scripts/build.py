@@ -7,8 +7,6 @@ plain static HTML site. No dependencies beyond the standard library.
 import re
 import html
 import os
-import zipfile
-from html.parser import HTMLParser
 
 ROOT = "C:/Users/thela/Downloads/Fanfic"
 OMWOM = f"{ROOT}/O'Make Way, O'Malley!"
@@ -25,11 +23,11 @@ GISCUS_REPO_ID = "R_kgDOUA13lA"
 GISCUS_CATEGORY = "Announcements"
 GISCUS_CATEGORY_ID = "DIC_kwDOUA13lM4DD9qY"
 
-CHAPTER_RE = re.compile(r"^Chapter (\d+):\s*(.*)$", re.MULTILINE)
+CHAPTER_RE = re.compile(r"^Chapter (\d+):[ \t]*(.*)$", re.MULTILINE)
 
 # Some projects (e.g. Ship of the Line) spell chapter numbers out as words —
 # "Chapter One:", "Chapter Twenty-Seven:" — instead of digits.
-WORD_CHAPTER_RE = re.compile(r"^Chapter ([A-Za-z][A-Za-z-]*):\s*(.*)$", re.MULTILINE)
+WORD_CHAPTER_RE = re.compile(r"^Chapter ([A-Za-z][A-Za-z-]*):[ \t]*(.*)$", re.MULTILINE)
 
 _ONES = {
     "one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7,
@@ -74,117 +72,6 @@ def split_chapters(text, chapter_re=CHAPTER_RE, parse_num=int):
         end = matches[i + 1].start() if i + 1 < len(matches) else len(text)
         body = text[start:end].strip()
         chapters.append((num, title, body))
-    return preamble, chapters
-
-
-class _ParagraphExtractor(HTMLParser):
-    """Pull <p>...</p> text out of a simple XHTML chapter file, converting
-    <em>/<i> and <strong>/<b> to the *word*/**word** markers body_to_html()
-    already understands, so EPUB-sourced chapters flow through the same
-    plain-text pipeline as everything else."""
-
-    def __init__(self):
-        super().__init__(convert_charrefs=True)
-        self.paragraphs = []
-        self._buf = None
-
-    def handle_starttag(self, tag, attrs):
-        if tag == "p":
-            self._buf = []
-        elif self._buf is not None:
-            if tag in ("em", "i"):
-                self._buf.append("*")
-            elif tag in ("strong", "b"):
-                self._buf.append("**")
-            elif tag == "br":
-                self._buf.append("\n")
-
-    def handle_endtag(self, tag):
-        if tag == "p" and self._buf is not None:
-            text = "".join(self._buf).strip()
-            if text:
-                self.paragraphs.append(text)
-            self._buf = None
-        elif self._buf is not None:
-            if tag in ("em", "i"):
-                self._buf.append("*")
-            elif tag in ("strong", "b"):
-                self._buf.append("**")
-
-    def handle_data(self, data):
-        # collapse the source XHTML's own line-wrapping whitespace so it doesn't
-        # get mistaken for an intentional <br>; real <br> tags are handled above
-        if self._buf is not None:
-            self._buf.append(re.sub(r"\s+", " ", data))
-
-
-class _H1Extractor(HTMLParser):
-    """Pull the text of the first <h1> out of a simple XHTML file."""
-
-    def __init__(self):
-        super().__init__(convert_charrefs=True)
-        self.h1 = None
-        self._in_h1 = False
-        self._buf = []
-
-    def handle_starttag(self, tag, attrs):
-        if tag == "h1" and self.h1 is None:
-            self._in_h1 = True
-            self._buf = []
-
-    def handle_endtag(self, tag):
-        if tag == "h1" and self._in_h1:
-            self.h1 = "".join(self._buf).strip()
-            self._in_h1 = False
-
-    def handle_data(self, data):
-        if self._in_h1:
-            self._buf.append(re.sub(r"\s+", " ", data))
-
-
-def epub_paragraphs(raw_xhtml):
-    p = _ParagraphExtractor()
-    p.feed(raw_xhtml)
-    return p.paragraphs
-
-
-def epub_h1(raw_xhtml):
-    p = _H1Extractor()
-    p.feed(raw_xhtml)
-    return p.h1
-
-
-def load_epub_chapters(epub_path, chapter_pattern=r"chapter0*(\d+)\.x?html$", title_pattern=r"title\.x?html$"):
-    """Return (preamble_text_or_None, [(num, title, body), ...]) from an EPUB's
-    XHTML chapter files. Each chapter's title is just 'Chapter N' (this format
-    doesn't give chapters their own subtitle); body paragraphs are joined with
-    blank lines to match the plain-text convention split_chapters()/
-    body_to_html() already expect."""
-    chapter_re = re.compile(chapter_pattern, re.IGNORECASE)
-    title_re = re.compile(title_pattern, re.IGNORECASE)
-    with zipfile.ZipFile(epub_path) as z:
-        names = z.namelist()
-        chapter_files = []
-        title_file = None
-        for name in names:
-            m = chapter_re.search(name)
-            if m:
-                chapter_files.append((int(m.group(1)), name))
-            elif title_re.search(name) and title_file is None:
-                title_file = name
-        chapter_files.sort(key=lambda t: t[0])
-        chapters = []
-        for num, name in chapter_files:
-            raw = z.read(name).decode("utf-8")
-            body = "\n\n".join(epub_paragraphs(raw))
-            chapters.append((num, f"Chapter {num}", body))
-        preamble = None
-        if title_file:
-            raw = z.read(title_file).decode("utf-8")
-            h1 = epub_h1(raw)
-            paras = epub_paragraphs(raw)
-            parts = ([h1] if h1 else []) + paras
-            preamble = "\n\n".join(parts) if parts else None
     return preamble, chapters
 
 
@@ -486,6 +373,7 @@ def page(title, breadcrumb, body, root_rel="../../..", download_href=None, downl
     <div class="header-controls">
       {textsize_html}
       {download_html}
+      <a href="{root_rel}/about/index.html">About the Author</a>
       <a href="{root_rel}/disclaimers/index.html">Please Read This First</a>
     </div>
   </div>
@@ -612,8 +500,8 @@ STANDALONES = {
         "blurb": "A continuation of dogbertcarroll's Wood It Work, picking up at Chapter 26. Xander, Willow, Jesse, and the household built around one very unusual workshop door keep finding new worlds on the other side of it, including a water-scarce desert culture mid-treaty negotiation and whatever King Then'tal's court actually wants from them.",
         "status": "complete",
         "status_label": "Complete (57 chapters, numbered 26–82)",
-        "mode": "epub",
-        "epub": f"{ROOT}/Wood it Work/Wood_It_Work_Book_2_Wardrobes_and_Would-Work.epub",
+        "mode": "combined",
+        "file": f"{ROOT}/Wood it Work/Wood It Work - Book 2 - Wardrobes and Would-Work.txt",
         "uses_honest_trailer": False,
         "download_author": "Maestro",
     },
@@ -728,13 +616,6 @@ def build_story(slug, cfg, series_slug=None, series_display_name=None):
             ht_title = raw[:first_nl].strip() if first_nl != -1 else raw
             ht_body = raw[first_nl:].strip() if first_nl != -1 else ""
             honest_trailer_standalone = (ht_title, ht_body)
-    elif cfg["mode"] == "epub":
-        ch0_body, chapters = load_epub_chapters(
-            cfg["epub"],
-            chapter_pattern=cfg.get("epub_chapter_pattern", r"chapter0*(\d+)\.x?html$"),
-            title_pattern=cfg.get("epub_title_pattern", r"title\.x?html$"),
-        )
-        honest_trailer_standalone = None
     else:
         text = read(cfg["file"])
         preamble, parsed = split_chapters(text, chapter_re, parse_num)
@@ -745,7 +626,13 @@ def build_story(slug, cfg, series_slug=None, series_display_name=None):
                 ch0_body = body
             else:
                 chapters.append((num, title, body))
+        if ch0_body is None and preamble:
+            ch0_body = preamble
         honest_trailer_standalone = None
+
+    # some books' chapters carry no individual title, just a number — fall back
+    # to "Chapter N" as the display title rather than leaving it blank
+    chapters = [(num, title if title else f"Chapter {num}", body) for num, title, body in chapters]
 
     # find in-sequence honest trailer chapter (used by some series, e.g. O'Make Way, O'Malley!)
     ht_inline_num = None
@@ -1018,6 +905,56 @@ def build_disclaimers_hub():
     write(f"{OUT}/disclaimers/index.html", page("Please Read This First", '<a href="../index.html">Home</a> &raquo; Please Read This First', content, root_rel))
 
 
+def build_about():
+    root_rel = ".."
+    content = """
+<h1>The Author Who Wouldn&#x27;t Shut Up About It</h1>
+<p class="subtitle">an origin story, honest-trailer style</p>
+<div class="prose">
+
+<h2 class="chrome" style="font-size:1.2rem;">Watch as he...</h2>
+<p>Tries obsessively, for the better part of a century, to write believable prose of any kind</p>
+<p>Fails miserably, time after time</p>
+<p>Attends workshops, seminars, even one-on-ones with published authors</p>
+<p>Keeps failing miserably</p>
+<p>And finally, after decades, concludes he&#x27;s just incapable of doing it. <em>&ldquo;I mean, I had to get there eventually.&rdquo;</em></p>
+
+<h2 class="chrome" style="font-size:1.2rem; margin-top:2rem;">Marvel as he...</h2>
+<p>Breaks every rule made by man, nature, physics, and common decency, just to make his obsession bear fruit he&#x27;ll actually enjoy reading</p>
+<p>Uses a personal mantra as his mission statement. <em>&ldquo;Well, yeah. &lsquo;Find the funny&rsquo; is kind of catchy when you think about it.&rdquo;</em></p>
+<p>Mocks everything in the universe: things that are real, things that are made up, characters from any fandom that catches his interest, the actors who play them, and&hellip; himself</p>
+
+<h2 class="chrome" style="font-size:1.2rem; margin-top:2rem;">Featuring him...</h2>
+<p>Picking up a tool that draws nothing but pitchforks from half the writing community</p>
+<p>Not giving a single fuck about any of it</p>
+<p>Defending that choice loudly, repeatedly, at a length nobody asked for</p>
+<p>Refusing, categorically, to back down</p>
+
+<h2 class="chrome" style="font-size:1.2rem; margin-top:2rem;">Starring...</h2>
+<p>One (1) revolving door</p>
+<p>One entire cast encompassing every character that ever existed, passing through it&hellip; and a few that only existed in a fever-dream</p>
+<p>One (?) Omnipotent Being</p>
+<p>One (1) all-time favorite author, Steven Gould, without whom none of this would exist</p>
+<p>and</p>
+<p>One intent to mock anyone who disagrees with that opinion</p>
+
+<h2 class="chrome" style="font-size:1.2rem; margin-top:2rem;">Be astounded by...</h2>
+<p>A writing style that imitates someone who imitates something else already</p>
+<p><em>(Seriously, those guys over at Screen Junkies are fucking incredible. Major props to them.)</em></p>
+
+</div>
+"""
+    write(
+        f"{OUT}/about/index.html",
+        page(
+            "About the Author — Maestro's Fanfic Archive",
+            '<a href="../index.html">Home</a> &raquo; About the Author',
+            content,
+            root_rel,
+        ),
+    )
+
+
 def build_home():
     standalone_cards = []
     for slug in STANDALONE_ORDER:
@@ -1064,6 +1001,7 @@ def main():
     build_series_index(STORIES)
     build_series_disclaimer()
     build_disclaimers_hub()
+    build_about()
     build_home()
     print("Build complete ->", OUT)
 
