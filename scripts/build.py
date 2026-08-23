@@ -662,7 +662,7 @@ SERIES = {
                 "subtitle": "scrapped by this author, open to someone braver",
                 "fandom": "The Silence of the Lambs x Worm",
                 "blurb": "Clarice Starling and/or Hannibal Lecter, dropped into Jack Slash of the Slaughterhouse Nine.",
-                "why_note": "I never started this one. It was shelved alongside Bonesaw before any outline work began: both are Slaughterhouse Nine-tied entries, and the Nine turned out to be off the table for me entirely, not just for this particular driver. If the Hannibal Lecter/Clarice Starling passenger concept appeals to someone else with a different, non-Nine driver in mind, that's a related but genuinely new entry, not a repair of this one.",
+                "why_note": "I never started this one. It was shelved alongside Bonesaw before any outline work began: both are Slaughterhouse Nine-tied entries, and the Nine turned out to be off the table for me entirely, I wasn't strong enough to write what was essentially a slasher film. If the Hannibal Lecter/Clarice Starling passenger concept appeals to someone else with a different, non-Nine driver in mind, that's a related but genuinely new entry, not a repair of this one.",
                 "adoptable": True,
             },
             "regent": {
