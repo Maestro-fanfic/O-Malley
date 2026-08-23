@@ -654,7 +654,7 @@ SERIES = {
                 "subtitle": "scrapped by this author, open to someone braver",
                 "fandom": "Worm",
                 "blurb": "An original-character passenger, a child-trauma therapist (working name Dr. Mara Ellison), meets Riley Grace Davis, better known as Bonesaw.",
-                "why_note": "I got partway into this one, and had to stop. The sustained close-POV dread of the opening wasn't something I could enjoy writing anymore, and that was true before the story had even reached the worst of the material it was heading toward. I don't expect that to change, so this one isn't mine to finish.",
+                "why_note": "I actually attempted this one, got all the way to prose, and still couldn't continue: the sustained close-POV dread of the opening wasn't something I could enjoy writing anymore, and that was true before the story had even reached the worst of the material it was heading toward. That draft no longer exists; everything was deleted at my own request, and I don't expect that to change, so this one isn't mine to finish.",
                 "adoptable": True,
             },
             "jack-slash": {
