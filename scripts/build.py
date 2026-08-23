@@ -705,7 +705,6 @@ SERIES = {
                 "parse_num": word_to_num,
                 "pov_re": JUMPER_POV_RE,
                 "download_author": "Maestro",
-                "pulled": True,
             },
             "reach": {
                 "title": "Reach",
@@ -721,7 +720,6 @@ SERIES = {
                 "parse_num": word_to_num,
                 "pov_re": JUMPER_POV_RE,
                 "download_author": "Maestro",
-                "pulled": True,
             },
             "contact": {
                 "title": "Contact",
@@ -737,7 +735,6 @@ SERIES = {
                 "parse_num": word_to_num,
                 "pov_re": JUMPER_POV_RE,
                 "download_author": "Maestro",
-                "pulled": True,
             },
         },
         "story_order": ["momentum", "reach", "contact"],
