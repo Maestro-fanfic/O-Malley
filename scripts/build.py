@@ -687,7 +687,7 @@ SERIES = {
         "home_blurb": "The next generation of jumpers, picking up after Exo, following the same multi-POV first-person structure the source novels use.",
         "intro_html": """
 <p>A continuation set directly in Steven Gould's own <em>Jumper</em> universe, following <em>Exo</em> (2014), matching the multi-POV first-person structure <em>Impulse</em> and <em>Exo</em> both use, and slotting into the series' one-word-physics-term naming pattern: <em>Jumper, Reflex, Impulse, Exo, Momentum, Reach, Contact</em>. Chapters are headed by whichever character's POV that chapter belongs to, quoting their own opening line as the chapter's title.</p>
-<p>Follows Cent, Millie, and Davy, the next generation of jumpers, as the ability stops being anyone's private secret. A light crossover element runs through <em>Momentum</em>: Dan Truman, NASA's Director of Flight Crew Operations from the film <em>Armageddon</em> (1998), appears as an actual character on the mission-command side of the story, not just an homage.</p>
+<p>Follows Cent, Millie, and Davy, the next generation of jumpers, as the ability stops being anyone's private secret. A light crossover element runs through <em>Momentum</em>: characters from <em>The Core</em>, <em>Armageddon</em>, and a book by Drew Goddard. Deliberately kept vague.</p>
 """,
         "disclaimer_html": None,
         "stories": {
