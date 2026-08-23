@@ -1314,7 +1314,7 @@ def build_stub(series_slug, series_name, slug, cfg):
     if cfg.get("adoptable"):
         badge_class = "adopt"
         badge_label = "Open for adoption"
-        stub_note = "This one's up for grabs: identified, but not something this author expects to ever complete. Per Rule 9a, anyone's welcome to run with it under the series' standard credit and disclaimer terms. Say a word first if you're claiming it, so it doesn't get built twice."
+        stub_note = "This one's up for grabs: identified, but not something this author expects to ever complete. Per Rule 9a, anyone's welcome to run with it under the series' standard credit and disclaimer terms. Say a word first if you're claiming it, so it doesn't get built twice, the last thing we need is an extra pair of psychopaths wandering around."
     elif cfg.get("concept_stage"):
         badge_class = "dev"
         badge_label = "Currently in concept stage"
