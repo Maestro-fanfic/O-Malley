@@ -520,7 +520,6 @@ SERIES = {
                 "mode": "combined",
                 "file": f"{CW_COMPLETE}/O'Make Way, O'Malley!/Book 1 - The Eye of the One Who Sees/Manuscript.txt",
                 "download_author": "O'Malley",
-                "pulled": True,
             },
             "varga": {
                 "title": "O'Make Way for Varga",
