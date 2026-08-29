@@ -1529,9 +1529,6 @@ def build_home():
     content = f"""
 <h1>Maestro's Fanfic Archive</h1>
 <p class="subtitle">a home for the stories, series by series</p>
-<div class="prose">
-{ABOUT_SECTIONS_HTML}
-</div>
 <div class="readme-callout chrome" style="margin-top:2rem;">
   <p>New here? <a href="disclaimers/index.html">Please read this first</a> &mdash; how these stories get written, what they are and aren't, and the specific disclaimers for each series and story.</p>
 </div>
