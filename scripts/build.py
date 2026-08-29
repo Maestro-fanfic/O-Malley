@@ -533,7 +533,7 @@ SERIES = {
                 "download_author": "O'Malley",
             },
         },
-        "story_order": ["dana", "taylor", "greg", "xander", "varga"],
+        "story_order": ["xander", "greg", "taylor", "dana", "varga"],
         "stubs": {
             "bravestone": {
                 "title": "O'Make Way for Bravestone",
