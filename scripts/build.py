@@ -498,7 +498,6 @@ SERIES = {
                 "mode": "combined",
                 "file": f"{CW_COMPLETE}/O'Make Way, O'Malley!/Book 3 - Med Hard/Manuscript.txt",
                 "download_author": "O'Malley",
-                "pulled": True,
             },
             "greg": {
                 "title": "Staff Infection",
@@ -523,8 +522,20 @@ SERIES = {
                 "download_author": "O'Malley",
                 "pulled": True,
             },
+            "varga": {
+                "title": "O'Make Way for Varga",
+                "series_name": "a very meta O'Make, adjacent to the numbered series",
+                "fandom": "Taylor Varga (by mp3.1415player) x O'Make Way, O'Malley! itself",
+                "blurb": "Not a driver/passenger insertion at all: characters from an existing, independently-authored fanfic get pulled into the Gallery itself, and Mr. O'Malley retroactively claims credit for an inciting event that may or may not have been his to begin with.",
+                "status": "complete",
+                "status_label": "Complete (6 chapters)",
+                "mode": "combined",
+                "file": f"{CW_IN_PROGRESS}/O'Make Way, O'Malley!/Varga/Current Draft.txt",
+                "uses_honest_trailer": False,
+                "download_author": "O'Malley",
+            },
         },
-        "story_order": ["dana", "taylor", "greg", "xander"],
+        "story_order": ["dana", "taylor", "greg", "xander", "varga"],
         "stubs": {
             "bravestone": {
                 "title": "O'Make Way for Bravestone",
@@ -537,12 +548,6 @@ SERIES = {
                 "subtitle": "subtitle undecided",
                 "fandom": "Men in Black (1997) x Worm",
                 "blurb": "A rare reversal: Taylor Hebert, pulled out of her locker before her trigger event completes, becomes the passenger riding shotgun in a young NYPD officer who hasn't been recruited into the Men in Black yet.",
-            },
-            "varga": {
-                "title": "O'Make Way for Varga",
-                "subtitle": "a very meta O'Make, adjacent to the numbered series",
-                "fandom": "Taylor Varga (by mp3.1415player) x O'Make Way, O'Malley! itself",
-                "blurb": "Not a driver/passenger insertion at all: characters from an existing, independently-authored fanfic get pulled into the Gallery itself, and Mr. O'Malley retroactively claims credit for an inciting event that may or may not have been his to begin with.",
             },
             "clockblocker": {
                 "title": "O'Make Way for Clockblocker",
@@ -674,7 +679,7 @@ SERIES = {
             },
         },
         "stub_order": [
-            "bravestone", "girl-in-black", "varga",
+            "bravestone", "girl-in-black",
             "clockblocker", "tattletale", "grue", "independence-day", "lung",
             "dragon", "armsmaster", "connor", "phil", "sarah", "kiera",
             "winger", "bourne", "mikes", "jack-bauer", "bonesaw", "jack-slash", "regent",
