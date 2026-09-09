@@ -781,7 +781,7 @@ SERIES = {
                 "fandom": "Buffy the Vampire Slayer x Superman/DC x Stargate SG-1 x The West Wing x Star Trek",
                 "blurb": "Future Xander sent Ethan Rayne back with warning of a Goa'uld invasion and a desperate plan: make one Halloween transformation permanent. The world now has a young Superman, a crashed Enterprise, and only months to turn foreknowledge into a defense that does not depend on one teenager saving everyone alone.",
                 "status": "complete",
-                "status_label": "Complete (24 chapters, numbered 14–38)",
+                "status_label": "Complete (24 chapters, numbered 14–37)",
                 "mode": "combined",
                 "file": f"{CW_COMPLETE}/Ship of the Line/New Guard/Manuscript.txt",
                 "chapter_re": NEW_GUARD_CHAPTER_RE,
@@ -1088,6 +1088,8 @@ def build_story(slug, cfg, series_slug=None, series_display_name=None):
     else:
         base = f"{OUT}/standalone/{slug}"
         root_rel = "../.."
+    if os.path.isdir(base):
+        shutil.rmtree(base)
     download_href = f"{slug}.txt"
     download_label = "Download as text"
     download_filename = f"{cfg.get('download_author', 'Maestro')} - {cfg['title']}.txt"
