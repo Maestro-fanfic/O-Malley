@@ -79,6 +79,12 @@ JUMPER_POV_RE = re.compile(r'^([A-Z][a-zA-Z\']+)(?:\s*\(?POV\)?)?:\s')
 # "Chapter " prefix and case-insensitive number words.
 SOTL_CHAPTER_RE = re.compile(rf"^Chapter ({_NUMBER_WORD_PATTERN})\n+(.+)$", re.MULTILINE | re.IGNORECASE)
 
+# New Guard continues an older story at Chapter 14 and uses a mix of bare
+# headings, colon titles, and dash titles.
+NEW_GUARD_CHAPTER_RE = re.compile(
+    r"^Chapter (\d+)(?:\s*(?::|[—–-])\s*)?(.*)$", re.MULTILINE
+)
+
 # Working for the Weekend numbers each chapter redundantly ("13. Chapter 13")
 # with no title text of its own; the trailing empty group keeps this the same
 # (num, title) shape split_chapters expects, falling back to "Chapter N".
@@ -528,7 +534,7 @@ SERIES = {
                 "status": "complete",
                 "status_label": "Complete (6 chapters)",
                 "mode": "combined",
-                "file": f"{CW_IN_PROGRESS}/O'Make Way, O'Malley!/Varga/Current Draft.txt",
+                "file": f"{CW_COMPLETE}/O'Make Way, O'Malley!/Varga/Manuscript.txt",
                 "uses_honest_trailer": False,
                 "download_author": "O'Malley",
             },
@@ -769,14 +775,27 @@ SERIES = {
                 "download_author": "Maestro",
                 "pulled": True,
             },
+            "new-guard": {
+                "title": "New Guard",
+                "series_name": "entry two; a continuation of New Guard by Methos",
+                "fandom": "Buffy the Vampire Slayer x Superman/DC x Stargate SG-1 x The West Wing x Star Trek",
+                "blurb": "Future Xander sent Ethan Rayne back with warning of a Goa'uld invasion and a desperate plan: make one Halloween transformation permanent. The world now has a young Superman, a crashed Enterprise, and only months to turn foreknowledge into a defense that does not depend on one teenager saving everyone alone.",
+                "status": "complete",
+                "status_label": "Complete (24 chapters, numbered 14–38)",
+                "mode": "combined",
+                "file": f"{CW_COMPLETE}/Ship of the Line/New Guard/Manuscript.txt",
+                "chapter_re": NEW_GUARD_CHAPTER_RE,
+                "download_author": "Maestro",
+                "uses_honest_trailer": False,
+            },
         },
-        "story_order": ["convergence"],
+        "story_order": ["convergence", "new-guard"],
         "stubs": {
             "city-who-fought": {
                 "title": "Ship of the Line: The City Who Fought (working title)",
-                "subtitle": "entry two, subtitle undecided",
+                "subtitle": "entry three, subtitle undecided",
                 "fandom": "Buffy the Vampire Slayer x The City Who Fought (Anne McCaffrey & S.M. Stirling)",
-                "blurb": "A second answer to Zaion's “Ship of the Line” challenge. Not yet started; further details to come.",
+                "blurb": "A third answer to Zaion's “Ship of the Line” challenge. Not yet started; further details to come.",
             },
         },
         "stub_order": ["city-who-fought"],
