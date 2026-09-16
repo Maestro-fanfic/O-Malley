@@ -79,6 +79,13 @@ JUMPER_POV_RE = re.compile(r'^([A-Z][a-zA-Z\']+)(?:\s*\(?POV\)?)?:\s')
 # "Chapter " prefix and case-insensitive number words.
 SOTL_CHAPTER_RE = re.compile(rf"^Chapter ({_NUMBER_WORD_PATTERN})\n+(.+)$", re.MULTILINE | re.IGNORECASE)
 
+# Rewritten Ship of the Line manuscripts use Markdown headings with the
+# chapter number and title on one line ("## Chapter Twenty-One: New Terms").
+MARKDOWN_SOTL_CHAPTER_RE = re.compile(
+    rf"^##\s+Chapter ({_NUMBER_WORD_PATTERN}):\s*(.+)$",
+    re.MULTILINE | re.IGNORECASE,
+)
+
 # New Guard continues an older story at Chapter 14 and uses a mix of bare
 # headings, colon titles, and dash titles.
 NEW_GUARD_CHAPTER_RE = re.compile(
@@ -763,17 +770,17 @@ SERIES = {
             "convergence": {
                 "title": "Ship of the Line - Convergence",
                 "series_name": "entry one",
-                "fandom": "Buffy the Vampire Slayer x Stargate SG-1 x Stargate Universe x No Man's Sky x The West Wing",
-                "blurb": "On Halloween, three costumes stop being costumes. Xander wakes up carrying Eli Wallace's memories and a future he hasn't lived yet; Buffy and Willow wake up not human anymore, at all, permanently. A dare from a costume shop turns into first contact with two governments, an Ancient warship, and whatever's left of who they used to be.",
+                "fandom": "Buffy the Vampire Slayer x Stargate",
+                "blurb": "On Halloween, Janus opens a doorway instead of creating an illusion. For a few hours, Xander Harris becomes the bridge to Eli Wallace aboard the real Destiny—and Eli recognizes Earth outside the window. What begins with waking Colonel Young and contacting Stargate Command forces two governments, the Watchers Council, and a god of thresholds to reckon with what comes next.",
                 "status": "complete",
-                "status_label": "Complete (27 chapters)",
+                "status_label": "Complete (59 chapters)",
                 "mode": "combined",
                 "file": f"{CW_COMPLETE}/Ship of the Line/Convergence/Manuscript.txt",
-                "honest_trailer_file": f"{CW_COMPLETE}/Ship of the Line/Convergence/Honest Trailer.md",
-                "chapter_re": SOTL_CHAPTER_RE,
+                "chapter_re": MARKDOWN_SOTL_CHAPTER_RE,
                 "parse_num": word_to_num,
                 "download_author": "Maestro",
-                "pulled": True,
+                "uses_honest_trailer": False,
+                "discard_preamble": True,
             },
             "new-guard": {
                 "title": "New Guard",
@@ -1123,6 +1130,8 @@ def build_story(slug, cfg, series_slug=None, series_display_name=None):
     else:
         text = read(cfg["file"])
         preamble, parsed = split_chapters(text, chapter_re, parse_num)
+        if cfg.get("discard_preamble"):
+            preamble = ""
         ch0_body = None
         chapters = []
         for num, title, body in parsed:
