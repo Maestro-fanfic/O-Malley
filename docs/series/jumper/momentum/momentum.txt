@@ -8,7 +8,7 @@ Momentum
 
 
 
-Chapter 1: Cent: It worked once. That's not the same as knowing it works.
+Chapter 1: Cent (POV): It worked once. That's not the same as knowing it works.
 
 
 
@@ -192,7 +192,7 @@ I'd known, since the PAM-D, that it wasn't a fluke. Now Joe's shaking hands were
 
 
 
-Chapter 2: Cent: This is free. No fuel. No reaction mass.
+Chapter 2: Cent (POV): This is free. No fuel. No reaction mass.
 
 
 
@@ -240,7 +240,7 @@ The change went out clean, a small flat shove delivered by my whole braced body,
 
 "Give me the second one, then."
 
-The second was bigger: a Delta-K upper stage, dead weight north of six hundred kilos, close enough in class to the PAM-D that some part of me relaxed just recognizing the shape of it, the same kind of tank-and-nozzle silhouette, the same rust-orange thermal blanket gone brittle and peeling after however many years up here. I set my shoulder and forearms across the nozzle housing, hands locking the position rather than supplying the force, and changed us the same way I had the CubeSat, no more effort behind it, no less.
+The second was bigger: a Delta-K upper stage, dead weight north of six hundred kilos, close enough in class to the PAM-D that some part of me relaxed at the familiar tank-and-nozzle silhouette, the same rust-orange thermal blanket gone brittle and peeling after however many years up here. I set my shoulder and forearms across the nozzle housing, hands locking the position rather than supplying the force, and changed us the same way I had the CubeSat, no more effort behind it, no less.
 
 The kickback nearly took my arm out of the socket.
 
@@ -248,7 +248,7 @@ Not injury. Not even close to what it would take to actually hurt me. But there 
 
 "You okay?" Sterling, fast.
 
-"Fine. Just... bigger pushes back harder. Which, yes, I know, that's the whole idea of mass, I'm not being profound. I mean it's not free. Whatever this is, it costs something on my end too, and the cost scales with what I'm pushing."
+"Fine. Just... bigger pushes back harder. Which, yes, I know, that's what mass means, I'm not being profound. I mean it's not free. Whatever this is, it costs something on my end too, and the cost scales with what I'm pushing."
 
 "Noted." A beat. "Third candidate's a Cosmos fragment, small, similar mass to your first. Repeat run, if you want it."
 
@@ -256,7 +256,7 @@ I did. Two quick pushes on the same object, thirty seconds apart, both clean, bo
 
 I wasn't burning anything to do this.
 
-No propellant. No reaction mass thrown the other way to buy my half of the equation. Every satellite Apex Orbital had ever nudged into a better orbit, every dead thing Sterling's catalog had ever needed moved off a collision course, every gram of fuel anybody had ever budgeted for doing that kind of work from the ground: all of it existed because moving mass in space normally costs mass. You throw something one way to go the other way. That was the whole tyranny of the rocket equation, the thing that made every mission planner's life miserable, the reason a satellite's usable life ended the day its station-keeping fuel ran dry, not the day its electronics failed.
+No propellant. No reaction mass thrown the other way to buy my half of the equation. Every satellite Apex Orbital had ever nudged into a better orbit, every dead thing Sterling's catalog had ever needed moved off a collision course, every gram of fuel anybody had ever budgeted for doing that kind of work from the ground: all of it existed because moving mass in space normally costs mass. You throw something one way to go the other way. The rocket equation was a tyrant that made every mission planner's life miserable, the reason a satellite's usable life ended the day its station-keeping fuel ran dry, not the day its electronics failed.
 
 I didn't have that problem. I had never had that problem. I'd just never stood still long enough to notice I didn't have it.
 
@@ -314,13 +314,13 @@ I let him steer me toward the galley, my shoulder aching in a way that felt, abs
 
 
 
-Chapter 3: Cent: Two kicks. Same object, different frames, no falloff between them.
+Chapter 3: Cent (POV): Two kicks. Same object, different frames, no falloff between them.
 
 
 
 Apex Orbital ran on ordinary Tuesdays too, same as Kristen Station did, and most of them looked nothing like a tank breaking loose or a general handing over live tracking data on debris nobody else was allowed to touch. Most of them looked like invoices.
 
-"You're billing this as a standard mitigation pass," Dad said, over the business line, going through the week's paperwork the way he did every Monday morning with the particular thoroughness of a man who'd spent years making sure nothing about this family left a trail that could be used against it later. "Same rate as the Iridium job in March?"
+"You're billing this as a standard mitigation pass," Dad said, over the business line, going through the week's paperwork as meticulously as he did every Monday morning. He'd spent years making sure nothing about this family left a trail that could be used against it later. "Same rate as the Iridium job in March?"
 
 "Same rate. It's the same kind of work. Coordinates, jump, push, confirm. I don't charge more just because I understand it better than I used to."
 
@@ -414,7 +414,7 @@ Every push, the same. Every correction, the same. No falloff at ten kicks. No fa
 
 
 
-Chapter 4: Cent: I know I don't have any right to ask, but...
+Chapter 4: Cent (POV): I know I don't have any right to ask, but...
 
 
 
@@ -452,7 +452,7 @@ Grebenchekov looked smaller in a hospital bed than he had floating free in a sui
 
 "You're heavier than the garbage. Bigger vote of confidence."
 
-That got a real laugh out of him, short, and it cost him something; I watched it cost him something, a small wince he tried to fold into the laugh and didn't quite manage. I pulled a chair over instead of standing across the bed from him like a doctor would, and Nolan, with the tact of a woman who'd clearly done this exact quiet exit before, found something urgent to attend to down the hall.
+That got a real laugh out of him, short, and it cost him something; I watched it cost him something, a small wince he tried to fold into the laugh and didn't quite manage. I pulled a chair over instead of standing across the bed from him like a doctor would. Nolan had clearly made this kind of tactful exit before; she found something urgent to attend to down the hall.
 
 "How bad," I said, once we were alone.
 
@@ -502,7 +502,7 @@ I hung up and stood there a minute in my own kitchen, thinking about Grebencheko
 
 
 
-Chapter 5: Cent: I keep running out of places to brace.
+Chapter 5: Cent (POV): I keep running out of places to brace.
 
 
 
@@ -558,7 +558,7 @@ Another silence, and when he came back his voice had a different quality to it e
 
 
 
-Chapter 6: Sterling: Wait, you can do what?
+Chapter 6: Sterling (POV): Wait, you can do what?
 
 
 
@@ -644,7 +644,7 @@ When I finished, there was a silence on his end long enough that I checked the c
 
 "I've had weeks with the test numbers and about forty minutes with what they imply. I'm not sure I fully understand it yet. I understand enough to know it's real, and I understand enough to know we can't sit on it."
 
-"No," he agreed. "We can't." I heard him exhale, long, the sound of a man recalibrating an entire career's worth of assumptions in real time. "I've spent thirty years watching this country throw obscene amounts of money and worse amounts of grief at the simple problem of getting mass from one place to another against a gravity well. If what you're telling me is real, that problem just stopped being the problem."
+"No," he agreed. "We can't." He exhaled slowly, recalibrating an entire career's worth of assumptions in real time. "I've spent thirty years watching this country throw obscene amounts of money and worse amounts of grief at hauling mass from one place to another against a gravity well. If what you're telling me is real, that problem just stopped being the problem."
 
 "That's what I keep arriving at too."
 
@@ -656,11 +656,11 @@ When I finished, there was a silence on his end long enough that I checked the c
 
 "I think," I said, "given everything, it's probably going to be a lot of both, for a long time."
 
-"Good," Truman said, decision settling into his voice, the sound of a man who'd just found the thing he'd apparently been waiting his whole career to be handed. "Set it up. Whatever she needs. What you already told her was right. We'll build every bit of it."
+"Good," Truman said, decision settling into his voice. He'd apparently just found the thing he'd been waiting his whole career to be handed. "Set it up. Whatever she needs. What you already told her was right. We'll build every bit of it."
 
 
 
-Chapter 7: Cent: Cent! Are you okay?
+Chapter 7: Cent (POV): Cent! Are you okay?
 
 
 
@@ -682,13 +682,13 @@ It was my idea to push harder. NASA didn't ask me to do it. We'd established the
 
 Nobody told me not to, because nobody knew what I was about to try.
 
-I spread my body across two improvised points the way I'd been doing for a month, hands locking the brace in place, and instead of the calibrated change I'd been metering out, enough to move it, not more, I put everything into it, the actual ceiling of whatever it is I do, no holding back.
+I spread my body across two improvised points the way I'd been doing for a month, hands locking the brace in place, and instead of the calibrated change I'd been metering out, enough to move it, not more, I pushed as hard as I could, reaching for whatever ceiling this thing had. No holding back.
 
 The satellite bus went where I sent it, hard and fast and exactly on the vector I'd aimed, and for about a tenth of a second that felt like victory.
 
 Then the kickback arrived, and it did not arrive gently.
 
-It felt like getting hit by a car. Not metaphorically: I've been hit by a car, once, years back, testing a suit prototype that failed worse than the car did, and this had the same quality of violence to it, total and immediate and entirely too fast for me to do anything graceful about. My own follow-up correction landed late and sloppy, and I came out of it with my shoulder wrenched hard enough that I felt it in my teeth and my wrist bent somewhere it wasn't built to bend, and I actually cried out, which I don't do, which scared everybody listening a lot more than the injury itself probably warranted.
+It felt like getting hit by a car. Not metaphorically: I've been hit by a car, once, years back, testing a suit prototype that failed worse than the car did, and this hit with the same total, immediate violence, entirely too fast for me to do anything graceful about. My own follow-up correction landed late and sloppy, and I came out of it with my shoulder wrenched hard enough that I felt it in my teeth and my wrist bent somewhere it wasn't built to bend, and I actually cried out, which I don't do, which scared everybody listening a lot more than the injury itself probably warranted.
 
 "Cent!" That was Truman, and I didn't know his voice yet, not really, we'd spoken maybe twice, but there was no missing what was in it. Not procedure. Not a checklist. A man who'd forgotten, for one full second, that he was supposed to sound like NASA. "Cent! Are you okay?"
 
@@ -754,7 +754,7 @@ I thought about the wall I'd just found, and the number Cory couldn't quite say 
 
 
 
-Chapter 8: Cent: We've got eleven thousand people at NASA. Let us help.
+Chapter 8: Cent (POV): We've got eleven thousand people at NASA. Let us help.
 
 
 
@@ -816,13 +816,13 @@ Sitting there with four strangers who'd stopped being strangers somewhere in the
 
 * * *
 
-Cory walked me out to the parking lot afterward, in no hurry, hands in his pockets, wearing the particular quiet of a man deciding how to say something.
+Cory walked me out to the parking lot afterward, in no hurry, hands in his pockets, quiet because he was still deciding how to say something.
 
 "You know this changes things for me too," he said eventually. "Two years I've been the only outside expert on 'the Cent effect.' Now I'm one voice in a room of six, and next month it'll probably be a room of twenty."
 
 "Does that bother you?"
 
-"Not as much as I expected it to." He looked up at the flat Houston sky, gray with the particular haze of a city that never quite got a clear night. "I think I spent two years quietly proud of being the only one who understood you, in the ways that mattered for the suits. Watching Osei sketch that chair in about ninety seconds was humbling. It was also the right thing to have happen, and I'd rather be humbled and useful than solitary and slow."
+"Not as much as I expected it to." He looked up at the flat Houston sky, gray under the city haze that never quite allowed a clear night. "I think I spent two years quietly proud of being the only one who understood you, in the ways that mattered for the suits. Watching Osei sketch that chair in about ninety seconds was humbling. It was also the right thing to have happen, and I'd rather be humbled and useful than solitary and slow."
 
 "You're still useful. You've been in every room since this started."
 
@@ -838,7 +838,7 @@ I jumped home that evening lighter than I'd felt in weeks, not because the probl
 
 
 
-Chapter 9: Cent: The chair was only half the machine.
+Chapter 9: Cent (POV): The chair was only half the machine.
 
 
 
@@ -950,7 +950,7 @@ Truman looked at me.
 
 
 
-Chapter 10: Cent: The first adapter lasted eleven kicks.
+Chapter 10: Cent (POV): The first adapter lasted eleven kicks.
 
 
 
@@ -1058,7 +1058,7 @@ At last I could see a straight engineering line from a dead upper stage to a rea
 
 
 
-Chapter 11: Davy: You don't get to tell me what I can and can't do.
+Chapter 11: Davy (POV): You don't get to tell me what I can and can't do.
 
 
 
@@ -1078,9 +1078,9 @@ I know what it looks like when an institution decides it owns you instead of tru
 
 "They're not the NSA, Davy," Millie said, not sharp, just level, pouring water over tea leaves like the conversation hadn't raised her pulse at all, though I knew her well enough to see that it had. "Sterling's spent two years earning trust the slow way. Truman's spent three weeks building actual hardware instead of asking actual questions. If this were an ownership play, it would look different. It would look like paperwork before help, not the other way around."
 
-"It always looks like help at the start. That's the whole design of it."
+"It always looks like help at the start. That's how it is designed."
 
-"That's the whole design of some of it," Millie said. "Not all of it. You're allowed to have learned the lesson without applying it to everyone who was never in the room that taught it to you."
+"Some of it is designed that way," Millie said. "Not all of it. You're allowed to have learned the lesson without applying it to everyone who was never in the room that taught it to you."
 
 Cent set the tablet down, finally, and I watched her decide to actually be in this conversation instead of letting it happen around her.
 
@@ -1104,7 +1104,7 @@ Cent thought about that seriously, which I appreciated more than she probably kn
 
 "I know it is," Cent said, gentler than I deserved. "And I love you for it. But you don't get to tell me what I can and can't do because of something that happened to you before I existed. You get to worry. You get to ask hard questions, same as Mom just did. You don't get veto."
 
-Joe had been quiet the whole time, sitting by the window, still in the way of a man who'd learned, the expensive way, exactly where the line was between raising a concern and trying to own somebody else's decision. He spoke now, careful.
+Joe had been quiet the whole time, sitting by the window. He'd learned, the expensive way, exactly where the line was between raising a concern and trying to own somebody else's decision, and held himself still on the proper side of it. He spoke now, careful.
 
 "That's a lesson I had to learn the hard way," he said. "I confused being scared for you with having the right to decide for you, and it almost cost me everything. Your dad's allowed to be afraid. He just can't make the fear your orders. Neither can I."
 
@@ -1198,7 +1198,7 @@ I walked the roof again before bed, out of habit more than need, and stood a lon
 
 
 
-Chapter 12: Holcomb: Before we ask what she can do for us, we decide what we owe her.
+Chapter 12: Holcomb (POV): Before we ask what she can do for us, we decide what we owe her.
 
 
 
@@ -1206,7 +1206,7 @@ The first briefing reached me at 9:10 on a Tuesday morning in a folder thick eno
 
 "Start over," I told Truman. "No equations. No career-protecting language. Tell me what is true."
 
-We were in the Oval, not the Situation Room, because I wanted daylight for this one and because I wanted to watch the faces around me without a wall of screens doing half the thinking for us. Truman sat nearest the desk. Sterling was beside him with the posture of a man who had been awake for two days and intended to call that a scheduling choice. Around them: Halloran, my National Security Advisor; the Chief of Staff; the Secretary of Defense; the Chairman of the Joint Chiefs; the Director of National Intelligence; and Special Agent Baines, who ran protective-intelligence coordination for the Secret Service and had already marked six pages of the folder with yellow tabs.
+We were in the Oval, not the Situation Room, because I wanted daylight for this one and because I wanted to watch the faces around me without a wall of screens doing half the thinking for us. Truman sat nearest the desk. Sterling was beside him, sitting as straight as anyone who'd been awake for two days and intended to call that a scheduling choice could manage. Around them: Halloran, my National Security Advisor; the Chief of Staff; the Secretary of Defense; the Chairman of the Joint Chiefs; the Director of National Intelligence; and Special Agent Baines, who ran protective-intelligence coordination for the Secret Service and had already marked six pages of the folder with yellow tabs.
 
 Truman started again.
 
@@ -1328,7 +1328,7 @@ Everyone in the room said it back.
 
 
 
-Chapter 13: Cent: We protect this girl at all costs.
+Chapter 13: Cent (POV): We protect this girl at all costs.
 
 
 
@@ -1412,7 +1412,7 @@ The room went very still.
 
 The DNI's expression didn't change, which told me he'd expected that answer and had asked the question mostly to get it on the record rather than because he believed in it. The President looked at me a long moment, then at Truman, then around the table at the rest of them.
 
-"Here's where I landed before you walked in," he said, in the voice of a man who'd made harder calls than this one and knew exactly how to make them stick. "This meeting is not deciding whether to protect you or control you. We already made that decision. We protect you at all costs. Not own you. Not direct you. Protect you, support you, give you every resource this government can put behind you, and let you keep choosing to work with us because working with us is actually good for you, not because you have no other option. The terms we just discussed are how we make the decision enforceable when good intentions get tired. If anyone in this room, or anyone under any of you, so much as looks at coercion as a live option going forward, I want to hear about it directly, because that person will not be working for me anymore. Is that understood."
+"Here's where I landed before you walked in," he said. He'd made harder calls than this one and knew exactly how to make them stick. "This meeting is not deciding whether to protect you or control you. We already made that decision. We protect you at all costs. Not own you. Not direct you. Protect you, support you, give you every resource this government can put behind you, and let you keep choosing to work with us because working with us is actually good for you, not because you have no other option. The terms we just discussed are how we make the decision enforceable when good intentions get tired. If anyone in this room, or anyone under any of you, so much as looks at coercion as a live option going forward, I want to hear about it directly, because that person will not be working for me anymore. Is that understood."
 
 A murmur of assent went around the table, general and immediate. I watched it happen and understood, even then, that a murmur of assent from a dozen people meant nothing about what any one of them actually believed, only what they were willing to say out loud in this particular room, in front of this particular man.
 
@@ -1420,7 +1420,7 @@ A murmur of assent went around the table, general and immediate. I watched it ha
 
 
 
-Chapter 14: Davy: Protection is not a polite word in this family.
+Chapter 14: Davy (POV): Protection is not a polite word in this family.
 
 
 
@@ -1616,7 +1616,7 @@ It wasn't approval. It wasn't surrender. It was the thing this family had always
 
 
 
-Chapter 15: Cent: I've never watched anyone build an entire ship around what I can do.
+Chapter 15: Cent (POV): I've never watched anyone build an entire ship around what I can do.
 
 
 
@@ -1628,7 +1628,7 @@ Sterling's "what do you need" had turned into an actual budget line inside of a 
 
 "I'm not most people commissioning a spacecraft. I'm the propulsion system. I'd like to know what I'm going to be riding inside of before I'm riding inside of it."
 
-"Fair point." He said it with the particular satisfaction of a man whose own instinct had been confirmed rather than corrected. "Osei runs this floor. She'll walk you through anything you want walked through."
+"Fair point." He sounded satisfied; his instinct had been confirmed rather than corrected. "Osei runs this floor. She'll walk you through anything you want walked through."
 
 Osei, it turned out, ran the floor the same way she'd run the whiteboard: fast, precise, and delighted to have someone who actually wanted the details instead of just the summary.
 
@@ -1688,7 +1688,7 @@ She released the bearing. The chair turned smoothly through half a circle and lo
 
 "Same fit," I said. "Opposite vector."
 
-I stayed there a while longer, hands resting on the grips, feeling the whole absurd scale of what had happened in the space of a few weeks: a tank breaking loose, a shoulder wrenched half out of its socket, the chair we'd already proven, and now a faithful copy of it mounted at the center of an actual ship, waiting for the day it would carry someone other than me across a hundred and eighty million kilometers of empty space.
+I stayed there a while longer, hands resting on the grips, trying to take in what had happened over a few absurd weeks: a tank breaking loose, a shoulder wrenched half out of its socket, the chair we'd already proven, and now a faithful copy of it mounted at the center of an actual ship, waiting for the day it would carry someone other than me across a hundred and eighty million kilometers of empty space.
 
 "When do we test the whole assembly for real?" I asked.
 
@@ -1698,7 +1698,7 @@ I looked down at the chair. "Tell them to pick something with good tracking data
 
 
 
-Chapter 16: Cent POV: Space Girl's going to have some new tricks. That's all I can say right now.
+Chapter 16: Cent (POV): Space Girl's going to have some new tricks. That's all I can say right now.
 
 
 
@@ -1708,7 +1708,7 @@ Nobody had asked me if I wanted a press conference, which was probably the right
 
 "So we tell people what, exactly? 'I can move things without fuel and NASA's building me a spaceship'?"
 
-"We tell them exactly as much as is true and exactly as little as gets the job done. You're partnering with NASA on advanced propulsion research. That's not a lie. It's just not the whole shape of the truth yet, and it doesn't need to be, not on day one."
+"We tell them exactly as much as is true and exactly as little as gets the job done. You're partnering with NASA on advanced propulsion research. That's not a lie. It's just not all of the truth yet, and it doesn't need to be, not on day one."
 
 Baines's people could not escort me to Houston in any useful sense, so they built the plan around the way I actually traveled. I jumped into a preparation room they had swept and locked, called the detail leader on the phone mounted beside the door, and waited while he confirmed that the service corridor was clear. The press entered through the front after their credentials and equipment had been checked. Two agents held the auditorium doors, another watched the loading entrance, and nobody tried to stand close enough to me to pretend they could stop a jump.
 
@@ -1728,7 +1728,7 @@ The press conference itself happened in a NASA auditorium in Houston, more camer
 
 A reporter near the back, older, more skeptical, the kind of voice that had clearly sat through a hundred of these and believed maybe three of them: "Space Girl's already famous for doing things nobody can explain. Is this just more of the same, dressed up in a NASA logo?"
 
-I took a second before answering, because it deserved an honest answer instead of a rehearsed one. "Space Girl's a name Samantha and the girls gave me before anybody understood what I could actually do. The press borrowed it later and spent two years trying to explain me instead of asking me directly. This is the opposite of that. This is me and NASA actually doing the careful work of understanding something new, in the open, instead of leaving it to speculation. I'd think that's worth taking seriously, even if the source is unusual."
+I took a second before answering, because it deserved an honest answer instead of a rehearsed one. "Space Girl's a name Samantha and the girls gave me before anybody understood what I could actually do. The press borrowed it later and spent two years trying to explain me instead of asking me directly. This is the opposite of that. This is me and NASA taking the time to understand something new, in the open, instead of leaving it to speculation. I'd think that's worth taking seriously, even if the source is unusual."
 
 Somebody in the second row laughed, short and surprised, and even the skeptical reporter's mouth twitched at one corner before he wrote something down. Truman, beside me, didn't say anything, but I caught the small, satisfied stillness of a man who'd gotten exactly the answer he'd hoped for without having to feed it to me first.
 
@@ -1762,7 +1762,7 @@ I went back to the preparation room, called Joe to tell him about it before the 
 
 It ran on every evening broadcast that night, that one line, clipped out of context and replayed with increasingly dramatic music under it, and by morning half the internet had decided I'd meant something between a superhero sequel and a national security threat, depending on which corner of the internet you asked.
 
-Mom called before I'd even had coffee. "You're trending," she said, in the tone of a woman who'd clearly already read several hundred comments she probably shouldn't have. "Some people think you're joking. Some people think you've just declared war on somebody. One very confident man on a morning show has decided you're getting cybernetic implants."
+Mom called before I'd even had coffee. "You're trending," she said. She'd clearly already read several hundred comments she probably shouldn't have. "Some people think you're joking. Some people think you've just declared war on somebody. One very confident man on a morning show has decided you're getting cybernetic implants."
 
 "I'm getting a chair. An extremely well-engineered chair."
 
@@ -1782,7 +1782,7 @@ Truman called three days later with the packet's disposition.
 
 "The equations hold," he said. "He reconstructed the discrete nature of your pushes from public tracking data on objects you've moved. Then he modeled what happens when a long flexible hull takes the same impulse at an absolutely regular interval."
 
-"I knew enough engineering by then to hear the problem before he named it. "Resonance."
+"I knew enough engineering by then to hear the problem before he named it. Resonance."
 
 "Exactly. The test craft is short and stiff enough that three seconds never lines up with anything important. The carrier won't be. Osei's team ran his model against the preliminary hull and reproduced the coupling. They're adding live structural modes to the chair model and letting the interval vary inside the medically cleared window instead of striking the ship on a metronome. The rig gets a separate yellow SEQUENCE WAIT light controlled by that scheduler. It stays independent of the amber sensor caution and the red-and-audible abort chain. Yellow means the next kick isn't due yet, not that the hardware is unsafe. The green GO light requires both systems: the scheduler has to release the interval and the sensor vote has to be clean before it comes on."
 
@@ -1794,11 +1794,11 @@ Truman called three days later with the packet's disposition.
 
 "No. Fixing our procedure doesn't pardon his conduct." Truman's voice stayed flat. "It does mean that by Friday we'll have a screened technical-submission channel with a rotating review panel behind it. Security decides whether a package is safe. Engineers decide whether the work is useful. Neither decision substitutes for the other."
 
-I thought about a single sentence clipped out of an hour of careful, rehearsed truth, spreading faster and further than anything Truman and I had actually planned to say. The public story of this program would never be entirely mine to control, no matter how carefully I chose my words. If we expected people to take the work seriously, we needed somewhere serious for them to put what they had to say—not direct access to me, but a door that actually led to someone qualified to answer.
+I thought about a single sentence clipped out of an hour of careful, rehearsed truth, spreading faster and further than anything Truman and I had actually planned to say. I would never entirely control how the public understood this program, no matter how carefully I chose my words. If we expected people to take the work seriously, we needed somewhere serious for them to put what they had to say—not direct access to me, but a door that actually led to someone qualified to answer.
 
 
 
-Chapter 17: Cent POV: It was... unsettling.
+Chapter 17: Cent (POV): It was... unsettling.
 
 
 
@@ -1820,7 +1820,7 @@ I didn't need him to say the name. I felt it arrive before the sentence finished
 
 "You're not, actually. What did I just say?"
 
-I hadn't told him. In two years of calls, in everything Hunt had shared with the family, in every debrief anybody had run on Daarkon and Gilead and the whole ugly shape of what had happened, Sterling had never once heard the specific thing that happened to Hyacinth Pope at the very end of it, because there had never been a reason to tell him, and because it wasn't the kind of thing you brought up on a routine catalog call.
+I hadn't told him. In two years of calls, in everything Hunt had shared with the family, in every debrief anybody had run on Daarkon and Gilead and all the ugliness of what had happened, Sterling had never once heard the specific thing that happened to Hyacinth Pope at the very end of it, because there had never been a reason to tell him, and because it wasn't the kind of thing you brought up on a routine catalog call.
 
 "The object you're describing," I said. "It's not debris. It's a person. It's Hyacinth."
 
@@ -1906,7 +1906,7 @@ He took it without looking away.
 
 
 
-Chapter 18: Cent POV: I know what my limits are. I found out the hard way. Same as you did.
+Chapter 18: Cent (POV): I know what my limits are. I found out the hard way. Same as you did.
 
 
 
@@ -2006,7 +2006,7 @@ He laughed, unsteady, still not letting go. "I don't have anything to offer a ro
 
 
 
-Chapter 19: Cent POV: Nobody famous. Nobody irreplaceable. Just data.
+Chapter 19: Cent (POV): Nobody famous. Nobody irreplaceable. Just data.
 
 
 
@@ -2042,7 +2042,7 @@ We came home on schedule and put the craft back on Kristen's aft tether before a
 
 
 
-Chapter 20: Cent POV: That's more mass than I can push. At all.
+Chapter 20: Cent (POV): That's more mass than I can push. At all.
 
 
 
@@ -2098,7 +2098,7 @@ The transit profile came together after that, worked out in a room with more whi
 
 "Cruise velocity works out to right around two hundred sixty kilometers a second," Petrov said, running the final numbers. "Comfortably under a tenth of a percent of light speed. Boring, by the standards of what you're actually doing, which I mean as the highest compliment I know how to give an engineering result."
 
-"And for most of the eight days," I said, working through the actual shape of it, "I'm not doing anything. I'm just there. The boosts are hours long at each end. The middle's just coasting."
+"And for most of the eight days," I said, working it through, "I'm not doing anything. I'm just there. The boosts are hours long at each end. The middle's just coasting."
 
 "That's correct."
 
@@ -2108,7 +2108,7 @@ I mulled that over, because it meant something I hadn't quite expected: that the
 
 
 
-Chapter 21: Cent POV: Hell yes, I want them.
+Chapter 21: Cent (POV): Hell yes, I want them.
 
 
 
@@ -2136,7 +2136,7 @@ The rest of the briefing filled in around them. A planetary geologist named Dr. 
 
 "More than anyone's budgeted so far. We'll fight about the actual number later. I just want it on record now that I intend to fight about it."
 
-"Noted," Truman said, and I caught something like real respect crossing his face, the specific respect of a man who preferred people who told him exactly what they wanted over people who nodded along and resented him later.
+"Noted," Truman said, and something like real respect crossed his face. He preferred people who told him exactly what they wanted to people who nodded along and resented him later.
 
 A flight surgeon, Dr. Reyes, quieter than Alvarez had been but with the same unhurried competence, assigned specifically because eight days each way and a real landing meant real medical risk that couldn't just be monitored from the ground anymore. She said almost nothing during her own introduction beyond confirming her qualifications, and it was only afterward, walking out, that she told me quietly, "I don't need the room to know why I want this. I know why. That's enough."
 
@@ -2190,7 +2190,7 @@ Nobody said anything for a moment. It wasn't the kind of thing you answered with
 
 
 
-Chapter 22: Childs POV: The guidance said we were on course. Los Angeles said otherwise.
+Chapter 22: Childs (POV): The guidance said we were on course. Los Angeles said otherwise.
 
 
 
@@ -2336,7 +2336,7 @@ Iverson found me outside the review room after the finding came down.
 
 
 
-Chapter 23: Iverson POV: That isn't anywhere near our ground track.
+Chapter 23: Iverson (POV): That isn't anywhere near our ground track.
 
 
 
@@ -2490,7 +2490,7 @@ I nodded.
 
 
 
-Chapter 24: Cent POV: You're going to land in that?
+Chapter 24: Cent (POV): You're going to land in that?
 
 
 
@@ -2542,7 +2542,7 @@ I looked from the frozen scaffold to the cockpit hatch.
 
 
 
-Chapter 25: Childs POV: The engine says we finished the burn. The stars say we didn't.
+Chapter 25: Childs (POV): The engine says we finished the burn. The stars say we didn't.
 
 
 
@@ -2606,7 +2606,7 @@ Truman kept us through the technical debrief, then sent us home. This time Ivers
 
 
 
-Chapter 26: Davy POV: Length is sufficient only if we use the whole finished section.
+Chapter 26: Davy (POV): Length is sufficient only if we use the whole finished section.
 
 
 
@@ -2682,7 +2682,7 @@ Truman put a full recovery day between that run and the farmland evaluation.
 
 
 
-Chapter 27: Holcomb POV: Not enough runway. Still the best ground we've got.
+Chapter 27: Holcomb (POV): Not enough runway. Still the best ground we've got.
 
 
 
@@ -2758,7 +2758,7 @@ The post-run medical checks found nothing worse than harness bruising. Their hea
 
 
 
-Chapter 28: Cent POV: The localizer is lying.
+Chapter 28: Cent (POV): The localizer is lying.
 
 
 
@@ -2818,7 +2818,7 @@ Truman scheduled the last shuttle evaluation for the following week.
 
 
 
-Chapter 29: Iverson POV: Second field. Cleaner approach.
+Chapter 29: Iverson (POV): Second field. Cleaner approach.
 
 
 
@@ -2898,7 +2898,7 @@ Truman looked back at her. "We haven't started making your part go wrong yet."
 
 
 
-Chapter 30: Cent POV: Gimbal not verified.
+Chapter 30: Cent (POV): Gimbal not verified.
 
 
 
@@ -2926,7 +2926,7 @@ We trained the whole boost and insertion procedure there for months. The simulat
 
 
 
-Chapter 31: Osei POV: Now we find the next version.
+Chapter 31: Osei (POV): Now we find the next version.
 
 
 
@@ -2988,7 +2988,7 @@ We flew three hundred complete landing profiles in that simulator over the next 
 
 
 
-Chapter 32: Cent POV: So he's a Ghost, then.
+Chapter 32: Cent (POV): So he's a Ghost, then.
 
 
 
@@ -2996,7 +2996,7 @@ It was the questions that tipped me off, not any one of them, but the pattern un
 
 A contractor auditing the chair's fixture wanted to know exactly how many increments it took to reach cruising velocity, phrased like idle curiosity, the kind of thing you'd ask if you were simply impressed by the engineering. A visiting engineer from a subcontractor I'd never heard of asked, almost in passing, whether my ability worked the same regardless of who I was touching, or whether it was specific to objects rather than people, a question that had no obvious bearing on anything his subcontract actually covered. A woman introduced to me as a program liaison, whose actual role nobody in the room seemed able to name precisely when I asked afterward, wanted to know how long I could sustain repeated pushes before needing real rest, and whether that limit was physical or something else, phrased so casually I almost answered before noticing how specific it was. A fourth conversation, weeks later, with a man who described himself only as "on loan from another agency" and never elaborated, asked whether anyone besides me in my family could do what I did, and whether that ability had ever been formally tested rather than just observed.
 
-None of them asked anything a single conversation would flag as suspicious. That was the whole design of it, I understood eventually: spread it thin enough, across enough different faces and different plausible reasons to be in the room, that no individual moment ever crossed a line worth reporting. It was only in aggregate, once I started keeping a mental tally the way Sterling kept his catalog, that the shape of it stopped looking like curiosity and started looking like a dossier being built one polite question at a time.
+None of them asked anything a single conversation would flag as suspicious. That was deliberate, I understood eventually: spread it thin enough, across enough different faces and different plausible reasons to be in the room, that no individual moment ever crossed a line worth reporting. It was only in aggregate, once I started keeping a mental tally the way Sterling kept his catalog, that it stopped looking like curiosity and started looking like a dossier being built one polite question at a time.
 
 I mentioned it to Dad the way I mentioned most things that worried me lately, at the kitchen table, over tea neither of us was really drinking, and watched his face go hard and cold: not surprised, not panicked, focused in the particular way it got when fear had finished turning into a problem he could work.
 
@@ -3034,7 +3034,7 @@ It took him four days total to come back with anything conclusive, and what he c
 
 "Who," Dad said.
 
-"I don't know. Whoever it is hasn't left a name anywhere I can reach. Could be one person. Could be a committee that only feels like one person because nobody on it disagrees with the loudest voice in the room. All I've got is the outline of somebody circling, patient, careful, the exact kind of careful that means they've done this before and know not to leave prints."
+"I don't know. Whoever it is hasn't left a name anywhere I can reach. Could be one person. Could be a committee that only feels like one person because nobody on it disagrees with the loudest voice in the room. All I've got is the outline of somebody circling, patient, careful in the way people get when they've done this before and know not to leave prints."
 
 "So he's a ghost," Dad said, half to himself, the words coming out before he'd decided to say them.
 
@@ -3048,7 +3048,7 @@ Mom reached across the table and put her hand over mine, the way she used to whe
 
 
 
-Chapter 33: Cent POV: I've done this before.
+Chapter 33: Cent (POV): I've done this before.
 
 
 
@@ -3148,7 +3148,7 @@ Nasser looked at me. "Go. If you stand here feeling guilty, I'll find a way to m
 
 I left her with Nolan and made the first scheduled power rotation while I was already home. Kristen's crew released one charged cassette to me. I carried it to Momentum by itself, waited while Grebenchekov isolated the depleted cassette and locked the replacement into the open bank, then took the depleted one back to Kristen for recharge. The other bank carried life support through the entire exchange.
 
-Then I returned to Johnson for Ochoa. I took her hand and jumped back to the carrier. The pallet of replacement medical consumables came on a separate trip; neither one of us pretended my mass limit stopped mattering because the schedule had become inconvenient. I didn't have live coordinates. I didn't need them. I knew the ship the way you know your own house in the dark: its air, its surfaces, the exact spatial fact of it. Distance wasn't the thing I was solving.
+Then I returned to Johnson for Ochoa. I took her hand and jumped back to the carrier. The pallet of replacement medical consumables came on a separate trip; neither one of us pretended my mass limit stopped mattering because the schedule had become inconvenient. I didn't have live coordinates. I didn't need them. I knew the ship the way you know your own house in the dark: its air, its surfaces, exactly where every part of it stood in relation to me. Distance wasn't the thing I was solving.
 
 Ochoa arrived in the galley while Iverson was halfway through explaining to Truman that no, reorganizing the emergency food by flavor was not a flight-director function.
 
@@ -3160,7 +3160,7 @@ Nasser would not be back this mission. That mattered, and nobody tried to soften
 
 
 
-Chapter 34: Davy POV: Not a hostile!
+Chapter 34: Davy (POV): Not a hostile!
 
 
 
@@ -3266,7 +3266,7 @@ Hunt looked at me the way he always did after something like this: checking, wit
 
 "You good?"
 
-"I'm good." I looked at him, at the two empty places in the corridor, at the whole familiar shape of a man who'd once been sent to hunt my family and had spent every year since making up for it in exactly this kind of moment. "Millie's going to want the whole story."
+"I'm good." I looked at him, at the two empty places in the corridor, at a familiar man who'd once been sent to hunt my family and had spent every year since making up for it in exactly this kind of moment. "Millie's going to want the whole story."
 
 "Make sure she gets all of it," Hunt said.
 
@@ -3274,7 +3274,7 @@ Sterling was already on the phone, voice tight, giving orders I recognized the s
 
 
 
-Chapter 35: Holcomb POV: They sent armed men into mission control under my authority?
+Chapter 35: Holcomb (POV): They sent armed men into mission control under my authority?
 
 
 
@@ -3374,7 +3374,7 @@ He was silent for a moment.
 
 
 
-Chapter 36: Cent POV: Dad's fine.
+Chapter 36: Cent (POV): Dad's fine.
 
 
 
@@ -3408,7 +3408,7 @@ The light delay still existed. It just hadn't made us wait to learn whether our 
 
 
 
-Chapter 37: Davy POV: There was no leak. There was just a man who was already in the room.
+Chapter 37: Davy (POV): There was no leak. There was just a man who was already in the room.
 
 
 
@@ -3464,7 +3464,7 @@ The President came in behind me.
 
 
 
-Chapter 38: Holcomb POV: You used my order to target her family.
+Chapter 38: Holcomb (POV): You used my order to target her family.
 
 
 
@@ -3540,31 +3540,59 @@ David came off the wall. The agent beside him caught his arm. David froze rather
 
 "And you had no RIGHT to be making that call!"
 
-Mrs. Rice flickered back into place ten feet from Devereaux with a pistol already level in both hands.
+Mrs. Rice came off the wall.
 
-Every agent in the room moved.
+The agent beside Devereaux shifted to intercept her. She vanished before he completed the step and reappeared inside his reach, one hand already closed around Devereaux's wrist and the other twisted into the back of his jacket.
+
+"The old ways are best," she said.
+
+They vanished together.
+
+Every agent in the room moved toward the space they had left.
 
 The agent nearest David drove him back against the wall as two others covered me.
 
-"You tried to use my daughter while she was in danger?"
+"Where did she take him?" I demanded.
 
-Bang.
+David froze rather than risk taking the agent through a Jump with him. His face had gone white.
 
-Devereaux went down.
+"The pit," he said. "West Texas. There's an island at the bottom."
 
-The agent nearest her hit her from the side before the report finished echoing. The pistol struck the carpet and another agent kicked it clear. Two agents covered me with their bodies while a third forced her hands behind her back.
+"Is he alive?"
 
-"Hold fire!" I shouted. "She's down."
+"If Millie put him on the island, yes."
 
-She did not fight them.
+Mrs. Rice reappeared in the same empty space twelve seconds after she had left it. She came back alone. Her hands were open at her sides.
 
-"I'm done," she said.
+Three agents had weapons aimed at her before her feet touched the carpet.
 
-"Medic," I ordered. "Now."
+"He's alive," she said. "He's unhurt. He has no phone and nowhere to go. Davy knows the place."
 
-The agent beside Devereaux checked him, then looked up and shook his head.
+"Turn around," the nearest agent ordered.
 
-Mrs. Rice watched without looking away.
+She did. She placed her hands behind her back without being told and did not resist when he secured them.
+
+David looked at me.
+
+"Bring him back," I said.
+
+The agent holding him released one arm, not both. David looked down at the hand still around his sleeve.
+
+"You can come or let go. Those are the choices."
+
+The agent let go.
+
+David vanished.
+
+He returned less than a minute later holding Devereaux by the upper arm. Devereaux's shoes and trouser cuffs were wet, his jacket was streaked with sand, and every trace of composure was gone. He had just learned that walls, guards, and federal office did not determine where he was allowed to exist.
+
+Agents took custody of him again immediately.
+
+"She kidnapped me," Devereaux said.
+
+"Yes," I said. "She did. That does not alter a single question you were answering before she removed you."
+
+I looked at Mrs. Rice.
 
 "Mrs. Rice," I said, "you are in federal custody."
 
@@ -3582,7 +3610,7 @@ David followed as far as the outer office before two agents stopped him.
 
 
 
-Chapter 39: Millie POV: Millie's got a... gun.
+Chapter 39: Millie (POV): The old ways are best.
 
 
 
@@ -3638,33 +3666,77 @@ The President told him what he had said in that room the first time. Protect, no
 
 "Both of Millicent Rice's parents are standing in this room because what you did was so far outside my order that they had to hear from me, personally, that their government had not declared war on their family."
 
-Baines looked at me.
+Baines looked at me because she saw the decision arrive.
 
-"FUCK!"
+I had watched Davy use the pit for most of our marriage. Terrorists, kidnappers, armed men who believed a weapon entitled them to decide what happened next. When it was my turn, clearing the house where they had held Davy, I used the island differently. No fifty-foot fall. No impact with the water. I put people down on sand and scrub where they could not reach anyone, then went back for the next threat.
 
-I Jumped home.
+The old ways were not gentle.
 
-I opened the gun safe.
+They were survivable.
 
-I took the pistol and Jumped again.
+I crossed the room.
 
-The Oval was exactly where it had been the last time I stood in it. The President's last word—*call*—was still in the air. Davy stood against the wall with an agent beside him. Every other body in the room began moving the instant I arrived.
+The agent beside Devereaux moved to block me. I Jumped past his reaching hand and appeared close enough to catch Devereaux by the wrist and the back of his jacket.
 
-I already had the pistol level.
+He had time to turn his head.
 
-"You tried to use my daughter while she was in danger?"
+"The old ways are best," I said.
 
-Bang.
+The Oval disappeared.
 
-The nearest agent hit me from the side. The pistol left my hands. My shoulder struck the carpet and somebody drove my wrists together behind my back.
+West Texas heat replaced climate control. The island lay inside the old sinkhole exactly as it had for decades, scrub and pale sand surrounded by dark water, the walls too steep to climb and the rim too far above for anyone below to reach.
 
-"Hold fire!" the President shouted. "She's down."
+I put Devereaux down in the dry center of it.
 
-I stopped moving. I had not come there to fight the Secret Service.
+Not into the water. Not from the rim. On his own feet, though surprise folded one knee and made him catch himself against the sand.
 
-"I'm done," I said.
+He stared at the walls.
 
-Someone checked Devereaux. The look he gave the President was answer enough.
+"Where are we?"
+
+"The place my family has put armed men since before my daughter was born."
+
+He looked at me then, and for the first time that day he understood something without first translating it into policy language.
+
+"You wanted to decide where my daughter was allowed to go, who she was allowed to trust, and whether the people who loved her could stay near her. Sit here and think about what that feels like."
+
+"You cannot leave me here."
+
+"I can. I won't. Those are different facts."
+
+I left him on the island and returned to the Oval.
+
+Twelve seconds had passed.
+
+Three Secret Service agents had weapons aimed at the space where I appeared. I kept my hands open and away from my body.
+
+"He's alive," I said. "He's unhurt. He has no phone and nowhere to go. Davy knows the place."
+
+"Turn around."
+
+I turned. The agent secured my wrists behind my back. I did not resist. I had not mistaken the family tradition for legal authority, and I had not come back expecting the President to pretend I had.
+
+Davy looked at me. Fear, anger, and recognition crossed his face in an order too fast to separate.
+
+The President told him to bring Devereaux back.
+
+An agent still had hold of Davy's arm.
+
+"You can come or let go," Davy said. "Those are the choices."
+
+The agent let go.
+
+Davy vanished.
+
+He returned less than a minute later with Devereaux. Wet trouser cuffs, sand on his jacket, no injury I could see. Agents closed around him and restored the federal custody I had interrupted.
+
+"She kidnapped me," Devereaux said.
+
+The President did not soften the word.
+
+"Yes. She did. That does not alter a single question you were answering before she removed you."
+
+Then he looked at me.
 
 "Mrs. Rice," the President said, "you are in federal custody."
 
@@ -3680,11 +3752,113 @@ Davy followed us into the outer office before two agents stopped him.
 
 "I'm not hurt," I told him.
 
+"I know," he said, which was not the same thing as telling me I had been right.
+
 I would tell Cent what I had done when she was home and standing in front of me. Not through a delayed channel, and not while she still had a mission to fly.
 
+The Secret Service processed me in a room below the West Wing before anyone moved me elsewhere. They photographed my hands, took my fingerprints, bagged my clothes, and asked the same sequence of questions in three slightly different forms. Had Devereaux been injured? Had I left anything on the island? Could anyone else reach it? Was there food, shelter, water, another person waiting for him?
+
+I answered the safety questions and declined the rest until counsel arrived.
+
+The handcuffs were procedural. Everyone in the room knew that. I could have left without moving my hands at all. The agents knew it, the lawyer knew it, and I knew that if I Jumped away, surrender would become a word I'd said rather than a thing I had done.
+
+So I stayed in the chair.
+
+My attorney arrived forty minutes later. She was small, silver-haired, and unimpressed by every person who tried to hurry her. She made the agents leave, checked my wrists, then sat across from me with a legal pad she never once looked down at.
+
+"You removed a person from federal custody inside the White House and transported him across state lines."
+
+"Yes."
+
+"Against his will."
+
+"Yes."
+
+"He was not physically threatening you or another person at that moment."
+
+"No."
+
+"Was he injured?"
+
+"No."
+
+"How long before he was returned?"
+
+"Less than two minutes."
+
+"You came back voluntarily."
+
+"Yes."
+
+She finally wrote something.
+
+"Those facts matter. None makes this trivial. The government does not know what charge it wants yet because the statutes were written for cars, aircraft, doors, and distances a person has to cross. Do not mistake their uncertainty for leniency."
+
+"I don't."
+
+"Good. Do not mistake Devereaux's crimes for legal permission either."
+
+"I don't."
+
+She studied me for a moment. "You may be the first client I've had all year who understands the bad news before I finish giving it."
+
+"Occupational background."
+
+"Counselor?"
+
+"Mother."
+
+Davy was allowed to see me after midnight. They put us in an interview room without glass because glass would have been theater and everyone was tired of theater by then. An agent remained outside the closed door.
+
+He did not hug me immediately.
+
+"You used the island."
+
+"Yes."
+
+"On a man standing beside a federal agent in the Oval Office."
+
+"Yes."
+
+"I spent thirty years teaching people that the pit was how I kept from killing them."
+
+"So did I."
+
+"That doesn't make it ours to use whenever the law is already doing the job."
+
+"I know."
+
+His anger broke then, not louder, just less contained. "Do you? Cent is on her way to Mars, and you may still be in federal custody when she comes home. You didn't only take him out of the room, Millie. You took yourself out of every place she expects you to be."
+
+That was the wound. Devereaux had tried to turn distance into control over my daughter, and I had answered by creating another distance she had not chosen.
+
+"I know," I said again, and this time it nearly failed in my throat.
+
+Davy crossed the room and held me. I let him. Neither of us pretended being loved was the same as being excused.
+
+"Are you going to stay?" he asked into my hair.
+
+He did not mean the next five minutes.
+
+"Yes."
+
+"Even if they put you somewhere stupid and call the walls security?"
+
+"Yes."
+
+"Even if it takes days?"
+
+I thought of Cent receiving a message with Mars filling her windows and no way to answer before the next burn.
+
+"Yes."
+
+The first holding room had a steel door, a narrow bed, and a camera behind smoked plastic. None of it could keep me there.
+
+I stayed until morning.
 
 
-Chapter 40: Holcomb POV: He used my own order as a targeting brief.
+
+Chapter 40: Holcomb (POV): He used my own order as a targeting brief.
 
 
 
@@ -3732,7 +3906,7 @@ No one asked Joe to demonstrate. I made sure of that with a look before curiosit
 
 The room changed.
 
-"Mrs. Rice appeared in the Oval while Devereaux was in federal custody," I said. "She shot him once. The Secret Service disarmed her immediately. She did not resist."
+"Mrs. Rice removed Devereaux from the Oval while he was in federal custody," I said. "She transported him to an isolated island at the bottom of a sinkhole in West Texas. She placed him there without injury, returned alone twelve seconds later, and surrendered to the Secret Service. David recovered Devereaux on my order. He was outside federal custody for seventy-eight seconds."
 
 The Attorney General's voice stayed level. "I will need every fact, including the facts no one in this room enjoys."
 
@@ -3746,7 +3920,33 @@ David looked at me, hard.
 
 "She'll get all of that and more. MY Chief of Staff will authorize counsel at the highest level."
 
-"It also means," I continued, "that no one will pretend the man was an innocent staffer attacked without context while in federal custody. He targeted a mission in flight, sent armed personnel into mission control, and used the communications delay separating her daughter from Earth as part of the plan. The investigation gets all of it."
+"It also means," I continued, "that no one will pretend the man was an innocent staffer removed without context while in federal custody. He targeted a mission in flight, sent armed personnel into mission control, and used the communications delay separating her daughter from Earth as part of the plan. The investigation gets all of it. Context is not immunity. It is still evidence."
+
+The Attorney General looked toward Baines. "Was Devereaux restrained?"
+
+"No. He was under guard and had been ordered to remain in the Oval. He made no physical threat to Mrs. Rice before she took him."
+
+"Then self-defense is not the question."
+
+"No," David said. "It isn't."
+
+The answer sounded painful. It also sounded deliberate.
+
+"She took a federal detainee across state lines and held him where no ordinary search could locate him," the Attorney General said. "Returning him quickly and surrendering matter. So does the absence of injury. None of those facts erase the act."
+
+"I know," David said.
+
+"Does she?"
+
+"She came back."
+
+Nobody mistook that for a complete answer.
+
+Baines added, "The protection issue is separate from prosecution. Mrs. Rice demonstrated that a Jumper can remove a person from the Oval faster than the detail can intervene. We need procedures which recognize the fact without converting every Rice family visit into detention."
+
+"And without pretending consent solves everything," Halloran said. "Devereaux was in our custody. Mrs. Rice substituted her judgment for the government's in the one room where no one can plausibly misunderstand the claim."
+
+"Yes," I said. "That is why she remains in custody, why I am recused, and why the legal answer will not be written here."
 
 Halloran put both hands flat on the table. "He sat in this room."
 
@@ -3836,7 +4036,7 @@ He had been invited in.
 
 
 
-Chapter 41: Cent POV: For once, working the way it was planned.
+Chapter 41: Cent (POV): For once, working the way it was planned.
 
 
 
@@ -3846,17 +4046,33 @@ The full operational account reached us as a recorded packet during final approa
 
 Her recording followed.
 
+Mom was in a room I did not recognize, gray wall behind her, a fixed table at the bottom of the frame. She wore the clothes she had gone to the White House in. There was no tea beside her, no Dad just outside the camera's view, none of the ordinary things she used to make a difficult conversation feel survivable.
+
 "I told them to wait until you were home," Mom said from the screen. "That was me trying to protect you from a fact you had the right to decide when to hear. I changed my mind. You are about to land on Mars carrying six other people, and I will not make you do that while everyone on Earth knows something about your family that you don't."
 
-She told me what she had done. She also told me she had surrendered, that she had counsel, and that nobody in the White House had promised her an outcome.
+She told me what she had done without turning Devereaux into an excuse. She told me about the Oval, the thing he had said about our family controlling me, and the twelve seconds on the island. She had put him down on dry ground. Dad had brought him back. He was not hurt.
+
+"He was already in federal custody," she said. "I decided their custody wasn't enough and substituted mine. I was furious and I wanted him to understand what it felt like when someone else decided where he was allowed to be. That explains the choice. It does not make the choice lawful."
+
+She told me she had surrendered, that she had counsel, and that nobody in the White House had promised her an outcome. She would remain where the court put her even though everyone involved knew walls could not physically keep her there.
 
 "You do not have to understand it now," she finished. "You do not have to forgive it on my schedule. Fly the landing. Come home when the mission is done. Then ask me anything."
 
 I sent back the only answer I had. "I love you. I don't know what else yet."
 
-Her reply could not arrive before we began insertion. That was the physical fact of the distance, and this time nobody pretended otherwise.
+Distance made a reply before insertion physically impossible, and this time nobody pretended otherwise.
 
-I took the whole mess into the one corner of the ship that counted as privacy and worried it raw. I tried anger first, then gratitude, then the useless wish that nobody had needed to be brave on my behalf at all. I didn't cry, exactly, though my throat hurt with not doing it and something under my ribs stayed drawn tight for hours. I had no idea how to carry what my mother had chosen. My father had stood in a hallway and been exactly as brave as I'd always known he could be when it mattered. Joe had crossed space for the first time because he saw a gun aimed at someone he loved. None of it had cost any of them their lives. That was the one fact I could hold without cutting myself on the rest.
+I took the whole mess into the one corner of the ship that counted as privacy and worried it raw. I tried anger first, then gratitude, then the useless wish that nobody had needed to be brave on my behalf at all. I didn't cry, exactly, though my throat hurt with not doing it and something under my ribs stayed drawn tight for hours.
+
+The pit was family history. Dad had used it against terrorists before I was born. Mom had cleared a house full of people into it when Dad was the one being held. I had put armed men there myself. The island meant remove the danger without ending a life. It had always sounded almost clean when we told the stories afterward.
+
+It did not sound clean inside the Oval.
+
+Devereaux had deserved to lose his office, his authority, and his freedom through the process already closing around him. Mom had taken him anyway. For twelve seconds, she had shown the President that the oldest rule in our family could outrank federal custody whenever one of us became angry enough.
+
+I understood why. That was not the same as believing she had been right.
+
+My father had stood in a hallway and been exactly as brave as I'd always known he could be when it mattered. Joe had crossed space for the first time because he saw a gun aimed at someone he loved. Mom was in a room she could leave at any second and had chosen to remain because surrender meant nothing otherwise. None of it had cost any of them their lives. That was the one fact I could hold without cutting myself on the rest.
 
 The remaining power rotations happened on schedule. I carried each charged cassette from Kristen by itself, waited for the crew to transfer the live bus and release the depleted one, then took that one home for recharge. After the first exchange it became exactly what Osei had intended: repetitive, verified, and not worth turning into an emergency.
 
@@ -3894,7 +4110,7 @@ We touched down soft, dust rising slow in the thin air and settling slower, the 
 
 
 
-Chapter 42: Cent POV: Space Girl's already done the boring version of this. This one's yours, all of yours.
+Chapter 42: Cent (POV): Space Girl's already done the boring version of this. This one's yours, all of yours.
 
 
 
@@ -3930,7 +4146,7 @@ I looked back at Earth, a bright point low on the horizon, farther away than I'd
 
 
 
-Chapter 43: Cent POV: We're already far closer to Europa. Let's finish the trip.
+Chapter 43: Cent (POV): We're already far closer to Europa. Let's finish the trip.
 
 
 
@@ -3954,7 +4170,19 @@ I caught his arm before Mars gravity finished introducing itself.
 
 "I know." He smiled then, small and nervous. "Supplies still seemed useful."
 
-He stayed long enough to help Iverson inventory what he had brought and to stand at the viewport with his hand against the glass. I took him home myself. One deliberate jump to Mars was enough for his first day.
+He stayed long enough to help Iverson inventory what he had brought and to stand at the viewport with his hand against the glass. Before I took him home, he gave me the update nobody had put into the mission packet.
+
+Mom was still in federal custody.
+
+The government had moved her from the White House holding area to a secure federal facility. Her lawyer had challenged continued detention. The prosecutor argued that ordinary release conditions were meaningless for someone who could cross the country without passing a door. Mom's lawyer answered that Mom had already proved the only condition that mattered: she could leave and had chosen not to.
+
+Dad visited every day. Mom had recorded messages for me but refused to use them to campaign for forgiveness.
+
+"She's not doing well," Joe said. "She's doing it. Those are different."
+
+I understood exactly what he meant.
+
+I took him home myself. One deliberate jump to Mars was enough for his first day.
 
 The lightweight capsule became our ascent vehicle, not a building block. Iverson and Childs ran surface assembly with the same unhurried competence they'd flown the carrier with. Ochoa disappeared for hours at a time and came back each night with samples that made her forget to eat until somebody reminded her. Reyes kept everyone's bodies honest about what Mars gravity actually asked of them after months of none at all. Truman worked wherever someone handed him a tool and discovered that on Mars nobody cared how many people he'd once commanded if he was holding the wrong end of a power coupling. Grebenchekov worked steady, unhurried, a man entirely at peace with exactly how much life he had left in him and determined to spend it building something that would outlast this trip.
 
@@ -3966,7 +4194,19 @@ It was on the ninth day, elbow-deep in a habitat section's power coupling beside
 
 "About after Mars." I sat back on my heels, looking out past our half-built structure at a sky that, for the first time in my life, had two moons in it instead of one. "Sterling. Truman. Everyone. I want to talk about not going home first."
 
-The conversation happened two days later, patched through to a room I couldn't see but could picture perfectly by now: Sterling, Petrov, and Osei crowded around whatever screen carried my voice across the growing distance. Truman sat beside me at the habitat table, part crew now instead of the man at the far end of the call.
+The conversation happened two days later.
+
+That morning, another legal update arrived. After eleven days, a federal judge had ordered Mom released pending the grand jury investigation. She had surrendered her White House access credential, agreed not to enter any federal facility except by appointment and escort, accepted an order barring contact with Devereaux, and promised to appear whenever the court required. Nobody insulted anyone by pretending the conditions could physically prevent her from leaving. Their force came from her agreement to obey them.
+
+The case had not gone away. No charge had been dismissed. No one had promised it would end before we came home.
+
+Mom's first recording from the hotel kitchen was twelve seconds long.
+
+"I'm home," she said. "Not cleared. Not forgiven. Home. I love you."
+
+I watched it twice, then went to work.
+
+The Europa conversation was patched through to a room I couldn't see but could picture perfectly by now: Sterling, Petrov, and Osei crowded around whatever screen carried my voice across the growing distance. Truman sat beside me at the habitat table, part crew now instead of the man at the far end of the call.
 
 "Say it plain," Sterling said. "You always do. Don't stop now."
 
@@ -4088,13 +4328,13 @@ Four days later Truman asked for a go/no-go for boost, and all seven of us answe
 
 
 
-Chapter 44: Cent POV: That's not a planet anymore.
+Chapter 44: Cent (POV): That's not a planet anymore.
 
 
 
 Seventeen days of coast, once the boost itself was done, turned out to be its own kind of education in patience.
 
-Ochoa spent the stretch cataloging every Mars sample against the mineralogical database Nasser had built before launch, muttering happily to herself about formations they'd need a second trip to properly understand. Iverson and Childs ran a rotating series of maintenance checks that had less to do with actual necessity and more to do with the particular restlessness of pilots with nothing urgent to fly. Truman tried chess with Grebenchekov, lost faster than Reyes had, and accused the board of being insufficiently transparent. Every thirty-six hours I took one depleted cassette to Kristen and brought one charged cassette back. The expanded banks meant no single delayed exchange threatened the ship; they did not eliminate the rotations. Between them, I spent most of the coast the way I'd spent the Mars transit, present rather than active, though this time the passivity felt earned rather than strange, a rhythm I'd actually learned to live inside instead of merely endure.
+Ochoa spent the stretch cataloging every Mars sample against the mineralogical database Nasser had built before launch, muttering happily to herself about formations they'd need a second trip to properly understand. Iverson and Childs ran a rotating series of maintenance checks that had less to do with necessity than with what happens when pilots have nothing urgent to fly. Truman tried chess with Grebenchekov, lost faster than Reyes had, and accused the board of being insufficiently transparent. Every thirty-six hours I took one depleted cassette to Kristen and brought one charged cassette back. The expanded banks meant no single delayed exchange threatened the ship; they did not eliminate the rotations. Between them, I spent most of the coast the way I'd spent the Mars transit, present rather than active, though this time the passivity felt earned rather than strange, a rhythm I'd actually learned to live inside instead of merely endure.
 
 It was on day eleven, drifting near the observation port with Childs, that Jupiter first became more than a bright point in the black.
 
@@ -4112,11 +4352,11 @@ Ahead of us, Jupiter kept growing, patient and enormous, utterly indifferent to 
 
 
 
-Chapter 45: Cent POV: The sky itself is trying to kill us here. That's new.
+Chapter 45: Cent (POV): The sky itself is trying to kill us here. That's new.
 
 
 
-"Jupiter's magnetosphere isn't like anything you dealt with at Mars," Petrov told us, three days out from orbital insertion, in the voice of a man who needed everyone in the room to actually absorb what he was saying rather than just nod along. "Trapped radiation belts, far more intense than Earth's own Van Allen belts, fed continuously by Io's volcanic activity. Get the timing or the shielding wrong and you're not looking at a survivable mistake. You're looking at a lethal dose within hours, not the gentler risk profile we managed with the storm shelter on the way to Mars."
+"Jupiter's magnetosphere isn't like anything you dealt with at Mars," Petrov told us, three days out from orbital insertion. He waited until everyone in the room was absorbing the warning rather than merely nodding along. "Trapped radiation belts, far more intense than Earth's own Van Allen belts, fed continuously by Io's volcanic activity. Get the timing or the shielding wrong and you're not looking at a survivable mistake. You're looking at a lethal dose within hours, not the gentler risk profile we managed with the storm shelter on the way to Mars."
 
 "So we don't get the timing wrong," I said.
 
@@ -4132,7 +4372,7 @@ The plan had been closed by mission control before the White House ever approved
 
 We ran the insertion three days later, the whole crew strapped in, instruments logging every second of exposure in real time the way Alvarez's original validation flight had once logged every kick. Truman called the complete go/no-go poll before the first deceleration kick. I flew the burst myself, kicks precise, the nominal two-second cadence flexing around the carrier's live structural modes through the actual insertion despite Jupiter's own gravity trying to complicate every correction I made, the largest gravitational field any of us had ever operated inside.
 
-"Radiation reading climbing," Reyes read off, watching her own instruments with the specific stillness of someone choosing not to let her voice reflect what the numbers were actually doing. "Within predicted parameters. Still climbing."
+"Radiation reading climbing," Reyes read off, holding herself unnaturally still so her voice wouldn't reflect what the numbers were actually doing. "Within predicted parameters. Still climbing."
 
 "Copy," I said, holding my focus on the kicks themselves, on the ship's actual trajectory rather than the numbers I couldn't do anything about directly except by flying the plan exactly as designed.
 
@@ -4140,7 +4380,7 @@ The worst of it lasted eleven minutes, by the ship's own clock, eleven minutes t
 
 "Clear of the belt," Reyes said, reading the ship's own instruments. "Radiation falling. We're through the worst of it."
 
-Nobody cheered, exactly. Grebenchekov let out a long breath he'd clearly been holding for most of those eleven minutes. Ochoa, of all people, was the one who actually laughed, short and startled, the specific laugh of someone who'd just realized how frightened she'd actually been only once the fear had somewhere safe to go.
+Nobody cheered, exactly. Grebenchekov let out a long breath he'd clearly been holding for most of those eleven minutes. Ochoa, of all people, was the one who actually laughed, short and startled. Only once the fear had somewhere safe to go did she seem to realize how frightened she'd been.
 
 "The sky itself is trying to kill us here," she said, to nobody in particular. "That's new. Mars just sat there being cold and empty. This place is actively hostile."
 
@@ -4158,7 +4398,7 @@ Europa itself, once we'd cleared Jupiter's worst radiation and settled into an a
 
 
 
-Chapter 46: Cent POV: Surface cold like this doesn't feel as if it has a bottom.
+Chapter 46: Cent (POV): Surface cold like this doesn't feel as if it has a bottom.
 
 
 
@@ -4190,7 +4430,7 @@ Ochoa looked from the live feed to me. "That is not a model. You're seeing the a
 
 
 
-Chapter 47: Cent POV: There was a Cent-shaped hole, and on the other side of it, an entire ocean.
+Chapter 47: Cent (POV): There was a Cent-shaped hole, and on the other side of it, an entire ocean.
 
 
 
@@ -4202,7 +4442,7 @@ We built the test the same deliberate way we'd built everything else on this pro
 
 "And the evacuated cylinder controls that?"
 
-"It limits the total volume only if I close the twin almost immediately. The receiver is behind a berm, we're behind another one, and every instrument is remote. If our estimate is wrong, the cylinder fails and nothing living is close enough to care. That's the whole point of doing the first test small."
+"It limits the total volume only if I close the twin almost immediately. The receiver is behind a berm, we're behind another one, and every instrument is remote. If our estimate is wrong, the cylinder fails and nothing living is close enough to care. That's why the first test is small."
 
 We ran it the next morning at the fracture site Ochoa had identified. The evacuated receiver sat on a remote stand behind an ice ridge, valves closed, cameras and pressure sensors live. We watched from the capsule.
 
@@ -4286,7 +4526,7 @@ We ran the analysis inside the capsule, all seven of us crowded around Ochoa's i
 
 "Liquid water," she said, finally, looking up at all of us with an expression I don't think I'll ever forget. "Actual, confirmed liquid water from Europa's subsurface ocean, isolated in Dad's loop. Trace minerals compatible with the water-rock interaction models, though one sample does not prove direct mantle contact. This is real. This isn't a projection or a model anymore. This is a sample."
 
-"What does it mean," Iverson asked, "for the actual point of all this? Not the science. The bigger idea."
+"What does it mean," Iverson asked, "for why we're doing all this? Not the science. The bigger idea."
 
 I thought about the answer before I gave it, because it deserved to be given plainly, the same way every other big moment on this project had earned a plain answer instead of a grand one.
 
@@ -4306,7 +4546,7 @@ Truman looked at the clock trace from the successful test. "Thirty seconds."
 
 
 
-Chapter 48: Holcomb POV: Thirty seconds is not a small unit of history.
+Chapter 48: Holcomb (POV): Thirty seconds is not a small unit of history.
 
 
 
@@ -4398,7 +4638,7 @@ It was also not permission to skip the next test.
 
 
 
-Chapter 49: Cent POV: It worked once. Now we know it works everywhere we've bothered to try it.
+Chapter 49: Cent (POV): It worked once. Now we know it works everywhere we've bothered to try it.
 
 
 
@@ -4422,7 +4662,11 @@ I thought about that the way I'd thought about every big question this project h
 
 "That's the answer I was hoping for," Sterling said. "It's also the reason this entire program has worked as well as it has. You've never once reached for more than you'd actually tested."
 
-The legal answer about Mom arrived before we did. She had spent eleven days in federal custody, then the rest of the investigation under release with counsel and a standing order to appear. Devereaux's office camera, Hunt's testimony, and the weapon recovered beside his desk established that he had drawn on her after she confronted him. A federal grand jury declined to indict. The President issued no pardon and the Attorney General announced no special immunity. The process reached an answer instead of having one handed down from the Situation Room. That did not make what my mother had chosen simple. It meant she would be standing at Johnson when I came home, free because the evidence had been heard rather than because anyone had made it disappear.
+The legal answer about Mom had not arrived before we did.
+
+She had spent eleven days in federal custody, then the rest of the investigation under release with counsel and a standing order to appear. The grand jury was still hearing evidence about removing a federal detainee from the Oval, transporting him across state lines, and holding him somewhere no ordinary search could reach. Devereaux's lack of injury, Mom's immediate return, Dad's recovery of him, and her voluntary surrender all mattered. So did the fact that Devereaux had already been in lawful custody and posed no immediate physical threat when she took him.
+
+The President had issued no pardon. The Attorney General had announced no special immunity. Mom had surrendered her unrestricted White House credential and agreed not to enter a federal facility without appointment and escort. A judge gave her specific permission to come to Johnson for the crew's return, then go directly home. The process had not cleared her, and it had not made her disappear. She would be standing at Johnson because release pending judgment was not the same thing as having escaped it.
 
 We did not land the carrier on Earth. We decelerated into orbit, brought it alongside Kristen, and put it back on the aft tether where the whole voyage had begun. Then I jumped the crew down in pairs to the secured receiving hangar at Johnson. Joe was there, and Dad, and Mom, and for one long moment before anyone said a single word, we all just stood there, looking at each other: seven people back from farther than anyone in history had ever traveled, and three people who'd waited for me the whole time, each in a different way.
 
@@ -4434,11 +4678,11 @@ We did not land the carrier on Earth. We decelerated into orbit, brought it alon
 
 Once the debriefings were done and the crew had scattered back to their own lives and families, I stood alone on Kristen Station's observation deck, watching Earth turn beneath me the way I had a thousand times before. For the first time in a year, there was nothing on the schedule after sleep.
 
-A tank had broken loose. I'd pushed it, without knowing yet whether the trick would hold under real pressure, and it had. A satellite bus had nearly broken my shoulder, teaching me where the wall actually was. A general had believed me before he'd fully understood me. A President had chosen protection over control, and meant it, mostly, though I understood now that meaning something in a room full of people didn't guarantee everyone in that room meant it back. A man who should have been trustworthy by every measure that mattered hadn't been, and my mother had made sure he never would be again, in a way I was still learning how to carry. A crew had trusted me with their lives, more than once, and I'd trusted them with mine right back. Mars had stopped being a place only I could reach alone. Europa had stopped being a rumor of water under ice and become, instead, a sample sitting in a lab on Earth, real, testable, proof instead of hope.
+A tank had broken loose. I'd pushed it, without knowing yet whether the trick would hold under real pressure, and it had. A satellite bus had nearly broken my shoulder, teaching me where the wall actually was. A general had believed me before he'd fully understood me. A President had chosen protection over control, and meant it, mostly, though I understood now that meaning something in a room full of people didn't guarantee everyone in that room meant it back. A man who should have been trustworthy by every measure that mattered hadn't been, and my mother had taken him out of the Oval and put him on the family island, answering institutional betrayal with private power in a way I was still learning how to carry. A crew had trusted me with their lives, more than once, and I'd trusted them with mine right back. Mars had stopped being a place only I could reach alone. Europa had stopped being a rumor of water under ice and become, instead, a sample sitting in a lab on Earth, real, testable, proof instead of hope.
 
 It worked once. That's not the same as knowing it works. I'd thought that, a lifetime ago, about a single frightened momentum change against a tumbling tank. I understood it differently now, standing here, having shifted, braked, and twinned my way across more of the solar system than anyone before me ever had. It had worked once. Now we knew it worked everywhere we'd bothered to actually try it, carefully, on purpose, one honest test at a time.
 
-Sterling called again that evening, later than his usual hour, and I heard something in his voice before he even said a word, the particular quality of a man who'd worried a question long enough that he'd finally decided to ask it.
+Sterling called again that evening, later than his usual hour, and before he said a word I could tell he'd worried at a question long enough to finally ask it.
 
 "Can I put something to you," he said, "that I don't want you to answer tonight?"
 
@@ -4446,7 +4690,7 @@ Sterling called again that evening, later than his usual hour, and I heard somet
 
 "We've proven this works on everything the solar system's had to offer. Mars. Europa. Every class of debris in my old catalog. Osei has already sketched the ugly first version of what comes next: an empty shell launched and assembled at Kristen, light enough for you to boost, filled with shielding water only after the acceleration phase, then vented before deceleration so the mass comes back off before you have to stop it. I have started, against my own better judgment, wondering what the actual ceiling is. Not the G-force ceiling. The real one. How far does this go, if we ever decide to find out?"
 
-I looked out at the stars past Earth's own curve, at all that dark, patient distance between here and anywhere else, and felt something stir in me that I recognized, distantly, as the same feeling I'd had the very first time Cory demonstrated the velocity trick in his own cluttered office, years before any of this: not fear, and not quite readiness either. Just the particular, quiet curiosity of a person who'd never once found a wall she didn't eventually want to know the true shape of.
+I looked out at the stars past Earth's own curve, at all that dark, patient distance between here and anywhere else, and felt something stir in me that I recognized, distantly, as the same feeling I'd had the very first time Cory demonstrated the velocity trick in his own cluttered office, years before any of this: not fear, and not quite readiness either. Just quiet curiosity. I'd never once found a wall I didn't eventually want to map.
 
 "Not tonight," I said. "But ask me again sometime. I have a feeling I already know what I'm going to say."
 
