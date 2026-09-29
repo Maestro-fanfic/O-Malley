@@ -68,7 +68,7 @@ Not slowed. Stopped, dead, the way a spinning coin stops when you slap your palm
 
 I hung there a second with my hands still on the shell, breathing harder than the effort should have cost me.
 
-"Cent?" Sterling, careful now, the way he got when the silence on his end had run a beat too long.
+"Cent?" Sterling's voice had gone careful. My silence had lasted a beat too long.
 
 "I'm okay. It's not tumbling anymore."
 
@@ -134,7 +134,7 @@ Sterling's full report, when I finally sat down for it, took about ten minutes a
 
 "And it worked."
 
-Another pause, and I could picture him exactly, sitting at whatever desk he sat at in Colorado Springs, running the numbers behind his own eyes the way he always did before he let himself say anything he might have to walk back later.
+Another pause, and I could picture him exactly, sitting at whatever desk he sat at in Colorado Springs, numbers moving behind his eyes. He never said anything he might have to walk back until he'd run them.
 
 "I want that written up properly," he said finally. "Not for me. For the file. If this is repeatable under time pressure and not just under ideal conditions, that's a different category of fact than the one I've had on record since the PAM-D."
 
@@ -1064,7 +1064,7 @@ Chapter 11: Davy (POV): You don't get to tell me what I can and can't do.
 
 The decommissioned hotel in Los Angeles was quiet in November only by comparison with what it had been built for. The old ballroom still smelled faintly of dust and floor wax. The emptied guest floors carried every closing door farther than it deserved. I'd taken to walking the service corridors and roof most evenings, checking cameras, stairwells, and the locked vehicle entrance, less because anything was actually wrong with them than because the route gave me somewhere to put a worry that had been building for three weeks and hadn't found a proper sentence yet.
 
-I found the sentence that evening coming down the back stairs, watching Cent through the wired-glass kitchen door before she knew I was there: hunched over a tablet at the old banquet table, scrolling through something with NASA's seal in the corner, entirely absorbed, entirely comfortable, the way you get comfortable with a thing only after you've stopped noticing how strange it actually is.
+I found the sentence that evening coming down the back stairs, watching Cent through the wired-glass kitchen door before she knew I was there: hunched over a tablet at the old banquet table, scrolling through something with NASA's seal in the corner, entirely absorbed and entirely comfortable. At some point, she'd stopped noticing how strange any of this was.
 
 I waited until Millie had put the kettle on before I said anything, because some conversations go better with something to do with your hands, and I'd learned that the hard way, more than once, over more than one kitchen table.
 
@@ -1112,7 +1112,7 @@ Joe had been quiet the whole time, sitting by the window. He'd learned, the expe
 
 "Give me an example," Cent said. "Concretely. What would you draw the line at?"
 
-Joe thought about it, genuinely, the way he thought about everything technical, working it through before committing to an answer. "Your family's location, obviously, though that's already been off the table since before any of this. Full access to your medical data without you reviewing it first. Any contract language that talks about you in terms of ownership rather than partnership, even in the boring legal boilerplate nobody reads. And a standing right to say no to any specific mission element, even after you've said yes to the program in general."
+Joe gave the question the same serious attention he gave every technical problem, working it through before committing to an answer. "Your family's location, obviously, though that's already been off the table since before any of this. Full access to your medical data without you reviewing it first. Any contract language that talks about you in terms of ownership rather than partnership, even in the boring legal boilerplate nobody reads. And a standing right to say no to any specific mission element, even after you've said yes to the program in general."
 
 "That's a good list."
 
@@ -1666,7 +1666,7 @@ I ran my hand along a weld seam, still faintly warm from whatever process had ma
 
 "Get used to it," she said, not unkindly. "This is going to be the first of a lot of things built specifically because you exist. I'd start making peace with that now."
 
-I came back most days after that, sometimes for an hour, sometimes for most of an afternoon, watching the hull close up around empty space that would eventually be full of instruments and air and, eventually, a person other than me. I learned the names of welders and technicians the way I'd once learned the names of orbital debris, methodically, out of respect for work I couldn't do myself but had come to genuinely admire. A woman named Priya ran the welding rig with a precision that made Osei's own praise sound understated. A retired Air Force sergeant named Boyle fitted the life support ducting with the patient, unhurried care of a man who'd spent thirty years doing the work and had no intention of rushing it now just because the reason for it was strange.
+I came back most days after that, sometimes for an hour, sometimes for most of an afternoon, watching the hull close up around empty space that would eventually be full of instruments and air and, eventually, a person other than me. I learned the names of welders and technicians the way I'd once learned the names of orbital debris, methodically, out of respect for work I couldn't do myself but had come to genuinely admire. A woman named Priya ran the welding rig with a precision that made Osei's own praise sound understated. A retired Air Force sergeant named Boyle fitted the life support ducting with patient, unhurried care. Thirty years in the work had given him no reason to rush now just because the reason for it was strange.
 
 "You know what's funny," Boyle told me one afternoon, running a pressure test on a fitting he'd just finished, "is that this is the most normal spacecraft I've ever built. Every part of it is boring aerospace engineering, done right, the way we always should've been doing it. The only thing that's insane is the reason we're building it, and I don't think about that part while I'm working. I just build the thing in front of me."
 
@@ -1802,7 +1802,7 @@ Chapter 17: Cent (POV): It was... unsettling.
 
 
 
-The craft came together over the next two months the way anything does when NASA actually decides to move fast: a pressure hull first, tested and retested before I ever touched it, then life support, then instrumentation, then the dedicated copy of my chair on its swivel bearing, installed as close to the nominal loaded center of mass as the hull allowed. I watched most of it happen the way you watch a house get built when you're not the contractor: showing up, checking pieces, jumping home again, the actual labor mostly somebody else's to do.
+Once NASA actually decided to move fast, the craft came together over the next two months: a pressure hull first, tested and retested before I ever touched it, then life support, then instrumentation, then the dedicated copy of my chair on its swivel bearing, installed as close to the nominal loaded center of mass as the hull allowed. I watched most of it rather than built it: showing up, checking pieces, jumping home again, the actual labor mostly somebody else's to do.
 
 What needed doing that nobody else could do was pick a target.
 
@@ -1814,7 +1814,7 @@ What needed doing that nobody else could do was pick a target.
 
 I didn't need him to say the name. I felt it arrive before the sentence finished, a cold drop through my chest that had nothing to do with the room's actual temperature.
 
-"Cent?" He caught it immediately, the way he caught everything, and his voice shifted the way it did over comm when something wasn't reading right. "You went quiet."
+"Cent?" He caught it immediately; he caught everything. His comm voice shifted into something tighter. "You went quiet."
 
 "I'm here."
 
@@ -1848,7 +1848,7 @@ Sterling let the silence stretch. When he spoke, it wasn't the general talking. 
 
 "No," I said. "It generally isn't."
 
-He came out to the station himself two weeks later: his own idea, his own initiative, offered the way you offer something you're a little afraid will be refused. Mom was the one who said yes, over Dad's objection, the same argument we'd already had once about NASA in general, run again in miniature over one specific man setting foot on our family's own hardware for the first time. I jumped him up myself, hand on his shoulder.
+He came out to the station himself two weeks later: his own idea, his own initiative. He made the offer carefully, plainly expecting it might be refused. Mom was the one who said yes, over Dad's objection, the same argument we'd already had once about NASA in general, run again in miniature over one specific man setting foot on our family's own hardware for the first time. I jumped him up myself, hand on his shoulder.
 
 He went rigid the second the station's interior resolved around us. His knees bent for gravity that wasn't there. One hand grabbed my forearm hard enough to hurt while the other reached toward a wall that had become a floor only because his body desperately wanted one. His face drained, and his eyes made three fast, useless corrections between me, the curved inner ring, and Earth moving beneath the observation port.
 
@@ -3034,7 +3034,7 @@ It took him four days total to come back with anything conclusive, and what he c
 
 "Who," Dad said.
 
-"I don't know. Whoever it is hasn't left a name anywhere I can reach. Could be one person. Could be a committee that only feels like one person because nobody on it disagrees with the loudest voice in the room. All I've got is the outline of somebody circling, patient, careful in the way people get when they've done this before and know not to leave prints."
+"I don't know. Whoever it is hasn't left a name anywhere I can reach. Could be one person. Could be a committee that only feels like one person because nobody on it disagrees with the loudest voice in the room. All I've got is somebody circling: patient, careful, experienced enough not to leave prints."
 
 "So he's a ghost," Dad said, half to himself, the words coming out before he'd decided to say them.
 
@@ -3192,7 +3192,7 @@ I called Hunt inside a minute of hanging up with Sterling.
 
 He made it in seven, carrying a messenger bag with maintenance coveralls folded inside. I took his arm and jumped us into a locked service room off the mission control hallway, one Sterling had shown me during an earlier visit. Hunt changed, checked a contractor badge against the access list Sterling had sent him, and went out to look while I stayed put. Two strange maintenance men together would have been less useful than one.
 
-Nine minutes later he texted me, and I joined him outside the control room's outer door. He was scanning the hallway the way he always did before he said a word in it.
+Nine minutes later he texted me, and I joined him outside the control room's outer door. As always, he scanned the hallway before he said a word in it.
 
 "Two of them," he said, low. "Badges that don't match anybody's actual clearance list. One's got Sterling's access revocation letter already printed, ready to hand over the second anybody official shows up to make it look procedural instead of what it actually is."
 
@@ -3262,7 +3262,7 @@ Hunt looked at the place he'd been. "Where did he go?"
 
 Security arrived inside another minute, drawn by whatever alarm Hunt had apparently tripped on purpose walking in. I went back to the pit for the two men. Both were conscious, barely, treading water on opposite sides of the island with more determination than coordination. I brought them into the service room one at a time, wet and coughing, and security put them in restraints. Neither man was talking, though I doubted that would last once somebody with real leverage sat them down properly.
 
-Hunt looked at me the way he always did after something like this: checking, without asking, that I was actually all right and not just saying so.
+Hunt gave me the familiar post-crisis inspection: was I actually all right, or just saying so?
 
 "You good?"
 
@@ -4280,13 +4280,13 @@ I gathered everyone at the half-finished structure on the thirtieth night, six f
 
 "Hey," I said. "Who wants to come to Europa with me?"
 
-Grebenchekov answered first, without hesitating, the way he'd answered everything since the day he volunteered before anyone finished asking him.
+Grebenchekov answered first, without hesitating. He'd answered everything that quickly since the day he volunteered before anyone finished asking him.
 
 "I told you already. I know what my limits are, and this is not one of them."
 
 Iverson and Childs looked at each other for exactly as long as it took to confirm they were already thinking the same thing, and didn't bother answering in words at all, just turned back to the ship like the question had already been settled the moment I asked it.
 
-Ochoa was still holding a sample bag from that afternoon's work, and she looked at it, and then at the sky, and then at me, hungry the way a scientist gets when she's just been offered a second impossible thing in the same year as the first.
+Ochoa was still holding a sample bag from that afternoon's work. She looked at it, then at the sky, then at me, and her whole face sharpened. This was the second impossible thing science had offered her in a single year.
 
 "Try and stop me."
 

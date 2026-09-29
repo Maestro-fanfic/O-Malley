@@ -102,7 +102,7 @@ I opened the case.
 
 "We moved nine hundred tons yesterday," I said, sliding the summary sheet across so he could see the numbers for himself instead of just hearing them from me. "Five kicks, synchronized, single count. Didn't even feel like the hard part of the job anymore."
 
-Sterling picked up the sheet. Read it once. Read it again, slower, the way a man reads something when the first pass hasn't actually finished landing yet.
+Sterling picked up the sheet. Read it once. Read it again, slower. The first pass hadn't finished landing yet.
 
 "Nine hundred tons."
 
@@ -160,7 +160,7 @@ Back on the ground, in the debrief, Sterling pulled the telemetry up on a screen
 
 "Eleven milliseconds," Millie repeated, and I could hear her doing the same math I was, turning that tiny number over, trying to make it mean something big enough to explain what had actually happened.
 
-"Eleven milliseconds is nothing to the human nervous system." Sterling didn't sound like he was blaming her. He sounded like a man laying out a fact that needed laying out plainly, no softer than it actually was. "It's not nothing to human anatomy. And it's not nothing to a structural load. For eleven milliseconds, every bit of force from that kick was concentrated at one single point on that hull instead of distributed across the whole surface the way it would've been if all five kicks had landed together. You didn't push the object. For eleven milliseconds, you punched it."
+"Eleven milliseconds is nothing to the human nervous system." Sterling wasn't blaming her. He laid out the fact plainly, no softer than it actually was. "It's not nothing to human anatomy. And it's not nothing to a structural load. For eleven milliseconds, every bit of force from that kick was concentrated at one single point on that hull instead of distributed across the whole surface the way it would've been if all five kicks had landed together. You didn't push the object. For eleven milliseconds, you punched it."
 
 "That's not fair," Davy started. "We drilled the exact same count..."
 
@@ -178,7 +178,7 @@ Nobody argued with that.
 
 Sterling didn't answer right away. When he did, it wasn't really an answer, more an admission.
 
-"I don't know yet. That's the honest truth of it. You five are the only people alive who can even attempt what you just attempted, which means there's no existing engineering discipline built around solving this specific problem. We're going to have to build one." He looked at each of us in turn, and for the first time since he'd walked back into this family's life, his face looked less like an old friend helping out and more like a man who'd just quietly picked up more responsibility than he'd bargained for. "But we're going to build it right, with real margins and real oversight, not five people making the call by themselves in real time anymore. What happened today is exactly why."
+"I don't know yet. That's the honest truth of it. You five are the only people alive who can even attempt what you just attempted, which means there's no existing engineering discipline built around solving this specific problem. We're going to have to build one." He looked at each of us in turn. The old-friend ease had vanished. He'd quietly picked up more responsibility than he'd bargained for. "But we're going to build it right, with real margins and real oversight, not five people making the call by themselves in real time anymore. What happened today is exactly why."
 
 Nobody argued with that either.
 
@@ -206,7 +206,7 @@ We ran the count clean. Five kicks, same trigger, same spoken rhythm we'd drille
 
 For about four seconds, it worked.
 
-Then Millie's voice came through the comm, and it had a shape to it I'd never heard from her before, flat and controlled, the way people go flat right before the fear underneath actually breaks through.
+Then Millie's voice came through the comm, and it had a shape to it I'd never heard from her before, flat and controlled. Fear sat underneath, one crack from breaking through.
 
 "I've lost my anchor point."
 
@@ -304,7 +304,7 @@ He rose, unhurried, and crossed to meet me halfway across the room instead of ma
 
 "Water's fine."
 
-"Water it is." He gestured me toward the couch, taking the one across from it himself, Leo settling in beside him, eyes already flicking between us the way a man watches for cues a beat before his boss needs them. Bartlett told a short, easy story while somebody fetched the water, something about a garden mishap involving his own dog and a very expensive rosebush, and I found myself laughing despite everything sitting heavy in my chest, because the man had a genuine gift for making a room feel like it had all the time in the world right up until the exact moment it didn't.
+"Water it is." He gestured me toward the couch, taking the one across from it himself. Leo settled in beside him, eyes already flicking between us, anticipating cues a beat before his boss needed them. Bartlett told a short, easy story while somebody fetched the water, something about a garden mishap involving his own dog and a very expensive rosebush, and I found myself laughing despite everything sitting heavy in my chest, because the man had a genuine gift for making a room feel like it had all the time in the world right up until the exact moment it didn't.
 
 Then he set his own cup down. Something changed in the room, quiet but unmistakable, a man deciding it was time.
 
@@ -566,7 +566,7 @@ Chapter 11: Sterling (POV): I'd spent thirty years trusting ground tests to mean
 
 The numbers from the hangar test were clean, genuinely clean, and for about a week I let myself believe that meant we had the whole picture. Then one of my own engineers, a quiet woman named Osei who'd forgotten more about structural dynamics than most people in this building had ever learned, brought me a set of residuals that didn't quite close.
 
-"It's small," she said, laying the data out across my desk, patient the way you get after checking a thing three times before bothering somebody else with it. "Small enough that most people would round it away as noise. But it's consistent, and consistent noise usually isn't noise."
+"It's small," she said, laying the data out across my desk. She'd checked it three times before bothering me and could afford to be patient now. "Small enough that most people would round it away as noise. But it's consistent, and consistent noise usually isn't noise."
 
 "Walk me through it."
 
@@ -714,7 +714,7 @@ Something in his face reached for that before he'd fully decided to let it, a ha
 
 "The reason somebody stays is Kristen Station." I set the sheet down, five names on it, and decided the second half belonged to me to deliver, not her. "The reason it's you is crew roles. Millie's dual-hatted as crew therapist on top of the sync team, which NASA's own mission psych office has already signed off on. Cent's running spaceborne operations the entire way out, which is its own full-time job even before she puts a boot on that hull. Joe's dual-hatted on cross-check and audit, and I don't say this lightly: the number of small, quiet catastrophes that job alone is going to catch before they become large, loud ones is going to be the difference between a mission and an obituary. Truman's dual-hatted running mission command from the departing side instead of the ground, which nobody else on this list can actually do." I looked up. "That's four names, each one carrying two jobs. A six-thousand-ton departure can't afford to carry a fifth person who's only carrying one."
 
-The room went quiet the way a room does right before somebody realizes exactly what's being said and to whom.
+The room went quiet a heartbeat before everyone fully understood what was being said, and to whom.
 
 "Say the rest of it," Davy said. Flat.
 
@@ -770,7 +770,7 @@ Roster assembly moved in parallel, mostly out of sight of the five of us, an ent
 
 Wanda's own recruitment turned out to be the first thread of something much larger. Within a month, Sterling's people had assembled specialists I'd never have thought to look for myself, a Nevada mining consultant with a double doctorate and an ego to match, a retired Navy shipwright old enough that half the room worried about his knees every time he stood up, an entire industrial buildup quietly taking shape at Centauri's own permanent jump site.
 
-None of it moved the old way, because what we were actually building out there had the shape of a community, not a ship's crew, and no five people, however practiced, were ever going to hand-carry an entire town's worth of infrastructure across four and a third light-years one trip at a time. That was the piece Sterling's own people kept circling back to in early meetings, half amazed, half nervous, the way you get around a solution too good to have been sitting unused this whole time. I'd twinned smaller things before: water into a dry lakebed, a station's own shielding cavity filled from an underground reservoir in under fifteen seconds. Nobody had ever asked what happened if you held the connection open instead of letting it fill and closing it back down.
+None of it moved the old way, because what we were actually building out there had the shape of a community, not a ship's crew, and no five people, however practiced, were ever going to hand-carry an entire town's worth of infrastructure across four and a third light-years one trip at a time. Sterling's own people kept circling back to that piece in early meetings, half amazed, half nervous. A solution this good felt suspicious after sitting unused for so long. I'd twinned smaller things before: water into a dry lakebed, a station's own shielding cavity filled from an underground reservoir in under fifteen seconds. Nobody had ever asked what happened if you held the connection open instead of letting it fill and closing it back down.
 
 Davy and I already knew where the real limit lived, decades before any of this. He'd learned it the hard way, young and reckless and testing his own edges the way people that age always do: handcuffed to an iron porch railing, trying to jump through his own front door while still locked to something the concrete was never going to let go of. It hadn't gone well. Scraped wrist, an arm wrenched half out of its socket, a bookshelf he swore he'd seen for exactly one flickering instant before the cuff yanked him straight back to where he started. The lesson cost him blood, but it was a clean one, and it never once needed relearning: if you can physically move a thing, you can take it with you. If you can't, the world simply declines to let go of it, and you find out exactly how much that refusal hurts.
 
@@ -1310,7 +1310,7 @@ Not a question. That stopped me for half a second, because "Rockhound" isn't the
 
 "Nobody's asking you to behave," Iverson said, entirely too fast for a man supposedly meeting me for the first time.
 
-Iverson slid the folder onto the bar himself, unbothered, the way a man slides a folder onto a bar when he's done this exact thing more than once. More redactions on the cover sheet than an FBI file on Castro. "We need someone who can read ore bodies in an environment nobody's ever mined before."
+Iverson slid the folder onto the bar himself, unbothered. This clearly wasn't his first time. More redactions on the cover sheet than an FBI file on Castro. "We need someone who can read ore bodies in an environment nobody's ever mined before."
 
 Now that got my attention, mostly because it was a genuinely weird thing to say to a guy at a bar, and I've had a lot of weird things said to me at bars.
 
@@ -1476,7 +1476,7 @@ I was not in a position to answer that verbally yet. My hands had things to do f
 
 Marcus looked at the readout again, then back at me, something loosening in his own shoulders that had been locked up since before the test even started. "Four months," he said, mostly to himself. "Four months and every one of my status reports said 'nominal.' Nominal doesn't cover this."
 
-"No. Nominal is a very small word for a very large feeling." I finally let my hands go still, and became aware, the way you become aware of a room only after you've stopped moving through it, that half the integration bay had turned to look at whatever had just happened at our console. I didn't mind. Some feelings deserved witnesses. "Do you understand now why the panels never bored me? Every single one of them was headed here. Every single one of them was this moment, still folded up small, waiting for four hundred more just like it to arrive and finally agree to become something together."
+"No. Nominal is a very small word for a very large feeling." I finally let my hands go still. Only then did I notice that half the integration bay had turned to look at whatever had just happened at our console. I didn't mind. Some feelings deserved witnesses. "Do you understand now why the panels never bored me? Every single one of them was headed here. Every single one of them was this moment, still folded up small, waiting for four hundred more just like it to arrive and finally agree to become something together."
 
 "I don't think I've ever thought about my own status reports that hard in my life."
 
@@ -1874,7 +1874,7 @@ Leo didn't wait for any of them to catch up before he reached the one person who
 
 The whole gang followed him in anyway, too curious and too rattled by whatever had Leo running to just wait in the hallway to be told secondhand.
 
-Bartlett was at the window when they came in, not the desk, staring out at the grounds the way he did when a thought hadn't finished settling yet, hands loosely clasped behind his back. He didn't turn around right away, even at the sound of that many feet behind him.
+Bartlett was at the window when they came in, not the desk, staring out at the grounds, hands loosely clasped behind his back. Whatever thought had taken him there hadn't finished settling yet. He didn't turn around right away, even at the sound of that many feet behind him.
 
 "Sir. You're going to want to be sitting down for this one."
 
@@ -2168,7 +2168,7 @@ We sat together at our own kitchen table, all four of us, and she waited until e
 
 "That's usually the first thing people say right before it turns out to be bad news," my son said, not unkindly, just tired the particular way anyone gets tired after enough years of bracing for the worst version of any unexpected visitor.
 
-"Fair," she said. "Then I'll just say it." She folded her hands on the table, the way you do when you want your own hands to hold still for something. "We found something out past Alpha Centauri. Something built, older than anything we've ever found before it, and important enough that it's going to need a name people actually use for the rest of however long anyone remembers any of this. We picked one already. The crew agreed on it inside of a minute, no argument, no vote even needed." A beat, and I watched her decide to just say the rest of it plainly instead of working her way toward it. "But nobody wanted to make it official without coming here first. Without asking."
+"Fair," she said. "Then I'll just say it." She folded her hands on the table and held them still. "We found something out past Alpha Centauri. Something built, older than anything we've ever found before it, and important enough that it's going to need a name people actually use for the rest of however long anyone remembers any of this. We picked one already. The crew agreed on it inside of a minute, no argument, no vote even needed." A beat, and I watched her decide to just say the rest of it plainly instead of working her way toward it. "But nobody wanted to make it official without coming here first. Without asking."
 
 "Asking what," I said, though some smaller, quieter part of me had already started guessing, the way you guess at the ending of a story from two chapters out and don't quite let yourself believe it until the page actually says it.
 
@@ -2532,7 +2532,7 @@ Not the sun. Something closer, spreading low across the ground the way I now und
 
 I felt the Library run. Shame lived in every motion, a body built for calm confronting something that made calm impossible, and worse, I felt the moment running stopped being about self-preservation and became about carrying word of it fast enough for anyone else to have a chance. I felt a hand, not my own, not quite the right number of fingers, close briefly around the Library's own before letting go, a goodbye with no time left over for saying it out loud. I never learned whose hand it was. The memory didn't know either. That was, somehow, the worst part of all of it: some losses didn't even get to keep their own names.
 
-And then, much later, in a room gone quiet the way rooms go quiet after everyone who was going to scream already has, I felt the Library sit down in front of a recording device that hadn't existed an hour before this one had been built for exactly this purpose, and begin, with perfect, deliberate calm, to speak the words that would eventually cross species, and centuries, and four and a half light-years, to land on a woman who hadn't even been born yet in a body that hadn't evolved yet on a world the Library would never live to see.
+And then, much later, after everyone who was going to scream already had, the room went quiet. I felt the Library sit down in front of a recording device that hadn't existed an hour before this one had been built for exactly this purpose, and begin, with perfect, deliberate calm, to speak the words that would eventually cross species, and centuries, and four and a half light-years, to land on a woman who hadn't even been born yet in a body that hadn't evolved yet on a world the Library would never live to see.
 
 *All that we are, all that we have been, we gift to you who come after us.*
 
@@ -2616,7 +2616,7 @@ Carter went very still, the stillness of someone doing the same arithmetic herse
 
 "Rocky." I was already thinking through how to actually phrase the question in a way that wouldn't sound insane the first time I said it out loud. "If anyone's going to know whether Erid's own history has room for something like this in it, legend or record or anything in between, it's him."
 
-She didn't say anything else for a long moment after that, looking at the slow bloom of light on the display the way you look at a thing that's technically just data and doesn't feel like just data at all.
+She didn't say anything else for a long moment after that. The slow bloom of light on the display was technically just data. It didn't feel like data at all.
 
 "Does the record say why it stayed contained here." She nodded at the translated warning, still sitting open in the adjacent window. "Whatever 'here' actually was for them. Why didn't it spread the same way for the Builders that it's apparently ready to spread for everyone downstream of them?"
 
@@ -2624,7 +2624,7 @@ She didn't say anything else for a long moment after that, looking at the slow b
 
 Carter was quiet a moment longer, then reached for the comm.
 
-"Get this to Sterling," she said. "And Millie. Tonight, not tomorrow." A beat, and something in her voice softened, just slightly, the way it does for anyone who's just watched somebody else's entire world get quietly, permanently larger. "You did good work here, Daniel. I know it doesn't feel like the kind of good news anyone throws a party over."
+"Get this to Sterling," she said. "And Millie. Tonight, not tomorrow." A beat, and her voice softened, just slightly. She'd just watched somebody else's entire world get quietly, permanently larger. "You did good work here, Daniel. I know it doesn't feel like the kind of good news anyone throws a party over."
 
 "It isn't." I saved the file anyway, because saving the file was the part of the job that didn't require feeling anything about it yet. "But it's true. And apparently that's still worth something, even on the nights it doesn't feel like it."
 
@@ -2700,13 +2700,13 @@ I didn't argue myself out of it. I've learned not to, the few times in my life a
 
 Childs (POV): I have gotten good, over four months of running this operation, at reading a person's face before they finish opening their mouth. Daniel's face told me nothing was wrong. It also told me nothing was fine.
 
-"I... umm..." He stood in the hatch of my own office like a man who'd forgotten, halfway across the threshold, exactly why he'd come. "I found something. It looks bigger than anything I have any right making decisions about."
+"I... umm..." He stopped halfway across the threshold of my office. Whatever had brought him there had knocked the rest of his purpose loose. "I found something. It looks bigger than anything I have any right making decisions about."
 
 I set down the manifest I'd been signing off on. "Bigger how."
 
 "I don't actually know yet. That's the problem. I know what it looks like, and I don't want to be wrong about what it looks like, because if I'm right, I don't think it's the kind of wrong you get to walk back later." He was talking fast, the kind of fast that comes from trying to outrun your own nerves instead of your actual thoughts. "I need someone to check my work before I say it out loud to anyone who'd have to act on it."
 
-I've run enough drills, enough real emergencies, enough ordinary Tuesdays on this station to know the difference between a man panicking over nothing and a man trying very hard not to panic over something real. Daniel wasn't panicking. He was rationing himself, careful, the way you're careful handling something you already suspect is heavier than it looks.
+I've run enough drills, enough real emergencies, enough ordinary Tuesdays on this station to know the difference between a man panicking over nothing and a man trying very hard not to panic over something real. Daniel wasn't panicking. He was rationing himself, handling something he already suspected was heavier than it looked.
 
 I didn't ask him to explain it to me. I wasn't the right person to check his kind of work, and pretending otherwise would have cost us time neither of us had a good reason to spend.
 
@@ -2744,7 +2744,7 @@ I found Millie three decks up, went through everything Daniel had shown me, watc
 
 "Millie." I made myself say it as plainly as I'd said it to Daniel, because plain was the only kindness left available in a sentence this size. "You need to see this yourself. All of it. Not the summary."
 
-She didn't ask me to explain first. She just stood, and followed me back to the archive, the way you follow someone toward news you already suspect, on some level below language, you're not going to be able to set back down once you've picked it up.
+She didn't ask me to explain first. She just stood and followed me back to the archive. Somewhere below language, she already suspected this was news she wouldn't be able to set down again once she'd picked it up.
 
 
 
@@ -2908,7 +2908,7 @@ I stepped out once, mid-briefing, for a legal pad, because some things you just 
 
 The President was very still, looking at the last sheet in his own hand.
 
-"Now I am become Death, the destroyer of worlds," he said, quiet, not performing it. "Oppenheimer. Borrowed it from the Gita himself, watching the first one go off in the desert, because he needed something bigger than his own language to carry what he'd just done." He set the sheet down, careful, the way you set down something you don't fully trust your own hands with yet. "This only gets him half right, though. Destroyer's the easy half. This is creator too. Whatever built every single one of us, human and Eridian and Builder alike, is sitting in the same root as the thing that nearly ended all three of us separately. I don't know what a man's supposed to do with a fact that large."
+"Now I am become Death, the destroyer of worlds," he said, quiet, not performing it. "Oppenheimer. Borrowed it from the Gita himself, watching the first one go off in the desert, because he needed something bigger than his own language to carry what he'd just done." He set the sheet down carefully. He didn't seem to trust his hands with it yet. "This only gets him half right, though. Destroyer's the easy half. This is creator too. Whatever built every single one of us, human and Eridian and Builder alike, is sitting in the same root as the thing that nearly ended all three of us separately. I don't know what a man's supposed to do with a fact that large."
 
 "You already know," Millie said, quiet. "You're doing it right now. You're sitting with it instead of running from it."
 
@@ -2936,19 +2936,19 @@ Chapter 41: Millie (POV): I have sat in a lot of rooms that were too small for w
 
 
 
-The JFK Conference Room filled in two distinct tiers, and I understood the shape of it before anyone explained it to me. The already-briefed core came first, Bartlett and Leo at the head of the table, Fraiser and Daniel arriving straight off a second Pony Express run still faintly disoriented the way anyone was the first handful of times, Sterling and Gray settling in with the economy of men who'd both learned decades ago not to waste motion in a room like this one.
+The JFK Conference Room filled in two distinct tiers, and I understood the shape of it before anyone explained it to me. The already-briefed core came first, Bartlett and Leo at the head of the table, Fraiser and Daniel arriving straight off only their second Pony Express run and still faintly disoriented, Sterling and Gray settling in with the economy of men who'd both learned decades ago not to waste motion in a room like this one.
 
 Then the second wave started arriving, one at a time, on nothing but a bare summons from Leo. Eminent people. I recognized two of them from journal covers I'd flipped past in waiting rooms a lifetime ago, genetics, virology, names I couldn't have placed a face to an hour earlier and now watched trade a look with each other that told me they recognized each other better than they recognized the room they'd just been dropped into. Nobody explained anything to them yet. Nobody needed to. The room's own scale was already saying it before a single sentence did. Chairs ran out. The latecomers stood, and nobody complained about that either.
 
 The first real friction arrived quietly, almost politely, one of the new specialists leaning toward Daniel with a request for direct access to the Obelisk's own data, the actual archive, not a summary of it. I watched Sterling and Gray trade a glance that said this wasn't the obstacle the specialist thought it was going to be, the jump and Pony Express infrastructure already making "direct access" a triviality neither man had thought to mention yet, simply because nobody had asked.
 
-Then a real fight, quieter than the first but sharper, two of the specialists locking horns over how to actually interpret one piece of the migration data, not whose data it was or who'd earned the right to see it first, which struck me, watching it happen, as the exact right kind of argument for this family to be having in a room like this. Nobody here was fighting over ownership. They were fighting over truth, the way people fight when they actually respect each other enough to disagree out loud.
+Then a real fight, quieter than the first but sharper, two of the specialists locking horns over how to actually interpret one piece of the migration data, not whose data it was or who'd earned the right to see it first, which struck me, watching it happen, as the exact right kind of argument for this family to be having in a room like this. Nobody here was fighting over ownership. They were fighting over truth, openly and with enough respect to disagree out loud.
 
 Bartlett, watching all of it, offered one quiet aside I almost missed entirely, something about the scope of a thing this size being closer to a question for theologians than physicists, delivered without any weight at all, more an observation dropped into a passing current than a speech. Gray's own voice cut through the rising noise a moment later, not loud, just absolute. He'd spent a career being listened to the first time. And underneath both of those, I caught the telephone-game beat starting already, Fraiser's own careful phrasing from four hours ago mutating as it passed mouth to mouth across the room, softening here, sharpening there, exactly the way truth always drifts once enough people have carried it.
 
 Bartlett let it run exactly as long as it needed to, and not one second longer.
 
-"If direct access to the data is what we need," he said, standing, and the room quieted the way rooms quiet for a man who rarely needs to raise his own voice to be heard, "then that's what we'll have. Every one of us."
+"If direct access to the data is what we need," he said, standing, and the movement quieted the room; he rarely needed to raise his voice to be heard. "Then that's what we'll have. Every one of us."
 
 Nobody in that room, I think, actually understood what he meant until he'd already started walking toward the door.
 
@@ -3158,7 +3158,7 @@ Nobody argued that either. I don't think anybody in that room had it in them to.
 
 The meeting ended with no formal close at all, just a quiet dispersal, the unhurried way a room empties once everyone in it has already said the thing that actually needed saying. Gray went first, alone. Bartlett and McGarrity left together, already deep in some quieter conversation neither of them seemed to want an audience for. Rocky and Grace stayed a while longer, staring at the display like it might still have something left to tell them.
 
-I stood there a minute by myself before I finally went to go check on Millie, the way I imagine everyone in that room eventually went to go check on someone.
+I stood there a minute by myself before I finally went to check on Millie. I suspected everyone in that room eventually did the same for someone.
 
 
 
@@ -3294,7 +3294,7 @@ He didn't answer right away, hands still moving over the multitool, some old mem
 
 *
 
-Iverson (POV): I found Childs running a final systems check nobody had actually asked her to run, restless in the way of someone whose hands hadn't yet caught up to the fact that the emergency was actually over.
+Iverson (POV): I found Childs running a final systems check nobody had actually asked her to run, restless, her hands not yet caught up to the fact that the emergency was actually over.
 
 "Every board green," she said, not looking up. "Obelisk's running like it built itself to run." She caught herself before I could. "Grew itself to run, I mean. Sort of. Whole hull's black for a reason, once you actually think about it. Sitting this far out from any star, it can't afford to waste a single photon that happens to wander past. Has to drink up any energy that comes its way, whatever it can get, so black's not decoration. Black's survival."
 
